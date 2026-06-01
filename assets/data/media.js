@@ -54,7 +54,9 @@ window.MEDIA = {
         { type: "image", src: "images/red-sunset/06.jpg", tag: "exterior", alt: "הדמיה — מרפסת עם נוף לים" },
         { type: "image", src: "images/red-sunset/07.jpg", tag: "interior", alt: "הדמיה — פינת אוכל עם נוף לים" },
         { type: "image", src: "images/red-sunset/08.jpg", tag: "exterior", alt: "הדמיה — הוילה בלילה" },
-        { type: "video", src: "videos/red-sunset/1.mp4", poster: "images/red-sunset/1-poster.jpg", tag: "sunset", desc: "שקיעה אמיתית על חוף הפרויקט" }
+        { type: "video", src: "videos/red-sunset/1.mp4", poster: "images/red-sunset/1-poster.jpg", tag: "sunset",   desc: "שקיעה אמיתית על חוף הפרויקט" },
+        { type: "video", src: "videos/red-sunset/2.mp4", poster: "images/red-sunset/2-poster.jpg", tag: "exterior", desc: "מבט מהמגרש — צמחייה טרופית, אדמה ונוף פתוח לים ולאי" },
+        { type: "video", src: "videos/red-sunset/3.mp4", poster: "images/red-sunset/3-poster.jpg", tag: "exterior", desc: "החוף מול הפרויקט — חוף חולי, סלעים ומים רגועים" }
       ]
     },
     {
