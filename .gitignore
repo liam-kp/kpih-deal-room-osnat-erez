@@ -2,3 +2,6 @@
 kpih-deal-room.zip
 .claude/
 task_KPR-211_*.md
+
+# Local Netlify folder
+.netlify
