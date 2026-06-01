@@ -22,107 +22,124 @@
 <meta name="twitter:image" content="https://kpih-deal-room-osnat-erez.netlify.app/images/hero/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Frank+Ruhl+Libre:wght@500;700;800;900&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;800;900&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --sand:#F4EEE3; --paper:#FCFAF5; --ink:#171511; --muted:#7A7263;
   --teal:#0E6B63; --teal-d:#0A3F3A; --sun:#BC5E33; --gold:#C9A24B;
   --line:#E6DDCD; --dark:#101A18;
+  --serif:'Frank Ruhl Libre',serif; --sans:'Assistant',sans-serif;
   --maxw:620px; --ease:cubic-bezier(.16,.84,.34,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--dark);color:var(--ink);font-family:'Assistant',sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-.en{font-family:'Cormorant Garamond','Frank Ruhl Libre',serif}
-.he-disp{font-family:'Frank Ruhl Libre',serif}
+body{background:var(--dark);color:var(--ink);font-family:var(--sans);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.en{font-family:var(--serif)}
 img{display:block;width:100%;height:100%;object-fit:cover}
+/* shared eyebrow */
+.eyebrow{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.18em}
 
 /* progress + nav */
 .bar{position:fixed;top:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;z-index:100;transition:width .12s linear}
+.nav-scrim{position:fixed;top:0;inset-inline:0;height:120px;background:linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,.12) 55%,transparent);z-index:88;pointer-events:none;transition:opacity .45s var(--ease)}
+.nav-scrim.hide{opacity:0}
 nav{position:fixed;top:0;inset-inline:0;z-index:90;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;transition:.45s var(--ease)}
 nav.solid{background:rgba(244,238,227,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:11px 20px}
-nav .brand{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:#fff;letter-spacing:.04em}
+nav .brand{font-family:var(--serif);font-weight:700;font-size:21px;color:#fff;letter-spacing:.02em}
 nav.solid .brand{color:var(--ink)}
-nav .brand b{color:var(--gold);font-weight:600}
+nav .brand b{color:var(--gold);font-weight:700}
 nav .menu{display:flex;gap:3px}
-nav .menu a{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:rgba(255,255,255,.85);text-decoration:none;padding:6px 9px;border-radius:99px;transition:.25s;white-space:nowrap}
+nav .menu a{font-family:var(--sans);font-size:13.5px;font-weight:600;color:rgba(255,255,255,.9);text-decoration:none;padding:6px 8px;border-radius:99px;transition:.25s;white-space:nowrap}
 nav.solid .menu a{color:var(--muted)}
 nav .menu a.active,nav .menu a:hover{color:var(--gold)}
 nav.solid .menu a.active{color:var(--teal)}
 
 /* ===== HERO ===== */
-.hero{position:relative;height:100svh;min-height:600px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:var(--teal-d)}
-.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;will-change:transform;animation:kb 22s ease-in-out infinite alternate}
-@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1.2)}}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,26,24,.35) 0%,transparent 28%,rgba(10,28,26,.55) 62%,rgba(10,28,26,.92) 100%);z-index:2}
+.hero{position:relative;height:100svh;min-height:600px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:var(--teal-d);overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;will-change:transform;animation:kb 24s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1.16)}}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,26,24,.34) 0%,transparent 30%,rgba(10,28,26,.55) 62%,rgba(10,28,26,.92) 100%);z-index:2}
 .hero .inner{position:relative;z-index:4;padding:0 26px calc(54px + env(safe-area-inset-bottom));max-width:var(--maxw);margin:0 auto;width:100%}
-.hero .eye{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600;opacity:0;animation:up .9s var(--ease) .2s forwards}
-.hero h1{font-size:clamp(40px,12vw,64px);font-weight:800;line-height:1.05;margin:14px 0 16px;opacity:0;animation:up 1s var(--ease) .35s forwards}
-.hero h1 .en{font-style:italic;color:var(--gold);font-weight:500}
-.hero p{font-size:17px;line-height:1.55;max-width:40ch;color:rgba(255,255,255,.9);opacity:0;animation:up 1s var(--ease) .55s forwards}
+.hero .eye{font-family:var(--sans);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;opacity:0;animation:up .9s var(--ease) .2s forwards}
+.hero h1{margin:14px 0 16px;opacity:0;animation:up 1s var(--ease) .35s forwards}
+.hero h1 .nm-en{display:block;font-family:var(--serif);font-weight:800;font-size:clamp(40px,12vw,62px);line-height:1.02;letter-spacing:.01em}
+.hero h1 .hl-he{display:block;font-family:var(--serif);font-weight:700;font-size:clamp(26px,7.5vw,40px);line-height:1.15;color:rgba(255,255,255,.96);margin-top:6px}
+.hero p{font-size:17px;line-height:1.55;max-width:42ch;color:rgba(255,255,255,.9);opacity:0;animation:up 1s var(--ease) .55s forwards}
 .hero .cue{margin-top:28px;font-size:13px;letter-spacing:.14em;color:rgba(255,255,255,.75);opacity:0;animation:up 1s var(--ease) .8s forwards}
 .hero .cue span{display:inline-block;animation:bob 1.9s ease-in-out infinite;margin-inline-end:8px}
 @keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
 /* intro */
-.intro{background:var(--sand);padding:62px 26px 30px}
-.intro .in{max-width:var(--maxw);margin:0 auto;display:flex;gap:18px;align-items:flex-start}
-.intro .pic{flex:0 0 78px;height:78px;border-radius:50%;overflow:hidden;background:var(--teal-d)}
-.intro .pic .ph{width:100%;height:100%;background:linear-gradient(135deg,#16524c,#0a3f3a);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-family:'Cormorant Garamond';font-size:26px}
-.intro .nm{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px}
-.intro .rl{font-size:13px;color:var(--sun);font-weight:700;margin-bottom:8px;letter-spacing:.02em}
-.intro p{font-size:16px;color:#55503f}
+.intro{background:var(--sand);padding:60px 26px 40px}
+.intro .in{max-width:var(--maxw);margin:0 auto}
+.intro .eye-intro{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sun);margin-bottom:16px}
+.intro p{font-family:var(--serif);font-size:22px;line-height:1.5;font-weight:500;color:#3f3a2d}
+.intro .sig{margin-top:18px;font-family:var(--serif);font-size:18px;font-weight:700;color:var(--teal-d)}
 
 /* ===== CHAPTER ===== */
 .chapter{position:relative;background:var(--paper)}
 .cover{position:relative;height:86svh;min-height:540px;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--teal-d)}
-.cover-bg{position:absolute;inset:-8% 0;background-size:cover;background-position:center;will-change:transform}
-.cover-bg.kb{animation:kb 24s ease-in-out infinite alternate}
-.cover::after{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.18),transparent 32%,rgba(0,0,0,.4) 66%,rgba(0,0,0,.82))}
+.cover-bg{position:absolute;inset:-16% 0;background-size:cover;background-position:center;will-change:transform}
+.cover::after{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.2),transparent 32%,rgba(0,0,0,.42) 66%,rgba(0,0,0,.84))}
 .cover .c{position:relative;z-index:4;padding:0 26px 40px;max-width:var(--maxw);margin:0 auto;width:100%}
-.cover .num{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:.3em;color:var(--gold);font-weight:600;text-transform:uppercase}
+.cover .num{font-family:var(--sans);font-size:12.5px;letter-spacing:.18em;color:var(--gold);font-weight:700;text-transform:uppercase}
 .cover .tags{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 12px}
 .tag{font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:99px;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);letter-spacing:.01em}
-.cover h2{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,13vw,72px);font-weight:600;line-height:.98;letter-spacing:.01em}
+.cover h2{font-family:var(--serif);font-size:clamp(44px,12vw,68px);font-weight:700;line-height:1;letter-spacing:.01em}
+.cover .sub{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--gold);margin-top:2px}
 .cover .loc{font-size:14.5px;color:rgba(255,255,255,.9);font-weight:600;margin-top:10px}
-.cover .loc a{color:#fff;border-bottom:1px solid rgba(255,255,255,.5);text-decoration:none}
-.cover .price-flag{display:inline-flex;align-items:baseline;gap:10px;margin-top:18px;
+.cover .price-flag{display:inline-flex;flex-direction:column;align-items:flex-start;gap:2px;margin-top:18px;
   background:linear-gradient(120deg,rgba(14,107,99,.94),rgba(10,63,58,.94));backdrop-filter:blur(8px);
-  border-inline-start:3px solid var(--gold);padding:11px 24px 11px 30px;
-  clip-path:polygon(16px 0,100% 0,100% 100%,16px 100%,0 50%);
-  box-shadow:0 10px 26px rgba(0,0,0,.3)}
-.cover .price-flag .amt{font-family:'Frank Ruhl Libre';font-size:26px;font-weight:800;color:#fff;line-height:1}
-.cover .price-flag .usd{font-size:14px;font-weight:600;color:var(--gold);letter-spacing:.01em}
+  border-inline-start:3px solid var(--gold);padding:12px 24px 12px 30px;
+  clip-path:polygon(16px 0,100% 0,100% 100%,16px 100%,0 50%);box-shadow:0 10px 26px rgba(0,0,0,.3)}
+.price-flag .amt{font-family:var(--serif);font-size:27px;font-weight:800;color:#fff;line-height:1.05;direction:ltr}
+.price-flag .usd{font-size:13.5px;font-weight:600;color:var(--gold);direction:ltr;letter-spacing:.01em}
+.price-flag .note{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.82);margin-top:2px}
 
 /* body */
 .body{background:var(--paper);position:relative;z-index:5;border-radius:28px 28px 0 0;margin-top:-30px;padding:36px 26px 16px;max-width:var(--maxw);margin-inline:auto}
 .reveal{opacity:0;transform:translateY(24px);transition:.85s var(--ease)}
 .reveal.in{opacity:1;transform:none}
-.lead{font-family:'Frank Ruhl Libre';font-size:22px;line-height:1.42;font-weight:500;margin-bottom:24px}
+.lead{font-family:var(--serif);font-size:22px;line-height:1.42;font-weight:500;margin-bottom:24px}
 .stats{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px}
 .stats div{flex:1;padding:16px 6px;text-align:center;border-inline-start:1px solid var(--line)}
 .stats div:first-child{border-inline-start:none}
-.stats .v{font-family:'Frank Ruhl Libre';font-size:20px;font-weight:700;line-height:1.1}
+.stats .v{font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.1;direction:ltr}
 .stats .k{font-size:11.5px;color:var(--muted);margin-top:5px;font-weight:600}
 
-/* gallery */
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:26px}
-.gallery .cell{position:relative;aspect-ratio:1;border-radius:11px;overflow:hidden;background:#dcd4c4;cursor:pointer}
-.gallery .cell:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:1}
-.gallery .cell img{transition:.6s var(--ease)}
-.gallery .cell:hover img{transform:scale(1.07)}
-.gallery .cell .vbadge{position:absolute;inset:50% auto auto 50%;transform:translate(50%,-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;z-index:2}
-.gallery .cell .vbadge::after{content:'';border-inline-start:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-inline-start:3px}
-.gallery .cell .more{position:absolute;inset:0;background:rgba(16,26,24,.62);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Frank Ruhl Libre';font-size:22px;font-weight:700}
-.gallery .empty{grid-column:1/-1;border:1px dashed var(--line);border-radius:12px;padding:22px;text-align:center;color:var(--muted);font-size:13px;direction:ltr;font-family:ui-monospace,monospace}
+/* action buttons (location / brochure / reference) */
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.actbtn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:11px 18px;border-radius:12px;
+  font-family:var(--sans);font-weight:700;font-size:14px;text-decoration:none;cursor:pointer;
+  border:1.5px solid var(--gold);color:var(--teal-d);background:rgba(201,162,75,.10);transition:.22s var(--ease)}
+.actbtn:hover{background:var(--gold);color:#1a1206;transform:translateY(-2px)}
+.actbtn svg{width:18px;height:18px;flex:0 0 18px}
+
+/* media groups */
+.mgroup{margin-bottom:30px}
+.mhead{display:flex;align-items:baseline;gap:10px;margin-bottom:13px}
+.m-eye{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sun)}
+.m-tt{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink)}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.mcell{position:relative;aspect-ratio:1;border-radius:11px;overflow:hidden;background:#dcd4c4;cursor:pointer}
+.mcell img{transition:.6s var(--ease)}
+.mcell:hover img{transform:scale(1.06)}
+.mcell.feature{grid-column:1/-1;aspect-ratio:16/9}
+.mgrid.plans{grid-template-columns:repeat(2,1fr);gap:10px}
+.mgrid.plans .mcell{aspect-ratio:3/4;background:var(--sand);border:1px solid var(--line)}
+.mgrid.plans .mcell img{object-fit:contain;padding:6px}
+.vbadge{position:absolute;inset:50% auto auto 50%;transform:translate(50%,-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;z-index:2}
+.vbadge::after{content:'';border-inline-start:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-inline-start:3px}
 
 .fin{background:linear-gradient(155deg,var(--teal),var(--teal-d));color:#fff;border-radius:18px;padding:22px;margin-bottom:24px}
-.fin h4{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+.fin h4{font-family:var(--sans);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px}
 .fin .ln{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:15px}
 .fin .ln:last-of-type{border-bottom:none}
 .fin .ln b{font-weight:700;text-align:start}
+.fin .ln b .ltr{direction:ltr;unicode-bidi:isolate}
 .fin .ln a{color:var(--gold)}
+.fin .full{display:block;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:14.5px;color:rgba(255,255,255,.92);font-weight:600}
 .fin .disc{font-size:11.5px;color:rgba(255,255,255,.7);margin-top:12px;line-height:1.5}
 
 .pc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
@@ -133,51 +150,49 @@ nav.solid .menu a.active{color:var(--teal)}
 .pc .pro li::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-inline-end:8px;vertical-align:middle}
 .pc .con li::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sun);margin-inline-end:8px;vertical-align:middle}
 
-.bl{border-inline-start:3px solid var(--gold);padding-inline-start:18px;margin-bottom:24px}
-.bl .lbl{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--sun);font-weight:600;margin-bottom:7px}
-.bl p{font-family:'Frank Ruhl Libre';font-size:19px;line-height:1.5;font-weight:500}
-
-.cta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:17px;border-radius:14px;transition:.25s var(--ease)}
-.cta:hover{background:var(--teal);transform:translateY(-2px)}
-.cta span{font-weight:400;opacity:.8;font-size:13px}
+.bl{border-inline-start:3px solid var(--gold);padding-inline-start:18px;margin-bottom:30px}
+.bl .lbl{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);font-weight:700;margin-bottom:7px}
+.bl p{font-family:var(--serif);font-size:19px;line-height:1.5;font-weight:500}
 
 /* compare */
 .compare{background:var(--dark);color:#fff;padding:66px 26px 72px}
 .compare .in{max-width:var(--maxw);margin:0 auto}
-.compare h2{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;text-align:center}
-.compare .sub{text-align:center;color:rgba(255,255,255,.6);font-size:14.5px;margin:8px 0 26px}
-.crow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-.crow .nm{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600}
-.crow .nm small{display:block;font-family:'Assistant';font-size:12px;color:rgba(255,255,255,.55);font-weight:400;margin-top:3px}
-.crow .pr{font-weight:700;color:var(--gold);white-space:nowrap;text-align:start;font-size:14px}
+.compare h2{font-family:var(--serif);font-size:36px;font-weight:700;text-align:center}
+.compare .sub{text-align:center;color:rgba(255,255,255,.6);font-size:14.5px;margin:8px 0 22px}
+.crow{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.crow .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.crow .nm{font-family:var(--serif);font-size:21px;font-weight:700;line-height:1.15}
+.crow .nm small{display:block;font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.55);font-weight:400;margin-top:4px}
+.crow .pr{text-align:start;white-space:nowrap}
+.crow .pr .b{display:block;font-family:var(--serif);font-weight:800;color:var(--gold);font-size:18px;direction:ltr}
+.crow .pr .u{display:block;font-size:11.5px;color:rgba(255,255,255,.6);direction:ltr;margin-top:1px}
+.crow ul{list-style:none;margin-top:12px;display:grid;gap:5px}
+.crow li{font-size:13.5px;color:rgba(255,255,255,.82);padding-inline-start:15px;position:relative;line-height:1.4}
+.crow li .ltr{direction:ltr;unicode-bidi:isolate}
+.crow li::before{content:'';position:absolute;inset-inline-start:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
 
 /* closing */
 .closing{position:relative;color:#fff;text-align:center;padding:96px 26px calc(150px + env(safe-area-inset-bottom));overflow:hidden;background:var(--teal-d)}
 .closing-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.5}
-.closing::after{content:'';position:absolute;inset:0;background:rgba(10,28,26,.72);z-index:2}
+.closing::after{content:'';position:absolute;inset:0;background:rgba(10,28,26,.74);z-index:2}
 .closing .in{position:relative;z-index:4;max-width:var(--maxw);margin:0 auto}
-.closing h2{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;margin-bottom:14px}
-.closing h2 .en{font-style:italic;color:var(--gold)}
-.closing p{color:rgba(255,255,255,.86);font-size:16px;margin-bottom:26px;max-width:36ch;margin-inline:auto}
-.closing .cta{background:var(--gold);color:var(--ink)}
-.closing .cta:hover{background:#fff}
+.closing .eye-closing{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.closing h2{font-family:var(--serif);font-size:38px;font-weight:700;margin-bottom:14px}
+.closing p{color:rgba(255,255,255,.88);font-size:16px;max-width:36ch;margin-inline:auto}
 
 /* sticky whatsapp */
-.wa{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom));inset-inline:0;margin:0 auto;width:max-content;max-width:90vw;z-index:95;background:rgba(31,168,85,.96);color:#fff;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;padding:11px 20px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.22);transition:.25s var(--ease)}
+.wa{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom));inset-inline:0;margin:0 auto;width:max-content;max-width:90vw;z-index:95;background:rgba(31,168,85,.96);color:#fff;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;padding:12px 22px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.22);transition:.25s var(--ease)}
 .wa:hover{transform:translateY(-2px)}
 .wa svg{width:18px;height:18px;fill:#fff}
 
 /* lightbox — scroll-snap / momentum film-strip */
 .lb{position:fixed;inset:0;z-index:120;background:rgba(8,14,13,.97);display:none;opacity:0;transition:opacity .34s var(--ease);direction:ltr}
 .lb.open{display:block;opacity:1}
-.lb .stage{position:absolute;inset:0;display:flex;overflow-x:auto;overflow-y:hidden;
-  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior:contain}
+.lb .stage{position:absolute;inset:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior:contain}
 .lb .stage::-webkit-scrollbar{display:none}
 .lb .stage{scrollbar-width:none}
-.lb-slide{flex:0 0 100%;width:100vw;height:100svh;display:flex;align-items:center;justify-content:center;
-  scroll-snap-align:center;scroll-snap-stop:always;padding:max(16px,env(safe-area-inset-top)) 6vw calc(58px + env(safe-area-inset-bottom))}
-.lb img,.lb video{max-width:88vw;max-height:82svh;width:auto;height:auto;border-radius:10px;
-  box-shadow:0 24px 70px rgba(0,0,0,.5);animation:pop .4s var(--ease)}
+.lb-slide{flex:0 0 100%;width:100vw;height:100svh;display:flex;align-items:center;justify-content:center;scroll-snap-align:center;scroll-snap-stop:always;padding:max(16px,env(safe-area-inset-top)) 6vw calc(58px + env(safe-area-inset-bottom))}
+.lb img,.lb video{max-width:88vw;max-height:82svh;width:auto;height:auto;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.5);animation:pop .4s var(--ease)}
 @keyframes pop{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
 .lb .x{position:absolute;top:max(16px,env(safe-area-inset-top));inset-inline-end:18px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:4;backdrop-filter:blur(6px);transition:.2s var(--ease)}
 .lb .nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:4;backdrop-filter:blur(6px);transition:.2s var(--ease)}
@@ -186,18 +201,17 @@ nav.solid .menu a.active{color:var(--teal)}
 .lb .x svg{width:20px;height:20px}.lb .nav-btn svg{width:26px;height:26px}
 .lb .cap{position:absolute;bottom:max(18px,env(safe-area-inset-bottom));inset-inline:0;text-align:center;color:rgba(255,255,255,.82);font-size:13px;letter-spacing:.01em;z-index:4;padding:0 16px;pointer-events:none;text-shadow:0 1px 8px rgba(0,0,0,.6);direction:rtl}
 
-/* keyboard accessibility — visible focus */
-a:focus-visible,button:focus-visible,.cell:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
-
+a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.lb .stage{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <div class="bar" id="bar"></div>
+<div class="nav-scrim" id="navScrim"></div>
 <nav id="nav">
   <div class="brand">Koh&nbsp;Phangan<b>.</b></div>
   <div class="menu">
-    <a href="#srithanu">Srithanu</a><a href="#nai-wok">Nai&nbsp;Wok</a><a href="#red-sunset">Red&nbsp;Sunset</a><a href="#koma">Koma</a>
+    <a href="#srithanu">Srithanu</a><a href="#nai-wok">Nai&nbsp;Wok</a><a href="#red-sunset">Red&nbsp;Sunset</a><a href="#koma">Koh&nbsp;Ma</a>
   </div>
 </nav>
 
@@ -206,7 +220,7 @@ a:focus-visible,button:focus-visible,.cell:focus-visible{outline:2px solid var(-
   <div class="hero-bg" data-hero></div>
   <div class="inner">
     <div class="eye">Private Selection · Koh Phangan</div>
-    <h1>Osnat &amp; Erez,<br><span class="he-disp">ארבע אפשרויות</span> <span class="en">curated for you</span></h1>
+    <h1><span class="nm-en">Osnat &amp; Erez</span><span class="hl-he">ארבע אפשרויות שנבחרו עבורכם</span></h1>
     <p>שתי וילות מוכנות להיכנס אליהן כבר החודש, ושני פרויקטי חוף ראשונים-לים — שקטים, פרטיים, ובדיוק מה שחיפשתם.</p>
     <div class="cue"><span>↓</span> גללו</div>
   </div>
@@ -215,61 +229,58 @@ a:focus-visible,button:focus-visible,.cell:focus-visible{outline:2px solid var(-
 <!-- INTRO -->
 <section class="intro reveal">
   <div class="in">
-    <div class="pic"><div class="ph">L</div></div>
-    <div>
-      <div class="nm">Liran</div>
-      <div class="rl">Koh Phangan · since 2022</div>
-      <p>בחרתי את הארבעה האלה כי כל אחד עונה על משהו אחר ממה שדיברנו. אין פה קטלוג — יש פה את מה שהייתי שולח לחברים. [טקסט לעריכה]</p>
-    </div>
+    <div class="eye-intro">Koh Phangan · Since 2022</div>
+    <p>בחרתי את הארבעה האלה כי כל אחד עונה על משהו אחר ממה שדיברנו. אין פה קטלוג — יש פה את מה שהייתי שולח לחבר טוב.</p>
+    <div class="sig">— Liran Miller</div>
   </div>
 </section>
 
 <!-- ===== 01 SRITHANU ===== -->
 <section class="chapter" id="srithanu">
   <div class="cover">
-    <div class="cover-bg kb" data-cover="srithanu"></div>
+    <div class="cover-bg" data-cover="srithanu"></div>
     <div class="c">
       <div class="num">01 — Move-in ready</div>
       <div class="tags"><span class="tag">מפתח תוך 4 שבועות</span><span class="tag">קו שני · 4 דק׳ לים</span><span class="tag">שכונה שקטה</span></div>
       <h2 class="en">Srithanu</h2>
-      <div class="loc">שכונה מיושבת של 14 וילות · <a href="https://maps.app.goo.gl/5wLhUyRYD1WfWPK87">מיקום ↗</a></div>
-      <div class="price-flag"><span class="amt">8.5 מ׳ ฿</span><span class="usd">≈ 261K$</span></div>
+      <div class="loc">שכונה מיושבת של 14 וילות</div>
+      <div class="price-flag"><span class="amt">฿8.5M</span><span class="usd">($261K)</span></div>
     </div>
   </div>
   <div class="body">
     <p class="lead reveal">וילה גמורה ומרוהטת בשכונה שקטה ומוכחת — האחרונה של היזם. נכנסים החודש, אפס סיכון בנייה.</p>
     <div class="stats reveal">
-      <div><div class="v">3+4</div><div class="k">חדרים · שירותים</div></div>
+      <div><div class="v">3 · 4</div><div class="k">חדרי מאסטר · מקלחות</div></div>
       <div><div class="v">133/400</div><div class="k">בנוי / מגרש מ״ר</div></div>
       <div><div class="v">פרטית</div><div class="k">בריכה 30 מ״ר</div></div>
     </div>
-    <div class="gallery reveal" data-gallery="srithanu"></div>
+    <div class="actions reveal" data-actions="srithanu"></div>
+    <div class="media" data-media="srithanu"></div>
     <div class="fin reveal">
       <h4>הכנסה ותשואה</h4>
-      <div class="ln"><span>השכרה ארוכת-טווח</span><b>120–150K ฿ / חודש</b></div>
-      <div class="ln"><span>השכרה קצרה (לילה)</span><b>8–20K ฿</b></div>
+      <div class="ln"><span>השכרה ארוכת-טווח</span><b><span class="ltr">90,000 ฿</span> / חודש <span class="ltr">($2,765)</span></b></div>
+      <div class="ln"><span>השכרה קצרה (לילה)</span><b><span class="ltr">7,000 ฿</span> <span class="ltr">($215)</span></b></div>
       <div class="ln"><span>עליית ערך @5%/שנה</span><b>~10.9 מ׳ · 5 ש׳ → ~13.8 מ׳ · 10 ש׳</b></div>
       <div class="disc">ליס 30 שנה במבנה גמיש (אופציית מכירה/הארכה). חידוש בכפוף לחוק התאילנדי — לא מובטח. הערכות אילוסטרטיביות בלבד.</div>
     </div>
     <div class="pc reveal">
       <div class="pro"><h5>יתרונות</h5><ul><li>כניסה מיידית, אפס סיכון בנייה</li><li>שכונה שקטה ומיושבת = ביקוש כל השנה</li></ul></div>
-      <div class="con"><h5>מה לדעת</h5><ul><li>קו שני — 4 דק׳ נסיעה לים</li><li>יחידה אחרונה — אין בחירת מיקום</li></ul></div>
+      <div class="con"><h5>Good to know</h5><ul><li>קו שני — 4 דק׳ נסיעה לים</li><li>יחידה אחרונה — אין בחירת מיקום</li></ul></div>
     </div>
-    <div class="bl reveal"><div class="lbl">The bottom line · Liran</div><p>הכניסה הכי בטוחה מהארבעה — וילה גמורה בקהילה שקטה ומוכחת, במחיר הכי נגיש, ואתם בפנים כבר החודש.</p></div>
-    <a class="cta reveal" href="https://wa.me/972507308658?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%99%D7%A8%D7%9F%2C%20%D7%9E%D7%A2%D7%A0%D7%99%D7%99%D7%A0%D7%AA%20%D7%90%D7%95%D7%AA%D7%A0%D7%95%20Srithanu%20%F0%9F%99%82">לדבר עם לירן על Srithanu <span>· וואטסאפ</span></a>
+    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>הכניסה הכי בטוחה מהארבעה — וילה גמורה בקהילה שקטה ומוכחת, במחיר הכי נגיש, ואתם בפנים כבר החודש.</p></div>
   </div>
 </section>
 
 <!-- ===== 02 NAI WOK ===== -->
 <section class="chapter" id="nai-wok">
   <div class="cover">
-    <div class="cover-bg kb" data-cover="nai-wok"></div>
+    <div class="cover-bg" data-cover="nai-wok"></div>
     <div class="c">
       <div class="num">02 — Move-in ready</div>
       <div class="tags"><span class="tag">מרוהט · מוכן למגורים</span><span class="tag">2 דק׳ הליכה לים</span><span class="tag">הכי פרטי</span></div>
       <h2 class="en">Nai Wok</h2>
       <div class="loc">ווק טום · מתחם של 7 וילות · 4 דק׳ לרציף תונגסלה</div>
-      <div class="price-flag"><span class="amt">12–12.5 מ׳ ฿</span><span class="usd">≈ 369–384K$</span></div>
+      <div class="price-flag"><span class="amt">฿12M–12.5M</span><span class="usd">($369K–$384K)</span></div>
     </div>
   </div>
   <div class="body">
@@ -279,34 +290,34 @@ a:focus-visible,button:focus-visible,.cell:focus-visible{outline:2px solid var(-
       <div><div class="v">141 / 450+</div><div class="k">בנוי / מגרש מ״ר</div></div>
       <div><div class="v">8–12%</div><div class="k">תשואה ברוטו</div></div>
     </div>
-    <div class="gallery reveal" data-gallery="nai-wok"></div>
+    <div class="actions reveal" data-actions="nai-wok"></div>
+    <div class="media" data-media="nai-wok"></div>
     <div class="fin reveal">
       <h4>הכנסה ותשואה</h4>
-      <div class="ln"><span>השכרה ארוכת-טווח</span><b>100–120K ฿ / חודש</b></div>
-      <div class="ln"><span>הוכחה חיה</span><b>שוכר משלם כיום 100K ฿ נטו</b></div>
-      <div class="ln"><span>השכרה קצרה · 75–90% תפוסה</span><b>~10K ฿ / לילה</b></div>
+      <div class="ln"><span>השכרה ארוכת-טווח</span><b><span class="ltr">100,000 ฿</span> נטו</b></div>
+      <div class="ln"><span>השכרה קצרה (לילה)</span><b><span class="ltr">10,000 ฿</span> <span class="ltr">($305)</span></b></div>
+      <div class="full">רישוי מלונאי בתהליך · חברת ניהול מקומית</div>
       <div class="ln"><span>עליית ערך @5%/שנה</span><b>~15.3 מ׳ · 5 ש׳ → ~19.5 מ׳ · 10 ש׳</b></div>
       <div class="disc">ליס 30 שנה במבנה גמיש, או פריהולד דרך חברה תאילנדית · תשלום 50/50. חידוש בכפוף לחוק — לא מובטח.</div>
     </div>
     <div class="pc reveal">
       <div class="pro"><h5>יתרונות</h5><ul><li>הפרטיות הכי גבוהה + 2 דק׳ הליכה לים</li><li>מנוע השכרה מוכח לאורך כל השנה</li></ul></div>
-      <div class="con"><h5>מה לדעת</h5><ul><li>לא על הים</li><li>בעלות דרך ליס/חברה — נסביר לעומק</li></ul></div>
+      <div class="con"><h5>Good to know</h5><ul><li>לא על הים</li><li>בעלות דרך ליס/חברה — נסביר לעומק</li></ul></div>
     </div>
-    <div class="bl reveal"><div class="lbl">The bottom line · Liran</div><p>האיזון הכי טוב מהארבעה — פרטיות, הליכה לים, כניסה מיידית, והמנוע התשואתי הכי יציב. נכס שעובד מהיום הראשון.</p></div>
-    <a class="cta reveal" href="https://wa.me/972507308658?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%99%D7%A8%D7%9F%2C%20%D7%9E%D7%A2%D7%A0%D7%99%D7%99%D7%A0%D7%AA%20%D7%90%D7%95%D7%AA%D7%A0%D7%95%20Nai%20Wok%20%F0%9F%99%82">לדבר עם לירן על Nai Wok <span>· וואטסאפ</span></a>
+    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>האיזון הכי טוב מהארבעה — פרטיות, הליכה לים, כניסה מיידית, והמנוע התשואתי הכי יציב. נכס שעובד מהיום הראשון.</p></div>
   </div>
 </section>
 
 <!-- ===== 03 RED SUNSET ===== -->
 <section class="chapter" id="red-sunset">
   <div class="cover">
-    <div class="cover-bg kb" data-cover="red-sunset"></div>
+    <div class="cover-bg" data-cover="red-sunset"></div>
     <div class="c">
       <div class="num">03 — Presale · the jewel</div>
       <div class="tags"><span class="tag">קו ראשון · חוף פרטי</span><span class="tag">רישיון מלון</span><span class="tag">3 וילות בלבד</span></div>
       <h2 class="en">Red Sunset</h2>
       <div class="loc">הין קונג · חוף השקיעה המערבי · הפרויקט שלנו, ישיר מהיזם</div>
-      <div class="price-flag"><span class="amt">26–33 מ׳ ฿</span><span class="usd">≈ 799K–1.01M$</span></div>
+      <div class="price-flag"><span class="amt">฿26M–33M</span><span class="usd">($799K–$1.01M)</span></div>
     </div>
   </div>
   <div class="body">
@@ -316,56 +327,58 @@ a:focus-visible,button:focus-visible,.cell:focus-visible{outline:2px solid var(-
       <div><div class="v">~2027</div><div class="k">הגשה</div></div>
       <div><div class="v">8.6–14.4%</div><div class="k">תשואה נטו</div></div>
     </div>
-    <div class="gallery reveal" data-gallery="red-sunset"></div>
+    <div class="actions reveal" data-actions="red-sunset"></div>
+    <div class="media" data-media="red-sunset"></div>
     <div class="fin reveal">
       <h4>הכנסה ותשואה</h4>
-      <div class="ln"><span>תשואה נטו (אחרי 15% ניהול)</span><b>8.6%–14.4% לשנה</b></div>
+      <div class="ln"><span>תשואה נטו (אחרי 15% ניהול)</span><b><span class="ltr">8.6%–14.4%</span> לשנה</b></div>
       <div class="ln"><span>הכנסה</span><b>השכרה קצרה חוקית · רישיון מלון</b></div>
       <div class="ln"><span>עליית ערך @5%/שנה</span><b>~33 מ׳ · 5 ש׳ → ~42 מ׳ · 10 ש׳</b></div>
       <div class="disc">ליס גמיש על קרקע צ׳אנוט (הטייטל הגבוה בתאילנד) + רישיון מלון. ישיר מהיזם, בלי מתווך. הערכות אילוסטרטיביות, לא הבטחה.</div>
     </div>
     <div class="pc reveal">
-      <div class="pro"><h5>יתרונות</h5><ul><li>חוף פרטי + צ׳אנוט + רישיון מלון = הכנסה חוקית נדירה</li><li>פרויקט הדגל שלנו — תנאים ישירים</li></ul></div>
-      <div class="con"><h5>מה לדעת</h5><ul><li>פריסייל — המתנה עד ~2027</li><li>הכרטיס הגבוה והמחויב ביותר</li></ul></div>
+      <div class="pro"><h5>יתרונות</h5><ul><li>חוף פרטי</li><li>רישוי מלונאי (השכרה חוקית)</li><li>נוף לים</li></ul></div>
+      <div class="con"><h5>Good to know</h5><ul><li>פריסייל — אכלוס ~2027</li><li>מרחק הליכה לחופים ולסריטאנו</li><li>מסעדות, בתי קפה, יוגה ומסאז׳ בקרבת מקום</li><li>Zen Beach בהליכה</li></ul></div>
     </div>
-    <div class="bl reveal"><div class="lbl">The bottom line · Liran</div><p>התכשיט. אם רוצים את חלום החוף האמיתי — פרטי, שקט, והכנסה חוקית על הטייטל הכי חזק בתאילנד — זה הוא. המחיר היחיד: ההמתנה.</p></div>
-    <a class="cta reveal" href="https://wa.me/972507308658?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%99%D7%A8%D7%9F%2C%20%D7%9E%D7%A2%D7%A0%D7%99%D7%99%D7%A0%D7%AA%20%D7%90%D7%95%D7%AA%D7%A0%D7%95%20Red%20Sunset%20%F0%9F%99%82">לדבר עם לירן על Red Sunset <span>· וואטסאפ</span></a>
+    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>התכשיט. אם רוצים את חלום החוף האמיתי — פרטי, שקט, והכנסה חוקית על הטייטל הכי חזק בתאילנד — זה הוא. המחיר היחיד: ההמתנה.</p></div>
   </div>
 </section>
 
-<!-- ===== 04 KOMA ===== -->
+<!-- ===== 04 KOH MA ===== -->
 <section class="chapter" id="koma">
   <div class="cover">
-    <div class="cover-bg kb" data-cover="koma"></div>
+    <div class="cover-bg" data-cover="koma"></div>
     <div class="c">
       <div class="num">04 — Presale · early access</div>
-      <div class="tags"><span class="tag">קו ראשון · 12 מ׳ מהמים</span><span class="tag">אזור ירוק · שקט</span></div>
-      <h2 class="en">Koma</h2>
-      <div class="loc">צפון-מערב קופנגן · Sana Beach Resort · <a href="https://maps.app.goo.gl/qCApzgbSm42qAMQm7">מיקום ↗</a></div>
-      <div class="price-flag"><span class="amt">18 מ׳ ฿</span><span class="usd">לוילה · ≈ 553K$</span></div>
+      <div class="tags"><span class="tag">קו ראשון · 12 מ׳ מהמים</span><span class="tag">ביץ׳ קלאב</span><span class="tag">אזור ירוק · שקט</span></div>
+      <h2 class="en">Koh Ma</h2>
+      <div class="sub">Sana Beach Resort</div>
+      <div class="loc">צפון-מערב קופנגן</div>
+      <div class="price-flag"><span class="amt">฿18M</span><span class="usd">(~$553K)</span><span class="note">לווילה</span></div>
     </div>
   </div>
   <div class="body">
-    <p class="lead reveal">קו ראשון אמיתי — 12 מטר מהמים, על חוף שאמיר הופך לריזורט. גישה מוקדמת לפני שזה יוצא לשוק.</p>
+    <p class="lead reveal">קו ראשון אמיתי — 12 מטר מהמים, על חוף שהופך לריזורט עם ביץ׳ קלאב. גישה מוקדמת לפני שזה יוצא לשוק.</p>
     <div class="stats reveal">
       <div><div class="v">100–120</div><div class="k">מ״ר · 2 קומות</div></div>
       <div><div class="v">דו-סוויטה</div><div class="k">ניתנת להפרדה ל-2</div></div>
       <div><div class="v">פריהולד</div><div class="k">צ׳אנוט</div></div>
     </div>
-    <div class="gallery reveal" data-gallery="koma"></div>
+    <div class="actions reveal" data-actions="koma"></div>
+    <div class="media" data-media="koma"></div>
     <div class="fin reveal">
       <h4>למה זה מעניין</h4>
       <div class="ln"><span>קו ראשון</span><b>12 מ׳ מהמים · חוף</b></div>
-      <div class="ln"><span>גמישות הכנסה</span><b>דו-סוויטה — לגור באחת, להשכיר את השנייה</b></div>
-      <div class="ln"><span>הוכחת ביצוע</span><b><a href="https://www.airbnb.com/l/jvwPQyip">הריזורט הקודם של אמיר ↗</a></b></div>
-      <div class="disc">אזור ירוק = בנייה מוגבלת (עד 150 מ״ר, גובה עד 6 מ׳, כיסוי עד 50%) — נמוך-צפיפות ושקט. הווידאו מציג את הריזורט הקיים של אמיר בהאאד סאלאד (הוכחת יכולת), לא את מגרש קו-מה. מחיר ומפרט סופי מתגבשים.</div>
+      <div class="ln"><span>ניהול</span><b>ביץ׳ קלאב + מתחם הסעדה ברמה גבוהה</b></div>
+      <div class="ln"><span>אקזיט</span><b>אופציה למכירת המתחם ליזם מלונאי גדול</b></div>
+      <div class="ln"><span>הוכחת ביצוע</span><b>ריזורט קיים באי — Haad Salad</b></div>
+      <div class="disc">אזור ירוק = בנייה מוגבלת (עד 150 מ״ר, גובה עד 6 מ׳, כיסוי עד 50%) — נמוך-צפיפות ושקט. הווידאו מציג את הריזורט הקיים של היזם בהאאד סאלאד (הוכחת יכולת), לא את מגרש קו-מה. מחיר ומפרט סופי מתגבשים.</div>
     </div>
     <div class="pc reveal">
-      <div class="pro"><h5>יתרונות</h5><ul><li>קו ראשון על חוף ירוק ושקט — נדיר</li><li>דו-סוויטה גמישה + יזם עם ריזורט מוכח</li></ul></div>
-      <div class="con"><h5>מה לדעת</h5><ul><li>פריסייל — 18–24 חודש, השלב הכי מוקדם</li><li>מפרט ומחיר מתגבשים — על בסיס טראק רקורד</li></ul></div>
+      <div class="pro"><h5>יתרונות</h5><ul><li>קו ראשון על חוף ירוק ושקט — נדיר</li><li>ינוהל כביץ׳ קלאב + הסעדה ברמה גבוהה</li><li>יזם עם ניסיון בניהול ריזורטים ברחבי העולם</li><li>אופציית אקזיט — מכירה ליזם מלונאי גדול</li></ul></div>
+      <div class="con"><h5>Good to know</h5><ul><li>פריסייל — 18–24 חודש, השלב הכי מוקדם</li><li>מפרט ומחיר סופי מתגבשים</li></ul></div>
     </div>
-    <div class="bl reveal"><div class="lbl">The bottom line · Liran</div><p>אם רוצים להיכנס ראשונים, קו ראשון לים, לפני שהשוק מגלה — זו הזדמנות הגישה-המוקדמת. הפוטנציאל הכי גבוה, השלב הכי מוקדם.</p></div>
-    <a class="cta reveal" href="https://wa.me/972507308658?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%99%D7%A8%D7%9F%2C%20%D7%9E%D7%A2%D7%A0%D7%99%D7%99%D7%A0%D7%AA%20%D7%90%D7%95%D7%AA%D7%A0%D7%95%20Koma%20%F0%9F%99%82">לדבר עם לירן על Koma <span>· וואטסאפ</span></a>
+    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>אם רוצים להיכנס ראשונים, קו ראשון לים, לפני שהשוק מגלה — זו הזדמנות הגישה-המוקדמת. הפוטנציאל הכי גבוה, השלב הכי מוקדם.</p></div>
   </div>
 </section>
 
@@ -374,10 +387,57 @@ a:focus-visible,button:focus-visible,.cell:focus-visible{outline:2px solid var(-
   <div class="in">
     <h2 class="en">At a glance</h2>
     <div class="sub">מהמוכן והנגיש → אל החלום הראשון-לים</div>
-    <div class="crow"><div class="nm en">Srithanu<small>מוכן · קו שני · שקט · 3 חדרים</small></div><div class="pr">8.5 מ׳ ฿ · 261K$</div></div>
-    <div class="crow"><div class="nm en">Nai Wok<small>מוכן · הכי פרטי · תשואה 8–12%</small></div><div class="pr">12–12.5 מ׳ ฿ · 369–384K$</div></div>
-    <div class="crow"><div class="nm en">Red Sunset<small>פריסייל · חוף פרטי · רישיון מלון</small></div><div class="pr">26–33 מ׳ ฿ · 799K–1.01M$</div></div>
-    <div class="crow"><div class="nm en">Koma<small>פריסייל · קו ראשון · דו-סוויטה · פריהולד</small></div><div class="pr">18 מ׳ ฿ · 553K$</div></div>
+
+    <div class="crow">
+      <div class="top">
+        <div class="nm en">Srithanu<small>מוכן · קו שני · שקט · 3 חדרים</small></div>
+        <div class="pr"><span class="b">฿9M</span><span class="u">(~$276K · כולל ריהוט)</span></div>
+      </div>
+      <ul>
+        <li>3 חדרי שינה מאסטר</li>
+        <li>LTR: <span class="ltr">90,000 ฿</span>/חודש <span class="ltr">($2,765)</span></li>
+        <li>STR: <span class="ltr">7,000 ฿</span>/לילה <span class="ltr">($215)</span></li>
+        <li>מחיר ללא ריהוט: <span class="ltr">฿8.5M</span> <span class="ltr">($261K)</span></li>
+      </ul>
+    </div>
+
+    <div class="crow">
+      <div class="top">
+        <div class="nm en">Nai Wok<small>מוכן · הכי פרטי · תשואה 8–12%</small></div>
+        <div class="pr"><span class="b">฿12M–12.5M</span><span class="u">($369K–$384K)</span></div>
+      </div>
+      <ul>
+        <li>LTR: <span class="ltr">100,000 ฿</span> נטו</li>
+        <li>STR: <span class="ltr">10,000 ฿</span>/לילה <span class="ltr">($305)</span></li>
+        <li>רישוי מלונאי בתהליך</li>
+        <li>חברת ניהול מקומית</li>
+      </ul>
+    </div>
+
+    <div class="crow">
+      <div class="top">
+        <div class="nm en">Red Sunset<small>פריסייל · חוף פרטי · רישיון מלון</small></div>
+        <div class="pr"><span class="b">฿26M–33M</span><span class="u">($799K–$1.01M)</span></div>
+      </div>
+      <ul>
+        <li>גישה לחוף פרטי</li>
+        <li>רישוי מלונאי</li>
+        <li>נוף לים</li>
+      </ul>
+    </div>
+
+    <div class="crow">
+      <div class="top">
+        <div class="nm en">Koh Ma - Sana Beach Resort<small>פריסייל · קו ראשון · ביץ׳ קלאב</small></div>
+        <div class="pr"><span class="b">฿18M</span><span class="u">(~$553K · לווילה)</span></div>
+      </div>
+      <ul>
+        <li>ינוהל כביץ׳ קלאב</li>
+        <li>יזם עם ניסיון ריזורטים גלובלי</li>
+        <li>מתחם הסעדה ברמה גבוהה</li>
+        <li>אופציית אקזיט — מכירה ליזם מלונאי גדול</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -385,9 +445,9 @@ a:focus-visible,button:focus-visible,.cell:focus-visible{outline:2px solid var(-
 <section class="closing">
   <div class="closing-bg" data-closing></div>
   <div class="in">
-    <h2>בואו <span class="en">talk it through</span></h2>
+    <div class="eye-closing">The bottom line · Liran Miller</div>
+    <h2>בואו נדבר על זה</h2>
     <p>מה שמרגיש לכם נכון — נצלול אליו. בלי לחץ, בקצב שלכם.</p>
-    <a class="cta" href="https://wa.me/972507308658?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%99%D7%A8%D7%9F%2C%20%D7%A2%D7%91%D7%A8%D7%A0%D7%95%20%D7%A2%D7%9C%20%D7%90%D7%A8%D7%91%D7%A2%20%D7%94%D7%90%D7%A4%D7%A9%D7%A8%D7%95%D7%99%D7%95%D7%AA%20%F0%9F%99%82">לדבר עם לירן <span>· וואטסאפ</span></a>
   </div>
 </section>
 
