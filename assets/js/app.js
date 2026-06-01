@@ -206,6 +206,24 @@
     if (e.key === "ArrowRight") step(1);  // right = next
   });
 
+  /* ---------- red-sunset villa selector (segmented tabs) ---------- */
+  (function () {
+    var tabs = [].slice.call(document.querySelectorAll(".vtab"));
+    if (!tabs.length) return;
+    var cards = [].slice.call(document.querySelectorAll(".vcard"));
+    function select(n) {
+      tabs.forEach(function (t) {
+        var on = t.getAttribute("data-villa") === n;
+        t.classList.toggle("active", on);
+        t.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      cards.forEach(function (c) { c.classList.toggle("active", c.getAttribute("data-villa") === n); });
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () { select(t.getAttribute("data-villa")); });
+    });
+  })();
+
   /* ---------- scroll: progress, nav, parallax, reveals ---------- */
   var bar = document.getElementById("bar");
   var nav = document.getElementById("nav");

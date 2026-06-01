@@ -153,6 +153,61 @@ nav.solid .menu a.active{color:var(--teal)}
 .bl{border-inline-start:3px solid var(--gold);padding-inline-start:18px;margin-bottom:30px}
 .bl .lbl{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);font-weight:700;margin-bottom:7px}
 .bl p{font-family:var(--serif);font-size:19px;line-height:1.5;font-weight:500}
+.bl p b{font-weight:800}
+
+/* red sunset — project facts strip */
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.facts span{flex:1 1 calc(50% - 4px);background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:11px 13px;display:flex;flex-direction:column;gap:2px}
+.facts b{font-family:var(--serif);font-weight:700;font-size:15px}
+.facts i{font-style:normal;font-size:11.5px;color:var(--muted);font-weight:600}
+
+/* red sunset — 3-villa selector */
+.villas{margin-bottom:30px}
+.vsel{display:flex;gap:6px;background:var(--sand);border:1px solid var(--line);border-radius:14px;padding:5px;margin-bottom:16px}
+.vtab{flex:1;border:none;background:transparent;font-family:var(--serif);font-weight:700;font-size:14px;color:var(--muted);padding:11px 6px;border-radius:10px;cursor:pointer;min-height:44px;transition:.2s var(--ease)}
+.vtab.active{background:var(--teal-d);color:#fff}
+.vcard{display:none}
+.vcard.active{display:block;animation:vfade .35s var(--ease)}
+@keyframes vfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.vtitle{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.vtitle h4{font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.1}
+.vtag{font-size:11px;font-weight:700;color:var(--sun);white-space:nowrap}
+.vdesc{font-size:14px;color:#55503f;line-height:1.45;margin-bottom:14px}
+.vspecs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px 8px;margin-bottom:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0}
+.vspecs > div{text-align:center}
+.vspecs b{display:block;font-family:var(--serif);font-size:16px;font-weight:700;line-height:1.1}
+.vspecs i{font-style:normal;display:block;font-size:10.5px;color:var(--muted);margin-top:5px;font-weight:600}
+.vprice{display:inline-flex;flex-direction:column;gap:1px;background:linear-gradient(120deg,var(--teal),var(--teal-d));color:#fff;border-inline-start:3px solid var(--gold);padding:11px 24px;border-radius:0 12px 12px 0}
+.vprice .amt{font-family:var(--serif);font-size:24px;font-weight:800;direction:ltr;line-height:1.05}
+.vprice .usd{font-size:13px;color:var(--gold);direction:ltr;font-weight:600}
+
+/* red sunset — yield table */
+.ybox,.gcomp,.own{margin-bottom:30px}
+.ytable{width:100%;border-collapse:collapse;font-size:13px;direction:ltr}
+.ytable th,.ytable td{padding:10px 6px;border-bottom:1px solid var(--line);text-align:center}
+.ytable th{font-family:var(--sans);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:700}
+.ytable td:first-child,.ytable th:first-child{text-align:left;font-weight:700;font-family:var(--serif)}
+.ytable tbody tr:last-child td{border-bottom:none}
+.ytable td{font-weight:600}
+.ynote{font-size:11.5px;color:var(--muted);margin-top:11px;line-height:1.55}
+
+/* red sunset — global comparison */
+.gcols{display:flex;gap:8px}
+.gcols > div{flex:1;background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:15px 8px;text-align:center}
+.gcols b{display:block;font-family:var(--serif);font-size:18px;font-weight:800;direction:ltr;line-height:1.1}
+.gcols i{font-style:normal;display:block;font-size:11.5px;color:var(--muted);margin-top:5px;font-weight:600}
+.gcols > div:first-child{background:linear-gradient(150deg,var(--teal),var(--teal-d));border-color:transparent}
+.gcols > div:first-child b{color:#fff}.gcols > div:first-child i{color:var(--gold)}
+
+/* red sunset — ownership & payment */
+.milestones{display:flex;gap:6px;margin-bottom:16px}
+.milestones > div{flex:1;text-align:center;background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:13px 4px}
+.milestones b{display:block;font-family:var(--serif);font-size:18px;font-weight:800;color:var(--teal);direction:ltr}
+.milestones i{font-style:normal;display:block;font-size:10px;color:var(--muted);margin-top:5px;font-weight:600;line-height:1.3}
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.routes > div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:15px}
+.routes h6{font-family:var(--serif);font-size:14px;font-weight:700;margin-bottom:6px;color:var(--teal-d)}
+.routes p{font-size:12.5px;color:#55503f;line-height:1.45}
 
 /* compare */
 .compare{background:var(--dark);color:#fff;padding:66px 26px 72px}
@@ -301,7 +356,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <div class="disc">ליס 30 שנה במבנה גמיש, או פריהולד דרך חברה תאילנדית · תשלום 50/50. חידוש בכפוף לחוק — לא מובטח.</div>
     </div>
     <div class="pc reveal">
-      <div class="pro"><h5>יתרונות</h5><ul><li>הפרטיות הכי גבוהה + 2 דק׳ הליכה לים</li><li>מנוע השכרה מוכח לאורך כל השנה</li></ul></div>
+      <div class="pro"><h5>יתרונות</h5><ul><li>הפרטיות הכי גבוהה + 2 דק׳ הליכה לים</li><li>מנוע השכרה מוכח לאורך כל השנה</li><li>ניתן לרכוש 2 יחידות (וילה 2 + וילה 3) — לגור באחת ולהשכיר את השנייה</li></ul></div>
       <div class="con"><h5>Good to know</h5><ul><li>לא על הים</li><li>בעלות דרך ליס/חברה — נסביר לעומק</li></ul></div>
     </div>
     <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>האיזון הכי טוב מהארבעה — פרטיות, הליכה לים, כניסה מיידית, והמנוע התשואתי הכי יציב. נכס שעובד מהיום הראשון.</p></div>
@@ -317,30 +372,110 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <div class="tags"><span class="tag">קו ראשון · חוף פרטי</span><span class="tag">רישיון מלון</span><span class="tag">3 וילות בלבד</span></div>
       <h2 class="en">Red Sunset</h2>
       <div class="loc">הין קונג · חוף השקיעה המערבי · הפרויקט שלנו, ישיר מהיזם</div>
-      <div class="price-flag"><span class="amt">฿26M–33M</span><span class="usd">($799K–$1.01M)</span></div>
+      <div class="price-flag"><span class="amt">฿26M–33M</span><span class="usd">($800K–$1.02M)</span></div>
     </div>
   </div>
   <div class="body">
-    <p class="lead reveal">התכשיט. חוף פרטי אמיתי, צ׳אנוט (הטייטל הגבוה בתאילנד) ורישיון מלון — הכנסת השכרה קצרה חוקית. נדיר.</p>
-    <div class="stats reveal">
-      <div><div class="v">3–4</div><div class="k">חדרי מאסטר</div></div>
-      <div><div class="v">~2027</div><div class="k">הגשה</div></div>
-      <div><div class="v">8.6–14.4%</div><div class="k">תשואה נטו</div></div>
+    <p class="lead reveal">לא ריזורט, לא מתחם — <b>שלוש וילות, חוף פרטי אחד</b>. בוטיק על קו המים בצד השקיעה של קופנגן, אדריכלות מודרנית שקטה בתוך הטבע.</p>
+    <div class="facts reveal">
+      <span><b>Chanote</b><i>הטייטל הגבוה בתאילנד</i></span>
+      <span><b>אפריל 2027</b><i>מסירה</i></span>
+      <span><b>רישיון מלון</b><i>השכרה חוקית</i></span>
+      <span><b>Turn-key</b><i>מסירה מרוהטת מלאה</i></span>
     </div>
     <div class="actions reveal" data-actions="red-sunset"></div>
     <div class="media" data-media="red-sunset"></div>
-    <div class="fin reveal">
-      <h4>הכנסה ותשואה</h4>
-      <div class="ln"><span>תשואה נטו (אחרי 15% ניהול)</span><b><span class="ltr">8.6%–14.4%</span> לשנה</b></div>
-      <div class="ln"><span>הכנסה</span><b>השכרה קצרה חוקית · רישיון מלון</b></div>
-      <div class="ln"><span>עליית ערך @5%/שנה</span><b>~33 מ׳ · 5 ש׳ → ~42 מ׳ · 10 ש׳</b></div>
-      <div class="disc">ליס גמיש על קרקע צ׳אנוט (הטייטל הגבוה בתאילנד) + רישיון מלון. ישיר מהיזם, בלי מתווך. הערכות אילוסטרטיביות, לא הבטחה.</div>
+
+    <div class="villas reveal">
+      <div class="mhead"><span class="m-eye">The 3 villas</span><span class="m-tt">שלוש עמדות · חוף אחד</span></div>
+      <div class="vsel" role="tablist" aria-label="בחירת וילה">
+        <button class="vtab active" data-villa="1" role="tab" aria-selected="true">Villa 1</button>
+        <button class="vtab" data-villa="2" role="tab" aria-selected="false">Villa 2</button>
+        <button class="vtab" data-villa="3" role="tab" aria-selected="false">Villa 3</button>
+      </div>
+      <div class="vcard active" data-villa="1">
+        <div class="vtitle"><h4 class="en">Villa 1 · Beachfront Signature</h4><span class="vtag">הנכס הפרמיום</span></div>
+        <p class="vdesc">קומה אחת. הסלון וחדרי המאסטר נפתחים ישירות אל מרפסת הבריכה מול הים — הבריכה הגדולה במתחם.</p>
+        <div class="vspecs">
+          <div><b dir="ltr">4</b><i>חדרי מאסטר</i></div>
+          <div><b>קומה אחת</b><i>תכנון</i></div>
+          <div><b dir="ltr">12 מ׳</b><i>מהים</i></div>
+          <div><b dir="ltr">321 / 150</b><i>מ"ר כולל / פנים</i></div>
+          <div><b dir="ltr">31 מ"ר</b><i>בריכה</i></div>
+          <div><b dir="ltr">9.6–14.4%</b><i>ROI נטו</i></div>
+        </div>
+        <div class="vprice"><span class="amt">฿33M</span><span class="usd">($1.02M)</span></div>
+      </div>
+      <div class="vcard" data-villa="2">
+        <div class="vtitle"><h4 class="en">Villa 2 · Elevated Sea View</h4><span class="vtag">הכניסה הנגישה</span></div>
+        <p class="vdesc">קומה מוגבהת. שלושה חדרי מאסטר עם נוף ים פתוח ואוורור מצולב מחללי המגורים.</p>
+        <div class="vspecs">
+          <div><b dir="ltr">3</b><i>חדרי מאסטר</i></div>
+          <div><b>קומה מוגבהת</b><i>תכנון</i></div>
+          <div><b dir="ltr">50 מ׳</b><i>מהים</i></div>
+          <div><b dir="ltr">212 / 140</b><i>מ"ר כולל / פנים</i></div>
+          <div><b dir="ltr">22 מ"ר</b><i>בריכה</i></div>
+          <div><b dir="ltr">8.6–12.9%</b><i>ROI נטו</i></div>
+        </div>
+        <div class="vprice"><span class="amt">฿26M</span><span class="usd">($800K)</span></div>
+      </div>
+      <div class="vcard" data-villa="3">
+        <div class="vtitle"><h4 class="en">Villa 3 · Grand Family Duplex</h4><span class="vtag">הכי הרבה שטח לכסף</span></div>
+        <p class="vdesc">דופלקס בשתי קומות. קומת קרקע — מגורים ומאסטר; קומה עליונה — 3 מאסטר נוספים ומרפסת נוף לים.</p>
+        <div class="vspecs">
+          <div><b dir="ltr">4</b><i>חדרי מאסטר</i></div>
+          <div><b dir="ltr">2 קומות</b><i>דופלקס</i></div>
+          <div><b dir="ltr">80 מ׳</b><i>מהים</i></div>
+          <div><b dir="ltr">313 / 185</b><i>מ"ר כולל / פנים</i></div>
+          <div><b dir="ltr">22 מ"ר</b><i>בריכה</i></div>
+          <div><b dir="ltr">9.0–13.5%</b><i>ROI נטו</i></div>
+        </div>
+        <div class="vprice"><span class="amt">฿29M</span><span class="usd">($895K)</span></div>
+      </div>
     </div>
+
+    <div class="ybox reveal">
+      <div class="mhead"><span class="m-eye">Net yield</span><span class="m-tt">תשואה נטו לפי תפוסה</span></div>
+      <table class="ytable">
+        <thead><tr><th>Villa</th><th>ADR</th><th>60%</th><th>75%</th><th>90%</th></tr></thead>
+        <tbody>
+          <tr><td>Villa 1</td><td>฿17K</td><td>9.6%</td><td>12.0%</td><td>14.4%</td></tr>
+          <tr><td>Villa 2</td><td>฿12K</td><td>8.6%</td><td>10.7%</td><td>12.9%</td></tr>
+          <tr><td>Villa 3</td><td>฿14K</td><td>9.0%</td><td>~11%</td><td>13.5%</td></tr>
+        </tbody>
+      </table>
+      <p class="ynote">אחרי 15% דמי ניהול · בקופנגן רק 2 חודשי שפל בשנה (יוני + נובמבר), והמיקום על החוף ממזער את הירידה העונתית. טווחים שמרניים — הערכה, לא הבטחה.</p>
+    </div>
+
+    <div class="gcomp reveal">
+      <div class="mhead"><span class="m-eye">Same asset class</span><span class="m-tt">וילת חוף — שבריר מהמחיר</span></div>
+      <div class="gcols">
+        <div><b dir="ltr">מ-$800K</b><i>קופנגן</i></div>
+        <div><b dir="ltr">$5M+</b><i>איביזה</i></div>
+        <div><b dir="ltr">$8M+</b><i>מיאמי</i></div>
+      </div>
+      <p class="ynote">אותה מחלקת נכס — וילת חוף — בשבריר ממחיר השווקים הבשלים, בתוספת תשואת השכרה שנתית של 9%–14%.</p>
+    </div>
+
+    <div class="own reveal">
+      <div class="mhead"><span class="m-eye">Ownership & payment</span><span class="m-tt">בעלות ותשלום — צמוד אבני-דרך</span></div>
+      <div class="milestones">
+        <div><b dir="ltr">30%</b><i>חתימה</i></div>
+        <div><b dir="ltr">20%</b><i>יסודות</i></div>
+        <div><b dir="ltr">30%</b><i>גג</i></div>
+        <div><b dir="ltr">20%</b><i>מסירה · 2027</i></div>
+      </div>
+      <div class="routes">
+        <div><h6>חכירה ארוכת-טווח</h6><p>רשומה על ה-Chanote. חידוש כפוף לחוק התאילנדי — לא מובטח.</p></div>
+        <div><h6>חברה תאילנדית</h6><p>בעלות מלאה (freehold) דרך חברה בבעלות זרה. שתי הדרכים חוקיות וסטנדרטיות, ומטופלות בתוך העסקה.</p></div>
+      </div>
+    </div>
+
     <div class="pc reveal">
-      <div class="pro"><h5>יתרונות</h5><ul><li>חוף פרטי</li><li>רישוי מלונאי (השכרה חוקית)</li><li>נוף לים</li></ul></div>
-      <div class="con"><h5>Good to know</h5><ul><li>פריסייל — אכלוס ~2027</li><li>מרחק הליכה לחופים ולסריטאנו</li><li>מסעדות, בתי קפה, יוגה ומסאז׳ בקרבת מקום</li><li>Zen Beach בהליכה</li></ul></div>
+      <div class="pro"><h5>יתרונות</h5><ul><li>חוף פרטי משותף לשלוש הווילות</li><li>רישיון מלון — השכרה קצרה חוקית</li><li>ניהול ייעודי + סעיף עמידה ביעדים</li><li>Chanote — הטייטל הגבוה בתאילנד</li></ul></div>
+      <div class="con"><h5>Good to know</h5><ul><li>Zen Beach בהליכה</li><li>כפר סריטאנו — יוגה, קפה, וולנס</li><li>חוף הין קונג בפתח הדלת</li><li>מסעדות ובתי קפה בקרבת מקום</li><li>ת'ונג סאלא ~20 דק׳</li><li>מפל Wang Sai 5 דק׳</li></ul></div>
     </div>
-    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>התכשיט. אם רוצים את חלום החוף האמיתי — פרטי, שקט, והכנסה חוקית על הטייטל הכי חזק בתאילנד — זה הוא. המחיר היחיד: ההמתנה.</p></div>
+    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>שלוש וילות, חוף פרטי אחד, ופריסייל שנכנסים אליו במחיר של היום. נכס מובנה — טייטל, רישיון מלון וניהול כבר במקום. המחיר היחיד: ההמתנה ל-2027.</p></div>
   </div>
 </section>
 
@@ -417,7 +552,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
     <div class="crow">
       <div class="top">
         <div class="nm en">Red Sunset<small>פריסייל · חוף פרטי · רישיון מלון</small></div>
-        <div class="pr"><span class="b">฿26M–33M</span><span class="u">($799K–$1.01M)</span></div>
+        <div class="pr"><span class="b">฿26M–33M</span><span class="u">($800K–$1.02M)</span></div>
       </div>
       <ul>
         <li>גישה לחוף פרטי</li>
