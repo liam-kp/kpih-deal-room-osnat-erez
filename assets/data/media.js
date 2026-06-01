@@ -34,8 +34,13 @@ window.MEDIA = {
         { type: "image", src: "images/srithanu/04.jpg", tag: "exterior", alt: "מרפסת ומדרגות הכניסה" },
         { type: "image", src: "images/srithanu/05.jpg", tag: "exterior", alt: "הוילה והחצר" }
       ],
-      videos: [],
-      floorplan: [ { type: "image", src: "images/srithanu/fp1.jpg", alt: "תוכנית הוילה" } ],
+      videos: [
+        { type: "video", src: "videos/srithanu/1.mp4", poster: "images/srithanu/1-poster.jpg", tag: "exterior", desc: "סיור בנכס ובשכונה השקטה" }
+      ],
+      floorplan: [
+        { type: "image", src: "images/srithanu/fp1.jpg", alt: "תוכנית הוילה" },
+        { type: "image", src: "images/srithanu/fp2.jpg", alt: "תוכנית המגרש — Plot 2 (יחידות 2.1 / 2.2)" }
+      ],
       location: { url: "https://maps.app.goo.gl/5wLhUyRYD1WfWPK87", label: "מיקום במפה" }
     },
     {

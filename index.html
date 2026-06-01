@@ -105,8 +105,17 @@ nav.solid .menu a.active{color:var(--teal)}
 .stats{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px}
 .stats div{flex:1;padding:16px 6px;text-align:center;border-inline-start:1px solid var(--line)}
 .stats div:first-child{border-inline-start:none}
-.stats .v{font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.1;direction:ltr}
+.stats .v{font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.1}
+.stats .v span[dir=ltr]{unicode-bidi:isolate}
 .stats .k{font-size:11.5px;color:var(--muted);margin-top:5px;font-weight:600}
+.price-note{font-size:11.5px;color:rgba(255,255,255,.82);font-weight:600;margin-top:7px;max-width:34ch}
+.pnote{background:var(--sand);border-inline-start:3px solid var(--gold);border-radius:0 12px 12px 0;padding:13px 16px;font-size:13.5px;line-height:1.55;color:#55503f;margin-bottom:24px}
+.pnote b{font-weight:700;color:var(--ink)}
+.locnote{font-size:14px;line-height:1.6;color:#55503f;margin:14px 0 26px;background:var(--sand);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.feat{margin-bottom:30px}
+.featgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px 16px;list-style:none}
+.featgrid li{font-size:14px;line-height:1.4;padding-inline-start:20px;position:relative}
+.featgrid li::before{content:'';position:absolute;inset-inline-start:0;top:6px;width:8px;height:8px;border-radius:2px;background:var(--teal);transform:rotate(45deg)}
 
 /* action buttons (location / brochure / reference) */
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
@@ -300,17 +309,35 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <h2 class="en">Srithanu</h2>
       <div class="loc">שכונה מיושבת של 14 וילות</div>
       <div class="price-flag"><span class="amt">฿8.5M</span><span class="usd">($261K)</span></div>
+      <div class="price-note">המחיר אינו כולל ריהוט · חבילה מלאה ~0.5M ฿ (~$15K)</div>
     </div>
   </div>
   <div class="body">
-    <p class="lead reveal">וילה גמורה ומרוהטת בשכונה שקטה ומוכחת — האחרונה של היזם. נכנסים החודש, אפס סיכון בנייה.</p>
+    <p class="lead reveal">וילה גמורה בשכונה שקטה ומוכחת — האחרונה של היזם. נכנסים החודש, אפס סיכון בנייה.</p>
     <div class="stats reveal">
-      <div><div class="v">3 · 4</div><div class="k">חדרי מאסטר · מקלחות</div></div>
-      <div><div class="v">133/400</div><div class="k">בנוי / מגרש מ״ר</div></div>
-      <div><div class="v">פרטית</div><div class="k">בריכה 30 מ״ר</div></div>
+      <div><div class="v">פרטית</div><div class="k">בריכה 28 מ״ר</div></div>
+      <div><div class="v"><span dir="ltr">133</span> / <span dir="ltr">400</span></div><div class="k">בנוי / מגרש מ״ר</div></div>
+      <div><div class="v"><span dir="ltr">3</span> · <span dir="ltr">4</span></div><div class="k">חדרי מאסטר · שירותים</div></div>
     </div>
+    <div class="pnote reveal"><b>המחיר אינו כולל ריהוט.</b> חבילת ריהוט מלאה ~0.5M ฿ (~$15K): ריהוט, מכשירי חשמל וסטיילינג (וילונות וכו׳).</div>
     <div class="actions reveal" data-actions="srithanu"></div>
+    <div class="locnote reveal">📍 הוילה ממוקמת בסריטאנו — הצד הכי שווה של האי, עם ביקושי שיא לאורך כל השנה. מרכז האי, 3–4 דק׳ נסיעה מ-Zen Beach (השקיעות הכי יפות באי), 5–6 דק׳ מ-Srithanu, ומרחק הליכה ממסעדות (Pumpui ועוד). אזור עם ביקוש כל השנה — גם למגורים ארוכי-טווח וגם להשכרות קצרות בעונה.</div>
     <div class="media" data-media="srithanu"></div>
+    <div class="feat reveal">
+      <div class="mhead"><span class="m-eye">Features</span><span class="m-tt">מה יש בוילה</span></div>
+      <ul class="featgrid">
+        <li>3 חדרי מאסטר נוחים ומרווחים</li>
+        <li>סלון נוח וביתי</li>
+        <li>מטבח מעוצב ופונקציונלי</li>
+        <li>מרפסת 38 מ״ר</li>
+        <li>בריכה פרטית 28 מ״ר</li>
+        <li>מזגנים בכל החדרים</li>
+        <li>חצר פרטית מעוצבת</li>
+        <li>חניה פרטית</li>
+        <li>12 דקות הליכה מהים</li>
+        <li>תשואה–מחיר מאוזנים מאוד</li>
+      </ul>
+    </div>
     <div class="fin reveal">
       <h4>הכנסה ותשואה</h4>
       <div class="ln"><span>השכרה ארוכת-טווח</span><b><span class="ltr">90,000 ฿</span> / חודש <span class="ltr">($2,765)</span></b></div>
@@ -319,10 +346,10 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <div class="disc">ליס 30 שנה במבנה גמיש (אופציית מכירה/הארכה). חידוש בכפוף לחוק התאילנדי — לא מובטח. הערכות אילוסטרטיביות בלבד.</div>
     </div>
     <div class="pc reveal">
-      <div class="pro"><h5>יתרונות</h5><ul><li>כניסה מיידית, אפס סיכון בנייה</li><li>שכונה שקטה ומיושבת = ביקוש כל השנה</li></ul></div>
-      <div class="con"><h5>Good to know</h5><ul><li>קו שני — 4 דק׳ נסיעה לים</li><li>יחידה אחרונה — אין בחירת מיקום</li></ul></div>
+      <div class="pro"><h5>יתרונות</h5><ul><li>כניסה מיידית, אפס סיכון בנייה</li><li>שכונה שקטה ומיושבת = ביקוש כל השנה</li><li>ביקוש מוגבר בקרב קונים ישראלים</li></ul></div>
+      <div class="con"><h5>Good to know</h5><ul><li>מרחק הליכה מ-Zen Beach, בתי קפה, יוגה, כושר ומסעדות — הכל צמוד</li><li>קו שני — 4 דק׳ נסיעה לים</li><li>יחידה אחרונה — אין בחירת מיקום</li></ul></div>
     </div>
-    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>הכניסה הכי בטוחה מהארבעה — וילה גמורה בקהילה שקטה ומוכחת, במחיר הכי נגיש, ואתם בפנים כבר החודש.</p></div>
+    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>וילה גמורה בקהילה שקטה ומוכחת, במחיר הכי נגיש — ואתם בפנים כבר החודש. ביקוש מוגבר בקרב קונים ישראלים.</p></div>
   </div>
 </section>
 
@@ -341,9 +368,9 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
   <div class="body">
     <p class="lead reveal">הכי פרטי מהשניים המוכנים, ועם המנוע התשואתי הכי חזק. שתי וילות לבחירה — אמצעית או מגרש גדול.</p>
     <div class="stats reveal">
-      <div><div class="v">3</div><div class="k">חדרים</div></div>
-      <div><div class="v">141 / 450+</div><div class="k">בנוי / מגרש מ״ר</div></div>
-      <div><div class="v">8–12%</div><div class="k">תשואה ברוטו</div></div>
+      <div><div class="v"><span dir="ltr">3</span></div><div class="k">חדרים</div></div>
+      <div><div class="v"><span dir="ltr">141</span> / <span dir="ltr">450+</span></div><div class="k">בנוי / מגרש מ״ר</div></div>
+      <div><div class="v"><span dir="ltr">8–12%</span></div><div class="k">תשואה ברוטו</div></div>
     </div>
     <div class="actions reveal" data-actions="nai-wok"></div>
     <div class="media" data-media="nai-wok"></div>
@@ -400,7 +427,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
           <div><b dir="ltr">4</b><i>חדרי מאסטר</i></div>
           <div><b>קומה אחת</b><i>תכנון</i></div>
           <div><b dir="ltr">12 מ׳</b><i>מהים</i></div>
-          <div><b dir="ltr">321 / 150</b><i>מ"ר כולל / פנים</i></div>
+          <div><b><span dir="ltr">321</span> / <span dir="ltr">150</span></b><i>מ"ר כולל / פנים</i></div>
           <div><b dir="ltr">31 מ"ר</b><i>בריכה</i></div>
           <div><b dir="ltr">9.6–14.4%</b><i>ROI נטו</i></div>
         </div>
@@ -413,7 +440,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
           <div><b dir="ltr">3</b><i>חדרי מאסטר</i></div>
           <div><b>קומה מוגבהת</b><i>תכנון</i></div>
           <div><b dir="ltr">50 מ׳</b><i>מהים</i></div>
-          <div><b dir="ltr">212 / 140</b><i>מ"ר כולל / פנים</i></div>
+          <div><b><span dir="ltr">212</span> / <span dir="ltr">140</span></b><i>מ"ר כולל / פנים</i></div>
           <div><b dir="ltr">22 מ"ר</b><i>בריכה</i></div>
           <div><b dir="ltr">8.6–12.9%</b><i>ROI נטו</i></div>
         </div>
@@ -426,7 +453,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
           <div><b dir="ltr">4</b><i>חדרי מאסטר</i></div>
           <div><b dir="ltr">2 קומות</b><i>דופלקס</i></div>
           <div><b dir="ltr">80 מ׳</b><i>מהים</i></div>
-          <div><b dir="ltr">313 / 185</b><i>מ"ר כולל / פנים</i></div>
+          <div><b><span dir="ltr">313</span> / <span dir="ltr">185</span></b><i>מ"ר כולל / פנים</i></div>
           <div><b dir="ltr">22 מ"ר</b><i>בריכה</i></div>
           <div><b dir="ltr">9.0–13.5%</b><i>ROI נטו</i></div>
         </div>
@@ -495,7 +522,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
   <div class="body">
     <p class="lead reveal">קו ראשון אמיתי — 12 מטר מהמים, על חוף שהופך לריזורט עם ביץ׳ קלאב. גישה מוקדמת לפני שזה יוצא לשוק.</p>
     <div class="stats reveal">
-      <div><div class="v">100–120</div><div class="k">מ״ר · 2 קומות</div></div>
+      <div><div class="v"><span dir="ltr">100–120</span></div><div class="k">מ״ר · 2 קומות</div></div>
       <div><div class="v">דו-סוויטה</div><div class="k">לגור באחת · להשכיר את השנייה</div></div>
       <div><div class="v">ליסהולד</div><div class="k">מבנה חברה / מניות</div></div>
     </div>
