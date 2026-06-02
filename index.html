@@ -135,6 +135,22 @@ nav.solid .menu a.active{color:var(--teal)}
 .locbanner ul{list-style:none;display:grid;gap:9px}
 .locbanner li{font-size:14px;line-height:1.45;color:#3f3a2d;padding-inline-start:26px;position:relative}
 .locbanner li::before{content:'📍';position:absolute;inset-inline-start:0;top:0;font-size:13px;filter:grayscale(.1)}
+.locbanner p{font-size:14px;line-height:1.65;color:#3f3a2d;margin-top:4px}
+.locbanner .lb-close{margin-top:13px;padding-top:13px;border-top:1px solid var(--line);color:var(--teal-d);font-weight:600}
+.locbanner .ltr{direction:ltr;unicode-bidi:isolate}
+/* world price table */
+.gsub{font-size:14px;color:var(--muted);font-weight:600;margin:0 0 12px;text-align:center}
+.gtable{width:100%;border-collapse:collapse;font-size:15px}
+.gtable th{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:start;border-bottom:1px solid var(--line)}
+.gtable td{padding:13px 12px;border-bottom:1px solid var(--line)}
+.gtable td:first-child{font-family:var(--serif);font-weight:600}
+.gtable td:last-child{font-family:var(--serif);font-weight:800;color:var(--muted);text-align:start}
+.gtable td .ltr{direction:ltr;unicode-bidi:isolate}
+.gtable tbody tr:last-child td{border-bottom:none}
+.gtable tr.hi td{background:linear-gradient(120deg,rgba(14,107,99,.12),rgba(201,162,75,.10));color:var(--teal-d)}
+.gtable tr.hi td:last-child{color:var(--teal-d)}
+.gtable tr.hi td:first-child{border-radius:0 10px 10px 0}
+.gtable tr.hi td:last-child{border-radius:10px 0 0 10px}
 
 /* deal structure */
 .dealstruct{margin-bottom:30px}
@@ -531,20 +547,14 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
     <div class="actions reveal" data-actions="red-sunset"></div>
     <div class="locbanner reveal">
       <div class="lb-eye">Location</div>
-      <div class="lb-tt">על קו החוף</div>
-      <ul>
-        <li>מרחק הליכה מ-Zen Beach</li>
-        <li>כפר סריטאנו — בתי קפה ווולנס</li>
-        <li>גישה ישירה לחוף הין קונג</li>
-        <li>מסעדות ומכוני כושר בקרבת מקום</li>
-        <li>10 דק׳ מטונגסלה</li>
-        <li>5 דק׳ ממפל Wang Sai</li>
-      </ul>
+      <div class="lb-tt">ראשון לים!</div>
+      <p>על קו החוף במפרץ הין קונג, באחד האזורים המבוקשים ביותר בקופנגן. במרחק הליכה מצד אחד ל-Zen Beach ולכפר סריטאנו — מרכז הוולנס, היוגה ובתי הקפה של האי, ומצד שני לחוף הין קונג ולכמה מהמסעדות, הברים ומקומות הבילוי המובילים בקופנגן. סמוך לחדרי כושר, שירותים יומיומיים ואטרקציות טבע, במרחק <span class="ltr">10</span> דקות בלבד מטונגסלה ו-<span class="ltr">5</span> דקות ממפל Wang Sai.</p>
+      <p class="lb-close">אחת מהזדמנויות הפיתוח האחרונות שנותרו על קו החוף המערבי של קופנגן. שילוב נדיר של חוף ים, טבע, קהילה ואורח חיים איכותי — בלב החוף המערבי של האי.</p>
     </div>
     <div class="media" data-media="red-sunset"></div>
 
     <div class="villas reveal">
-      <div class="mhead"><span class="m-eye">The 3 villas</span><span class="m-tt">שלוש עמדות · חוף אחד</span></div>
+      <div class="mhead"><span class="m-eye">The 3 villas</span><span class="m-tt">שלוש וילות יוקרה · קו חוף אחד</span></div>
       <div class="vsel" role="tablist" aria-label="בחירת וילה">
         <button class="vtab active" data-villa="1" role="tab" aria-selected="true">Villa 1</button>
         <button class="vtab" data-villa="2" role="tab" aria-selected="false">Villa 2</button>
@@ -609,12 +619,16 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
 
     <div class="gcomp reveal">
       <div class="mhead"><span class="m-eye">Same asset class</span><span class="m-tt">וילת חוף — שבריר מהמחיר</span></div>
-      <div class="gcols">
-        <div><b>מ-<span dir="ltr">$800K</span></b><i>קופנגן</i></div>
-        <div><b><span dir="ltr">$5M+</span></b><i>איביזה</i></div>
-        <div><b><span dir="ltr">$8M+</span></b><i>מיאמי</i></div>
-      </div>
-      <p class="ynote">אותה מחלקת נכס — וילת חוף — בשבריר ממחיר השווקים הבשלים, בתוספת תשואת השכרה שנתית של 9%–14%.</p>
+      <p class="gsub">כמה עולה Beachfront בעולם?</p>
+      <table class="gtable">
+        <thead><tr><th>מיקום</th><th>מחיר פתיחה</th></tr></thead>
+        <tbody>
+          <tr><td>Miami</td><td><span class="ltr">$8M+</span></td></tr>
+          <tr><td>Ibiza</td><td><span class="ltr">$5M+</span></td></tr>
+          <tr class="hi"><td>Koh Phangan</td><td><span class="ltr">$1M+</span></td></tr>
+        </tbody>
+      </table>
+      <p class="ynote">וילת חוף פרטית בקופנגן — במחיר כניסה שנדיר למצוא כיום בנכסי Beachfront בעולם.</p>
     </div>
 
     <div class="own reveal">
@@ -626,7 +640,8 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
         <div><b dir="ltr">20%</b><i>מסירה · דצמ׳ 2027</i></div>
       </div>
       <div class="routes one">
-        <div><h6>חכירה ישירה מהיזם</h6><p>חכירה ארוכת-טווח ישירות מהיזם, תחת החברה המחזיקה בקרקע ועם בטוחות משפטיות נוספות. לוח תשלומים צמוד-בנייה (ראו אבני-הדרך למעלה). חידוש בכפוף לחוק התאילנדי — לא מובטח.</p></div>
+        <div><h6>חכירה מגובה-יזם</h6><p>חכירה ישירה מהיזם, תחת החברה המחזיקה בקרקע ועם בטוחות משפטיות נוספות. לוח תשלומים צמוד-בנייה (ראו אבני-הדרך למעלה). חידוש ל-<span class="ltr">30</span> שנה נוספות בכפוף לחוק התאילנדי — עם חוזה מגבה מול היזם.</p></div>
+        <div><h6>אפשרות השקעה נוספת</h6><p>לצד רכישת וילה בודדת, אנו פתוחים לבחון הכנסת שותף אסטרטגי ברמת הפרויקט כולו. המודל כולל השתתפות במימון הקרקע והבנייה, בתמורה לאחזקה משמעותית במתחם ולהשתתפות מלאה בעליית הערך העתידית.</p></div>
       </div>
     </div>
 
@@ -634,8 +649,8 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <div class="pro"><h5>יתרונות</h5><ul><li>חוף פרטי משותף לשלוש הווילות</li><li>נוף לים מכל וילה</li><li>רישיון מלון — השכרה קצרה חוקית</li><li>ניהול ייעודי + סעיף עמידה ביעדים</li><li>Chanote — הטייטל הגבוה בתאילנד</li></ul></div>
       <div class="con"><h5>Good to know</h5><ul><li>מסירה צפויה בדצמבר 2027 — ההכנסות מתחילות לאחר המסירה.</li><li>קו החוף מושפע ממחזורי הגאות והשפל.</li><li>הגישה לווילות דרך שביל פנימי ברוחב כ-2.5 מטר.</li></ul></div>
     </div>
-    <div class="bestfor reveal"><div class="bf-eye">Best for</div><ul><li>משקיעים לטווח ארוך</li><li>עליית ערך הון</li><li>קוני נכסי חוף</li></ul></div>
-    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>שלוש וילות על קו החוף, בריכות פרטיות ונוף פתוח לים. המחיר משקף את שלב הפריסייל של היום — והסבלנות עד המסירה ב-2027 היא כנראה התמורה הגדולה ביותר שהפרויקט מציע.</p></div>
+    <div class="bestfor reveal"><div class="bf-eye">Best for</div><ul><li>Short-Term Rental</li><li>משקיעים לטווח ארוך</li><li>מחפשי עליית ערך משמעותית</li><li>רוכשי נכסי Beachfront נדירים</li></ul></div>
+    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>שלוש וילות יוקרה על קו החוף, בריכות פרטיות ונוף פתוח לים. הפרויקט ממוקם על אחת מרצועות החוף האחרונות שנותרו לפיתוח באזור סריטאנו–הין קונג, עם שלוש וילות בלבד, היצע מוגבל ופוטנציאל השבחה שקשה למצוא כיום באי.</p></div>
   </div>
 </section>
 
