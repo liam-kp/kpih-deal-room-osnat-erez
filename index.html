@@ -123,6 +123,37 @@ nav.solid .menu a.active{color:var(--teal)}
 .featgrid li{font-size:14px;line-height:1.4;padding-inline-start:20px;position:relative}
 .featgrid li::before{content:'';position:absolute;inset-inline-start:0;top:6px;width:8px;height:8px;border-radius:2px;background:var(--teal);transform:rotate(45deg)}
 
+/* project marker band (scroll orientation) */
+.chapter-mark{background:var(--paper);text-align:center;padding:40px 26px 28px;border-top:1px solid var(--line)}
+.chapter-mark .pm-eye{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.chapter-mark .pm-name{font-family:var(--serif);font-size:clamp(26px,7vw,34px);font-weight:700;color:var(--ink);margin-top:9px;line-height:1.1}
+
+/* unified location banner */
+.locbanner{background:var(--sand);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:14px 0 28px}
+.locbanner .lb-eye{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sun)}
+.locbanner .lb-tt{font-family:var(--serif);font-size:19px;font-weight:700;margin:5px 0 13px}
+.locbanner ul{list-style:none;display:grid;gap:9px}
+.locbanner li{font-size:14px;line-height:1.45;color:#3f3a2d;padding-inline-start:26px;position:relative}
+.locbanner li::before{content:'📍';position:absolute;inset-inline-start:0;top:0;font-size:13px;filter:grayscale(.1)}
+
+/* deal structure */
+.dealstruct{margin-bottom:30px}
+.ds-sub{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--teal-d);margin-bottom:13px}
+.ds-grid{display:grid;gap:10px}
+.ds-card{background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.ds-card h6{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--teal-d);margin-bottom:5px}
+.ds-card p{font-size:13.5px;line-height:1.5;color:#55503f}
+.ds-card .ltr{direction:ltr;unicode-bidi:isolate;font-weight:700}
+.ds-pay{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+.ds-pay span{flex:1;min-width:120px;background:rgba(14,107,99,.08);border:1px solid rgba(14,107,99,.18);border-radius:10px;padding:10px 12px;font-size:13px;font-weight:600;color:var(--teal-d);text-align:center}
+
+/* best for */
+.bestfor{background:linear-gradient(150deg,var(--teal),var(--teal-d));color:#fff;border-radius:16px;padding:20px 22px;margin-bottom:30px}
+.bestfor .bf-eye{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.bestfor ul{list-style:none;display:grid;gap:9px}
+.bestfor li{font-size:15px;font-weight:600;padding-inline-start:28px;position:relative}
+.bestfor li::before{content:'';position:absolute;inset-inline-start:0;top:5px;width:14px;height:8px;border-inline-start:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg)}
+
 /* action buttons (location / brochure / reference) */
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
 .actbtn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:11px 18px;border-radius:12px;
@@ -312,6 +343,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
 
 <!-- ===== 01 SRITHANU ===== -->
 <section class="chapter" id="srithanu">
+  <div class="chapter-mark"><div class="pm-eye">Project 1</div><div class="pm-name">Srithanu Villa</div></div>
   <div class="cover">
     <div class="cover-bg" data-cover="srithanu"></div>
     <div class="c">
@@ -320,7 +352,6 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <h2 class="en">Srithanu</h2>
       <div class="loc">שכונה מיושבת של 14 וילות</div>
       <div class="price-flag"><span class="amt">฿8.5M</span><span class="usd">($261K)</span></div>
-      <div class="price-note">המחיר אינו כולל ריהוט · חבילה מלאה ~0.5M ฿ (~$15K)</div>
     </div>
   </div>
   <div class="body">
@@ -330,9 +361,18 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <div><div class="v"><span dir="ltr">133</span> / <span dir="ltr">400</span></div><div class="k">בנוי / מגרש מ״ר</div></div>
       <div><div class="v"><span dir="ltr">3</span> · <span dir="ltr">4</span></div><div class="k">חדרי מאסטר · שירותים</div></div>
     </div>
-    <div class="pnote reveal"><b>המחיר אינו כולל ריהוט.</b> חבילת ריהוט מלאה ~0.5M ฿ (~$15K): ריהוט, מכשירי חשמל וסטיילינג (וילונות וכו׳).</div>
     <div class="actions reveal" data-actions="srithanu"></div>
-    <div class="locnote reveal">📍 הוילה ממוקמת בסריטאנו — הצד הכי שווה של האי, עם ביקושי שיא לאורך כל השנה. מרכז האי, 3–4 דק׳ נסיעה מ-Zen Beach (השקיעות הכי יפות באי), 5–6 דק׳ מ-Srithanu, ומרחק הליכה ממסעדות (Pumpui ועוד). אזור עם ביקוש כל השנה — גם למגורים ארוכי-טווח וגם להשכרות קצרות בעונה.</div>
+    <div class="locbanner reveal">
+      <div class="lb-eye">Location</div>
+      <div class="lb-tt">במרכז האי — ביקוש כל השנה</div>
+      <ul>
+        <li>3–4 דק׳ נסיעה מ-Zen Beach</li>
+        <li>5–6 דק׳ מכפר Srithanu</li>
+        <li>מרחק הליכה ממסעדות (Pumpui ועוד)</li>
+        <li>מרכז האי — גישה נוחה לכל כיוון</li>
+        <li>ביקוש כל השנה — מגורים ארוכי-טווח והשכרות קצרות</li>
+      </ul>
+    </div>
     <div class="media" data-media="srithanu"></div>
     <div class="feat reveal">
       <div class="mhead"><span class="m-eye">Features</span><span class="m-tt">מה יש בוילה</span></div>
@@ -354,18 +394,29 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <div class="ln"><span>השכרה ארוכת-טווח</span><b><span class="ltr">90,000 ฿</span> / חודש <span class="ltr">($2,765)</span></b></div>
       <div class="ln"><span>השכרה קצרה (לילה)</span><b><span class="ltr">7,000 ฿</span> <span class="ltr">($215)</span></b></div>
       <div class="ln"><span>עליית ערך @5%/שנה</span><b>~10.9 מ׳ · 5 ש׳ → ~13.8 מ׳ · 10 ש׳</b></div>
-      <div class="disc">ליס 30 שנה במבנה גמיש (אופציית מכירה/הארכה). חידוש בכפוף לחוק התאילנדי — לא מובטח. הערכות אילוסטרטיביות בלבד.</div>
+      <div class="disc">הערכות אילוסטרטיביות בלבד — לא הבטחה.</div>
+    </div>
+    <div class="dealstruct reveal">
+      <div class="mhead"><span class="m-eye">Deal Structure</span><span class="m-tt">מבנה העסקה</span></div>
+      <div class="ds-sub">אפשרויות בעלות גמישות</div>
+      <div class="ds-grid">
+        <div class="ds-card"><h6>Freehold</h6><p>רכישה דרך חברה תאילנדית עם שותף מקומי. עלויות העברה <span class="ltr">~5.5%</span>.</p></div>
+        <div class="ds-card"><h6>Leasehold</h6><p>חכירה ל-<span class="ltr">30</span> שנה עם אופציית הארכה.</p></div>
+        <div class="ds-card"><h6>תשלום</h6><div class="ds-pay"><span>50% בחתימה</span><span>50% בהעברה</span></div></div>
+      </div>
     </div>
     <div class="pc reveal">
       <div class="pro"><h5>יתרונות</h5><ul><li>כניסה מיידית, אפס סיכון בנייה</li><li>שכונה שקטה ומיושבת = ביקוש כל השנה</li><li>ביקוש מוגבר בקרב קונים ישראלים</li></ul></div>
-      <div class="con"><h5>Good to know</h5><ul><li>צריך להוציא רישוי לשכירויות שורט-טרם — לא קיים כיום במתחם</li><li>יחידה אחרונה — אין בחירת מיקום</li></ul></div>
+      <div class="con"><h5>Good to know</h5><ul><li>נמכר ללא ריהוט — חבילת ריהוט מלאה ~0.5M ฿ (~$15K) זמינה בנפרד</li><li>צריך להוציא רישוי להשכרה קצרת-טווח — לא קיים כיום במתחם</li><li>יחידה אחרונה — אין בחירת מיקום</li></ul></div>
     </div>
-    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>הכניסה הבטוחה ביותר מבין ארבע האפשרויות — וילה גמורה בסריטאנו, בקהילה שקטה ומבוססת, במחיר הכניסה הנגיש ביותר, עם אפשרות ליהנות מהנכס או להתחיל להשכיר אותו כבר החודש.</p></div>
+    <div class="bestfor reveal"><div class="bf-eye">Best for</div><ul><li>רוכשים ראשונים</li><li>קונים לאורח חיים</li><li>משקיעים סולידיים (סיכון נמוך)</li></ul></div>
+    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>הכניסה הבטוחה ביותר מבין ארבע האפשרויות — וילה גמורה בסריטאנו, בקהילה שקטה ומבוססת, במחיר הכניסה הנגיש ביותר, עם אפשרות להשלים ריהוט ולהתחיל ליהנות מהנכס או להפעיל אותו להשכרה בתוך זמן קצר.</p></div>
   </div>
 </section>
 
 <!-- ===== 02 NAI WOK ===== -->
 <section class="chapter" id="nai-wok">
+  <div class="chapter-mark"><div class="pm-eye">Project 2</div><div class="pm-name">Nai Wok Villas</div></div>
   <div class="cover">
     <div class="cover-bg" data-cover="nai-wok"></div>
     <div class="c">
@@ -384,6 +435,17 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <div><div class="v"><span dir="ltr">8–12%</span></div><div class="k">תשואה ברוטו</div></div>
     </div>
     <div class="actions reveal" data-actions="nai-wok"></div>
+    <div class="locbanner reveal">
+      <div class="lb-eye">Location</div>
+      <div class="lb-tt">דקות מהכל</div>
+      <ul>
+        <li>3 דק׳ הליכה לים</li>
+        <li>4 דק׳ מטונגסלה ומהפיר הראשי</li>
+        <li>קרבה ל-Srithanu ול-Hin Kong</li>
+        <li>מרחק הליכה מ-Blue Rama, Ocean Vibes ומוקדי וולנס</li>
+        <li>מיקום מרכזי באי — גישה נוחה לכל כיוון</li>
+      </ul>
+    </div>
     <div class="media" data-media="nai-wok"></div>
     <div class="fin reveal">
       <h4>הכנסה ותשואה</h4>
@@ -391,15 +453,25 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <div class="ln"><span>השכרה קצרה (לילה)</span><b><span class="ltr">10,000 ฿</span> <span class="ltr">($305)</span></b></div>
       <div class="full">רישוי מלונאי בתהליך · חברת ניהול מקומית</div>
       <div class="ln"><span>עליית ערך @5%/שנה</span><b>~15.3 מ׳ · 5 ש׳ → ~19.5 מ׳ · 10 ש׳</b></div>
-      <div class="disc">חכירה ארוכת-טווח גמישה · חידוש בכפוף לחוק התאילנדי — לא מובטח. תשלום 50/50.</div>
+      <div class="disc">רישוי מלונאי בתהליך. הערכות אילוסטרטיביות בלבד — לא הבטחה. בעלות ותשלום — ראו "מבנה העסקה".</div>
+    </div>
+    <div class="dealstruct reveal">
+      <div class="mhead"><span class="m-eye">Deal Structure</span><span class="m-tt">מבנה העסקה</span></div>
+      <div class="ds-sub">אפשרויות בעלות גמישות</div>
+      <div class="ds-grid">
+        <div class="ds-card"><h6>Freehold</h6><p>רכישה דרך חברה תאילנדית עם שותף מקומי. עלויות העברה <span class="ltr">~5.5%</span>.</p></div>
+        <div class="ds-card"><h6>Leasehold</h6><p>חכירה ל-<span class="ltr">30</span> שנה עם אופציית הארכה.</p></div>
+        <div class="ds-card"><h6>תשלום</h6><div class="ds-pay"><span>50% בחתימה</span><span>50% בהעברה</span></div></div>
+      </div>
     </div>
     <div class="pc reveal">
       <div class="pro"><h5>יתרונות</h5><ul><li>הפרטיות הכי גבוהה + 2 דק׳ הליכה לים</li><li>מנוע השכרה מוכח לאורך כל השנה</li><li>ניתן לרכוש 2 יחידות (וילה 2 + וילה 3) — לגור באחת ולהשכיר את השנייה</li></ul></div>
-      <div class="con"><h5>Good to know</h5><ul><li>אין נוף לים. הווידאו והרחפן מראים ים — אבל זה לא הפיצ׳ר העיקרי של הפרויקט. פרויקט שכן מתחיל להיבנות בימים אלה בשטח מקביל ויסתיר את זווית הים. ייתכן מעט ים מהמטבח — לא משמעותי.</li><li>מתאים גם לשכירות ארוכת-טווח וגם לקצרת-טווח — אך אם מדובר במגורים: שכירות קצרת-טווח משמעה שכנים מתחלפים תדיר.</li></ul></div>
+      <div class="con"><h5>Good to know</h5><ul><li>המתחם פועל גם במודל של השכרות קצרות-טווח, כך שהשכנים עשויים להתחלף מעת לעת.</li><li>הבנייה בשטח הסמוך צפויה להסתיים בעוד כ-10 חודשים.</li><li>נמכר ללא ריהוט, מה שמאפשר התאמה אישית של העיצוב והתקציב.</li></ul></div>
     </div>
+    <div class="bestfor reveal"><div class="bf-eye">Best for</div><ul><li>מחפשי תשואת השכרה</li><li>משפחות</li><li>מגורים + השקעה (היברידי)</li></ul></div>
     <div class="bl reveal">
       <div class="lbl">The bottom line · Liran Miller</div>
-      <p>האיזון הכי טוב מהארבעה — פרטיות, הליכה לים, כניסה מיידית, והמנוע התשואתי הכי יציב. נכס שעובד מהיום הראשון.</p>
+      <p>אחת האפשרויות החזקות למי שמחפש נכס שגם נעים לגור בו וגם יודע לעבוד כהשקעה. שתי וילות מוכנות לבחירה — פרטיות גבוהה, ביקוש יציב להשכרה ומיקום אסטרטגי שמושך גם תושבים וגם תיירים בזכות הקרבה לטונגסלה ולפיר.</p>
       <div class="guarantee">
         <div class="gline primary"><span class="gtag">התחייבות יזם</span><p>היזם מוכן לשכור מכם את הנכס לשנה הראשונה תמורת <span class="ltr">90,000 ฿</span> לחודש ולתפעל אותו בעצמו — תשואה מובטחת מהיום הראשון. <span class="ltr">90,000 × 12 = 1.08M ฿</span> (<span class="ltr">~$33K</span>): כמו הנחה על הנכס שמשולמת לכם לאורך השנה הראשונה, והוילה נמסרת לידיכם בעוד שנה.</p></div>
         <div class="gline"><span class="gtag">נתון שוק</span><p>להמחשה: שכן בפרויקט כבר סגר השכרה ארוכת-טווח בפועל ב-<span class="ltr">100,000 ฿</span> לחודש.</p></div>
@@ -410,6 +482,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
 
 <!-- ===== 03 RED SUNSET ===== -->
 <section class="chapter" id="red-sunset">
+  <div class="chapter-mark"><div class="pm-eye">Project 3</div><div class="pm-name">Red Sunset</div></div>
   <div class="cover">
     <div class="cover-bg" data-cover="red-sunset"></div>
     <div class="c">
@@ -429,16 +502,16 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <span><b>Turn-key</b><i>מסירה מרוהטת מלאה</i></span>
     </div>
     <div class="actions reveal" data-actions="red-sunset"></div>
-    <div class="feat reveal">
-      <div class="mhead"><span class="m-eye">Location</span><span class="m-tt">מרחק הליכה מהכל</span></div>
-      <ul class="featgrid">
-        <li>Zen Beach בהליכה</li>
-        <li>כפר סריטאנו — יוגה, קפה, וולנס</li>
-        <li>חוף הין קונג בפתח הדלת</li>
-        <li>מסעדות ובתי קפה בקרבת מקום</li>
-        <li>מכוני כושר במרחק הליכה</li>
-        <li>טונגסלה ~10 דק׳</li>
-        <li>מפל Wang Sai 5 דק׳</li>
+    <div class="locbanner reveal">
+      <div class="lb-eye">Location</div>
+      <div class="lb-tt">על קו החוף</div>
+      <ul>
+        <li>מרחק הליכה מ-Zen Beach</li>
+        <li>כפר סריטאנו — בתי קפה ווולנס</li>
+        <li>גישה ישירה לחוף הין קונג</li>
+        <li>מסעדות ומכוני כושר בקרבת מקום</li>
+        <li>10 דק׳ מטונגסלה</li>
+        <li>5 דק׳ ממפל Wang Sai</li>
       </ul>
     </div>
     <div class="media" data-media="red-sunset"></div>
@@ -518,7 +591,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
     </div>
 
     <div class="own reveal">
-      <div class="mhead"><span class="m-eye">Ownership & payment</span><span class="m-tt">בעלות ותשלום — צמוד אבני-דרך</span></div>
+      <div class="mhead"><span class="m-eye">Deal Structure</span><span class="m-tt">מבנה העסקה — חכירה מגובה-יזם</span></div>
       <div class="milestones">
         <div><b dir="ltr">30%</b><i>חתימה</i></div>
         <div><b dir="ltr">20%</b><i>יסודות</i></div>
@@ -526,20 +599,22 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
         <div><b dir="ltr">20%</b><i>מסירה · דצמ׳ 2027</i></div>
       </div>
       <div class="routes one">
-        <div><h6>מבנה הבעלות</h6><p>ליס גמיש תחת החברה המחזיקה בקרקע, עם בטוחות מלאות. חידוש בכפוף לחוק התאילנדי — לא מובטח.</p></div>
+        <div><h6>חכירה ישירה מהיזם</h6><p>חכירה ארוכת-טווח ישירות מהיזם, תחת החברה המחזיקה בקרקע ועם בטוחות משפטיות נוספות. לוח תשלומים צמוד-בנייה (ראו אבני-הדרך למעלה). חידוש בכפוף לחוק התאילנדי — לא מובטח.</p></div>
       </div>
     </div>
 
     <div class="pc reveal">
       <div class="pro"><h5>יתרונות</h5><ul><li>חוף פרטי משותף לשלוש הווילות</li><li>נוף לים מכל וילה</li><li>רישיון מלון — השכרה קצרה חוקית</li><li>ניהול ייעודי + סעיף עמידה ביעדים</li><li>Chanote — הטייטל הגבוה בתאילנד</li></ul></div>
-      <div class="con"><h5>Good to know</h5><ul><li>רכישה בפריסייל — מסירה דצמבר 2027, ההכנסה מתחילה רק לאחר המסירה.</li><li>קו החוף משתנה לאורך השנה בהתאם למחזורי הגאות והשפל, ובתקופות מסוימות הגישה לשחייה ישירה מהים מוגבלת יותר. הבריכה הפרטית מכסה את השחייה היומיומית.</li><li>המגרש צר וארוך, ולכן הדרך הפנימית לווילות ברוחב 2.5 מ׳ בלבד.</li></ul></div>
+      <div class="con"><h5>Good to know</h5><ul><li>מסירה צפויה בדצמבר 2027 — ההכנסות מתחילות לאחר המסירה.</li><li>קו החוף מושפע ממחזורי הגאות והשפל.</li><li>הגישה לווילות דרך שביל פנימי ברוחב כ-2.5 מטר.</li></ul></div>
     </div>
-    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>שלוש וילות, חוף פרטי אחד, ופריסייל שנכנסים אליו במחיר של היום. נכס מובנה — טייטל, רישיון מלון וניהול כבר במקום. המחיר היחיד: ההמתנה לדצמבר 2027.</p></div>
+    <div class="bestfor reveal"><div class="bf-eye">Best for</div><ul><li>משקיעים לטווח ארוך</li><li>עליית ערך הון</li><li>קוני נכסי חוף</li></ul></div>
+    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>שלוש וילות על קו החוף, בריכות פרטיות ונוף פתוח לים. המחיר משקף את שלב הפריסייל של היום — והסבלנות עד המסירה ב-2027 היא כנראה התמורה הגדולה ביותר שהפרויקט מציע.</p></div>
   </div>
 </section>
 
 <!-- ===== 04 KOH MA ===== -->
 <section class="chapter" id="koma">
+  <div class="chapter-mark"><div class="pm-eye">Project 4</div><div class="pm-name">Koh Ma</div></div>
   <div class="cover">
     <div class="cover-bg" data-cover="koma"></div>
     <div class="c">
@@ -568,10 +643,20 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <div class="ln"><span>הוכחת ביצוע</span><b>ריזורט קיים באי — Haad Salad</b></div>
       <div class="disc">אזור ירוק = בנייה מוגבלת (עד 150 מ״ר, גובה עד 6 מ׳, כיסוי עד 50%) — נמוך-צפיפות ושקט. הווידאו מציג את הריזורט הקיים של היזם בהאאד סאלאד (הוכחת יכולת), לא את מגרש קו-מה. מחיר ומפרט סופי מתגבשים.</div>
     </div>
+    <div class="dealstruct reveal">
+      <div class="mhead"><span class="m-eye">Deal Structure</span><span class="m-tt">מבנה העסקה</span></div>
+      <div class="ds-sub">שתי דרכי כניסה</div>
+      <div class="ds-grid">
+        <div class="ds-card"><h6>חכירה ל-<span class="ltr">30</span> שנה</h6><p>מבנה חכירה ארוך-טווח.</p></div>
+        <div class="ds-card"><h6>השתתפות הונית</h6><p>השתתפות במניות החברה (Equity Participation via Company Shares).</p></div>
+      </div>
+      <p class="ynote">המבנה הסופי נקבע לפי העדפת המשקיע.</p>
+    </div>
     <div class="pc reveal">
       <div class="pro"><h5>יתרונות</h5><ul><li>קו ראשון על חוף ירוק ושקט — נדיר</li><li>ינוהל כביץ׳ קלאב + הסעדה ברמה גבוהה</li><li>יזם עם ניסיון בניהול ריזורטים ברחבי העולם</li><li>אופציית אקזיט — מכירה ליזם מלונאי גדול</li></ul></div>
       <div class="con"><h5>Good to know</h5><ul><li>פריסייל — 18–24 חודש, השלב הכי מוקדם</li><li>מפרט ומחיר סופי מתגבשים</li></ul></div>
     </div>
+    <div class="bestfor reveal"><div class="bf-eye">Best for</div><ul><li>כניסה מוקדמת (Early access)</li><li>קוני קו-ראשון לים</li><li>אורח חיים של ביץ׳ קלאב</li></ul></div>
     <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>אם רוצים להיכנס ראשונים, קו ראשון לים, לפני שהשוק מגלה — זו הזדמנות הגישה-המוקדמת. הפוטנציאל הכי גבוה, השלב הכי מוקדם.</p></div>
   </div>
 </section>
