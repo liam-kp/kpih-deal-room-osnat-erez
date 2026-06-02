@@ -104,106 +104,99 @@
     });
   });
 
-  /* ---------- lightbox: scroll-snap / momentum film-strip ---------- */
+  /* ---------- lightbox: Embla carousel (infinite loop + momentum) ---------- */
   var lb = document.getElementById("lb");
-  var stage = document.getElementById("lbStage");
+  var stage = document.getElementById("lbStage");   // serves as the Embla viewport
   var cap = document.getElementById("lbCap");
-  var cur = { key: null, i: 0, n: 0 };
-  var rafPending = false;
+  var reduceMotionLB = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var embla = null;
+  var lbList = [];
 
-  // pause every video in the strip except the active slide
-  function pauseInactive(activeIdx) {
-    var slides = stage.children;
-    for (var k = 0; k < slides.length; k++) {
-      var v = slides[k].querySelector("video");
-      if (v && k !== activeIdx && !v.paused) v.pause();
-    }
-  }
-
-  function setCaption(i) {
-    var list = galleries[cur.key] || [];
-    var it = list[i]; if (!it) return;
-    cur.i = i;
+  function lbCaption() {
+    if (!embla) return;
+    var i = embla.selectedScrollSnap();
+    var it = lbList[i]; if (!it) return;
     var label = it.desc || it.alt || "";
-    cap.textContent = label ? (label + "  ·  " + (i + 1) + "/" + cur.n) : ((i + 1) + "/" + cur.n);
+    cap.textContent = label ? (label + "  ·  " + (i + 1) + "/" + lbList.length) : ((i + 1) + "/" + lbList.length);
   }
 
-  // build the horizontal strip once per open; lazy media so only nearby slides load
-  function buildStrip(key) {
-    var list = galleries[key] || [];
-    stage.innerHTML = "";
-    cur.n = list.length;
-    list.forEach(function (it) {
+  // lazy: load only active + adjacent slides; pause any non-active video
+  function lbLoadInView() {
+    if (!embla) return;
+    var sel = embla.selectedScrollSnap();
+    var n = lbList.length;
+    var want = [(sel - 1 + n) % n, sel, (sel + 1) % n];
+    var slides = embla.slideNodes();
+    want.forEach(function (idx) {
+      var media = slides[idx] && slides[idx].querySelector("[data-src]");
+      if (media && !media.getAttribute("src")) media.setAttribute("src", media.getAttribute("data-src"));
+    });
+    slides.forEach(function (s, idx) {
+      var v = s.querySelector("video");
+      if (v && idx !== sel && !v.paused) v.pause();
+    });
+  }
+
+  function buildSlides(key) {
+    lbList = galleries[key] || [];
+    var container = document.createElement("div");
+    container.className = "embla__container";
+    lbList.forEach(function (it) {
       var slide = document.createElement("div");
-      slide.className = "lb-slide";
+      slide.className = "lb-slide embla__slide";
       var node;
       if (it.type === "video") {
         node = document.createElement("video");
         node.controls = true; node.playsInline = true; node.preload = "none";
         if (it.poster) node.poster = it.poster;
-        node.src = it.src;
+        node.setAttribute("data-src", it.src);
       } else {
         node = document.createElement("img");
-        node.src = it.src; node.alt = it.alt || ""; node.draggable = false;
+        node.alt = it.alt || ""; node.draggable = false; node.setAttribute("data-src", it.src);
       }
       slide.appendChild(node);
-      stage.appendChild(slide);
+      container.appendChild(slide);
     });
+    stage.innerHTML = "";
+    stage.appendChild(container);
   }
-
-  function scrollToSlide(i, smooth) {
-    var slide = stage.children[i];
-    if (!slide) return;
-    stage.scrollTo({ left: slide.offsetLeft, behavior: smooth ? "smooth" : "auto" });
-  }
-
-  // derive the active slide from scroll position (nearest to viewport centre)
-  function syncActive() {
-    rafPending = false;
-    var center = stage.scrollLeft + stage.clientWidth / 2;
-    var best = 0, bestD = Infinity;
-    for (var k = 0; k < stage.children.length; k++) {
-      var s = stage.children[k];
-      var c = s.offsetLeft + s.offsetWidth / 2;
-      var d = Math.abs(c - center);
-      if (d < bestD) { bestD = d; best = k; }
-    }
-    if (best !== cur.i) { setCaption(best); pauseInactive(best); }
-  }
-  stage.addEventListener("scroll", function () {
-    if (!rafPending) { rafPending = true; requestAnimationFrame(syncActive); }
-  }, { passive: true });
 
   function openLB(key, i) {
-    cur.key = key;
-    buildStrip(key);
+    if (typeof EmblaCarousel === "undefined") return;
+    buildSlides(key);
     lb.classList.add("open");
     document.body.style.overflow = "hidden";
-    setCaption(i);
-    // jump to the tapped slide after layout settles
-    requestAnimationFrame(function () { scrollToSlide(i, false); });
+    embla = EmblaCarousel(stage, {
+      loop: true,            // seamless first<->last both ways
+      startIndex: i,         // open ON the tapped slide — no long scroll to reach it
+      direction: "ltr",      // keep index math LTR inside the RTL page
+      align: "center",
+      duration: reduceMotionLB ? 0 : 26,  // unhurried, premium glide
+      dragFree: false
+    });
+    embla.on("select", function () { lbCaption(); lbLoadInView(); });
+    lbCaption();
+    lbLoadInView();
   }
   function closeLB() {
+    if (embla) { embla.destroy(); embla = null; }
     lb.classList.remove("open");
     document.body.style.overflow = "";
     stage.innerHTML = "";
-    cur.key = null;
-  }
-  function step(d) {
-    if (!cur.n) return;
-    var next = Math.min(cur.n - 1, Math.max(0, cur.i + d));
-    scrollToSlide(next, true);
+    lbList = [];
   }
 
   document.getElementById("lbX").addEventListener("click", closeLB);
-  document.getElementById("lbPrev").addEventListener("click", function (e) { e.stopPropagation(); step(-1); });
-  document.getElementById("lbNext").addEventListener("click", function (e) { e.stopPropagation(); step(1); });
-  lb.addEventListener("click", function (e) { if (e.target === lb) closeLB(); });
+  document.getElementById("lbPrev").addEventListener("click", function (e) { e.stopPropagation(); if (embla) embla.scrollPrev(); });
+  document.getElementById("lbNext").addEventListener("click", function (e) { e.stopPropagation(); if (embla) embla.scrollNext(); });
+  lb.addEventListener("click", function (e) {
+    if (e.target === lb || e.target === stage || (e.target.classList && e.target.classList.contains("lb-slide"))) closeLB();
+  });
   document.addEventListener("keydown", function (e) {
     if (!lb.classList.contains("open")) return;
     if (e.key === "Escape") closeLB();
-    if (e.key === "ArrowLeft") step(-1);  // strip is LTR: left = previous
-    if (e.key === "ArrowRight") step(1);  // right = next
+    if (e.key === "ArrowLeft" && embla) embla.scrollPrev();
+    if (e.key === "ArrowRight" && embla) embla.scrollNext();
   });
 
   /* ---------- red-sunset villa selector (segmented tabs) ---------- */

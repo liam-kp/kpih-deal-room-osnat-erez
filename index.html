@@ -258,10 +258,9 @@ nav.solid .menu a.active{color:var(--teal)}
 /* lightbox — scroll-snap / momentum film-strip */
 .lb{position:fixed;inset:0;z-index:120;background:rgba(8,14,13,.97);display:none;opacity:0;transition:opacity .34s var(--ease);direction:ltr}
 .lb.open{display:block;opacity:1}
-.lb .stage{position:absolute;inset:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;overscroll-behavior:contain}
-.lb .stage::-webkit-scrollbar{display:none}
-.lb .stage{scrollbar-width:none}
-.lb-slide{flex:0 0 100%;width:100vw;height:100svh;display:flex;align-items:center;justify-content:center;scroll-snap-align:center;scroll-snap-stop:always;padding:max(16px,env(safe-area-inset-top)) 6vw calc(58px + env(safe-area-inset-bottom))}
+.lb .stage{position:absolute;inset:0;overflow:hidden}
+.lb .embla__container{display:flex;height:100%;will-change:transform;backface-visibility:hidden}
+.lb-slide{position:relative;flex:0 0 100%;min-width:0;width:100vw;height:100svh;display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top)) 6vw calc(58px + env(safe-area-inset-bottom))}
 .lb img,.lb video{max-width:88vw;max-height:82svh;width:auto;height:auto;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.5);animation:pop .4s var(--ease)}
 @keyframes pop{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
 .lb .x{position:absolute;top:max(16px,env(safe-area-inset-top));inset-inline-end:18px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:4;backdrop-filter:blur(6px);transition:.2s var(--ease)}
@@ -647,6 +646,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
   <div class="cap" id="lbCap"></div>
 </div>
 
+<script src="assets/js/embla-carousel.umd.js"></script>
 <script src="assets/data/media.js"></script>
 <script src="assets/js/app.js"></script>
 </body>
