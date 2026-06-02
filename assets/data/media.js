@@ -82,6 +82,26 @@ window.MEDIA = {
       location: { url: "https://maps.google.com/?q=9.722080,99.981956", label: "מיקום במפה" }
     },
     {
+      slug: "villa-anne",
+      cover: { type: "image", src: "images/villa-anne/cover.jpg", alt: "Villa Anne — וילה מודרנית עם בריכה פרטית ונוף ים ישיר" },
+      photos: [
+        { type: "image", src: "images/villa-anne/01.jpg", tag: "pool",     alt: "בריכת אינפיניטי מול אופק הים — טרסה עם תקרת במבוק" },
+        { type: "image", src: "images/villa-anne/02.jpg", tag: "interior", alt: "סלון בוהו־שיק עם דלתות זכוכית לבריכה ולנוף הים" },
+        { type: "image", src: "images/villa-anne/03.jpg", tag: "interior", alt: "חדר שינה מאסטר עם יציאה ישירה לבריכה ונוף ים" },
+        { type: "image", src: "images/villa-anne/04.jpg", tag: "interior", alt: "פינת אוכל עגולה עם נוף ים פתוח ומנורת רוטנג" },
+        { type: "image", src: "images/villa-anne/05.jpg", tag: "interior", alt: "סלון פתוח עם מטבח מעץ טיק ברקע" },
+        { type: "image", src: "images/villa-anne/06.jpg", tag: "interior", alt: "מטבח פתוח — ארונות עץ טיק ואי מרכזי" },
+        { type: "image", src: "images/villa-anne/07.jpg", tag: "interior", alt: "פינת ישיבה בסלון עם ספה מינימליסטית ואמנות קיר" },
+        { type: "image", src: "images/villa-anne/08.jpg", tag: "interior", alt: "חדר רחצה עם מראה עגולה מוארת וצמחייה טרופית" },
+        { type: "image", src: "images/villa-anne/09.jpg", tag: "pool",     alt: "נוף בריכה נוסף — פרספקטיבה רחבה של הבריכה והים" },
+        { type: "image", src: "images/villa-anne/10.jpg", tag: "interior", alt: "חדר שינה שלישי — עיצוב מקרמה, אווירה רכה ומוארת" }
+      ],
+      videos: [],
+      floorplan: [],
+      location: { url: "https://maps.app.goo.gl/tDj7XxZpes5qUxdXA", label: "מיקום במפה" },
+      ref: { url: "https://www.airbnb.com/l/7zo6XMkh", label: "Airbnb · Superhost 5⭐" }
+    },
+    {
       slug: "red-sunset",
       cover: { type: "image", src: "images/red-sunset/cover.jpg", alt: "Red Sunset — הדמיית חזית הוילה" },
       photos: [
