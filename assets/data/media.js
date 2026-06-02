@@ -27,7 +27,8 @@ window.MEDIA = {
     {
       slug: "srithanu",
       cover: { type: "image", src: "images/srithanu/cover.jpg", alt: "וילת Srithanu — חזית גמורה" },
-      galleryNote: 'כולל תמונות מווילה מקבילה זהה במתחם ("מראה"), שכבר מאוכלסת ומרוהטת.',
+      galleryNote: 'כולל תמונות מווילה מקבילה זהה במתחם, שכבר מאוכלסת ומרוהטת.*',
+      galleryNoteFootnote: '* חבילת הריהוט בווילה השכנה שונה ונבחרה טיילור-מייד.',
       photos: [
         { type: "image", src: "images/srithanu/01.jpg", tag: "exterior", alt: "וילות גמורות בשכונה השקטה" },
         { type: "image", src: "images/srithanu/02.jpg", tag: "exterior", alt: "שביל גישה ונוף לדקלים" },
@@ -49,7 +50,8 @@ window.MEDIA = {
         { type: "image", src: "images/srithanu/fp1.jpg", alt: "תוכנית הוילה" },
         { type: "image", src: "images/srithanu/fp2.jpg", alt: "תוכנית המגרש — Plot 2 (יחידות 2.1 / 2.2)" }
       ],
-      location: { url: "https://maps.app.goo.gl/5wLhUyRYD1WfWPK87", label: "מיקום במפה" }
+      location: { url: "https://maps.app.goo.gl/5wLhUyRYD1WfWPK87", label: "מיקום במפה" },
+      instagram: { url: "https://www.instagram.com/zenbeachkohphangan/", place: "Zen Beach" }
     },
     {
       slug: "nai-wok",
@@ -79,7 +81,8 @@ window.MEDIA = {
         "2": [ { type: "image", src: "images/nai-wok/fp-v2.jpg", alt: "תוכנית וילה 2" } ],
         "3": [ { type: "image", src: "images/nai-wok/fp-v3.jpg", alt: "תוכנית וילה 3" } ]
       },
-      location: { url: "https://maps.google.com/?q=9.722080,99.981956", label: "מיקום במפה" }
+      location: { url: "https://maps.google.com/?q=9.722080,99.981956", label: "מיקום במפה" },
+      instagram: { url: "https://www.instagram.com/bluerama_official/", place: "Blue Rama" }
     },
     {
       slug: "villa-anne",
@@ -99,6 +102,7 @@ window.MEDIA = {
       videos: [],
       floorplan: [],
       location: { url: "https://maps.app.goo.gl/tDj7XxZpes5qUxdXA", label: "מיקום במפה" },
+      instagram: { url: "https://www.instagram.com/tomorrowxhighlifevillas/", place: "Tomorrow X" },
       ref: { url: "https://www.airbnb.com/l/7zo6XMkh", label: "Airbnb · Superhost 5⭐" }
     },
     {
@@ -130,6 +134,7 @@ window.MEDIA = {
                { type: "image", src: "images/red-sunset/fp4.jpg", alt: "תוכנית Villa 3 — קומה עליונה" } ]
       },
       location: { url: "https://maps.app.goo.gl/wukt9KP7e4JA348t8", label: "מיקום במפה" },
+      instagram: { url: "https://www.instagram.com/concierge_kohphangan/", place: "Concierge Koh Phangan" },
       brochure: { url: "images/red-sunset/brochure.pdf", label: "ברושור (PDF)" }
     },
     {
@@ -151,6 +156,7 @@ window.MEDIA = {
         { type: "image", src: "images/koma/07.jpg", alt: "תוכנית וילה — טיפוס A" }
       ],
       location: { url: "https://maps.app.goo.gl/qCApzgbSm42qAMQm7?g_st=iw", label: "מיקום במפה" },
+      instagram: { url: "https://www.instagram.com/praya_venera/", place: "Praya Venera" },
       ref: { url: "https://www.airbnb.com/rooms/1475878179553704138", label: "הריזורט שהיזם בנה באי — Haad Salad" }
     }
   ]

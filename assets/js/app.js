@@ -76,6 +76,12 @@
         note.className = "mnote";
         note.textContent = p.galleryNote;
         sec.appendChild(note);
+        if (p.galleryNoteFootnote) {
+          var foot = document.createElement("div");
+          foot.className = "mnote-foot";
+          foot.textContent = p.galleryNoteFootnote;
+          sec.appendChild(foot);
+        }
       }
       var grid = document.createElement("div");
       grid.className = "mgrid" + (g.kind === "plans" ? " plans" : "");
@@ -108,6 +114,24 @@
       a.innerHTML = svgIcon(b.icon) + "<span>" + b.label + "</span>";
       host.appendChild(a);
     });
+  });
+
+  // "Feel the Area" Instagram card — one per project, just below its location
+  (M.projects || []).forEach(function (p) {
+    if (!p.instagram) return;
+    var chap = document.getElementById(p.slug);
+    if (!chap) return;
+    var anchor = chap.querySelector(".locbanner") || chap.querySelector("[data-actions]");
+    if (!anchor) return;
+    var card = document.createElement("div");
+    card.className = "feelarea reveal";
+    card.innerHTML = '<div class="fa-meta"><span class="fa-eye">Feel the Area</span><span class="fa-tt">להרגיש את האזור</span></div>';
+    var a = document.createElement("a");
+    a.className = "act-ig";
+    a.href = p.instagram.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+    a.textContent = "📸 " + p.instagram.place + " →";
+    card.appendChild(a);
+    anchor.parentNode.insertBefore(card, anchor.nextSibling);
   });
 
   // per-villa floor plans (Red Sunset) → their own scoped lightbox groups
