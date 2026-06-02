@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Koh Phangan · Osnat & Erez</title>
-<meta name="description" content="ארבע אפשרויות נדל״ן בקופנגן — נבחרו במיוחד עבור אסנת וארז.">
+<meta name="description" content="חמש אפשרויות נדל״ן בקופנגן — נבחרו במיוחד עבור אסנת וארז.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
 <meta name="theme-color" content="#0A3F3A">
 <!-- Open Graph / Twitter (WhatsApp link preview) -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Koh Phangan Investment Hub">
-<meta property="og:title" content="Koh Phangan · ארבע אפשרויות עבור אסנת וארז">
+<meta property="og:title" content="Koh Phangan · חמש אפשרויות עבור אסנת וארז">
 <meta property="og:description" content="שתי וילות מוכנות ושני פרויקטי חוף ראשונים-לים — נבחרו במיוחד עבורכם.">
 <meta property="og:image" content="https://kpih-deal-room-osnat-erez.netlify.app/images/hero/hero.jpg">
 <meta property="og:url" content="https://kpih-deal-room-osnat-erez.netlify.app/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Koh Phangan · ארבע אפשרויות עבור אסנת וארז">
+<meta name="twitter:title" content="Koh Phangan · חמש אפשרויות עבור אסנת וארז">
 <meta name="twitter:description" content="שתי וילות מוכנות ושני פרויקטי חוף ראשונים-לים — נבחרו במיוחד עבורכם.">
 <meta name="twitter:image" content="https://kpih-deal-room-osnat-erez.netlify.app/images/hero/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -286,6 +286,7 @@ nav.solid .menu a.active{color:var(--teal)}
 /* compare */
 .compare{background:var(--dark);color:#fff;padding:66px 26px 72px}
 .compare .in{max-width:var(--maxw);margin:0 auto}
+.compare .cmp-eye{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:8px}
 .compare h2{font-family:var(--serif);font-size:36px;font-weight:700;text-align:center}
 .compare .sub{text-align:center;color:rgba(255,255,255,.6);font-size:14.5px;margin:8px 0 22px}
 .crow{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12)}
@@ -308,6 +309,19 @@ nav.solid .menu a.active{color:var(--teal)}
 .closing .eye-closing{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .closing h2{font-family:var(--serif);font-size:38px;font-weight:700;margin-bottom:14px}
 .closing p{color:rgba(255,255,255,.88);font-size:16px;max-width:36ch;margin-inline:auto}
+
+/* personal recommendation block */
+.recblock{background:var(--sand);padding:58px 26px}
+.recblock .in{max-width:var(--maxw);margin:0 auto;background:var(--paper);border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:0 18px 18px 0;padding:34px 30px;box-shadow:0 16px 44px rgba(16,26,24,.07)}
+.recblock .rb-eye{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--sun);margin-bottom:11px}
+.recblock h3{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--ink);line-height:1.08}
+.recblock .rb-sig{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--teal);margin-top:6px}
+.recblock p{font-family:var(--serif);font-size:18px;line-height:1.62;font-weight:500;color:#3f3a2d;margin-top:16px}
+.recblock h4{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);margin-top:28px;margin-bottom:-4px}
+.recblock .rb-final{margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
+.recblock .rb-final h4{color:var(--teal);margin-top:0}
+.recblock .rb-final p{font-weight:600;color:var(--ink)}
+.recblock .ltr{direction:ltr;unicode-bidi:isolate}
 
 /* sticky whatsapp */
 .wa{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom));inset-inline:0;margin:0 auto;width:max-content;max-width:90vw;z-index:95;background:rgba(31,168,85,.96);color:#fff;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;padding:12px 22px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.22);transition:.25s var(--ease)}
@@ -348,8 +362,8 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
   <div class="hero-bg" data-hero></div>
   <div class="inner">
     <div class="eye">Private Selection · Koh Phangan</div>
-    <h1><span class="nm-en">Osnat &amp; Erez</span><span class="hl-he">ארבע אפשרויות שנבחרו עבורכם</span></h1>
-    <p>שתי וילות מוכנות להיכנס אליהן כבר החודש, ושני פרויקטי חוף ראשונים-לים — שקטים, פרטיים, ובדיוק מה שחיפשתם.</p>
+    <h1><span class="nm-en">Osnat &amp; Erez</span><span class="hl-he">חמש אפשרויות שנבחרו עבורכם</span></h1>
+    <p>שלוש וילות מוכנות להיכנס אליהן, ושני פרויקטי חוף ראשונים-לים — שקטים, פרטיים, ובדיוק מה שחיפשתם.</p>
     <div class="cue"><span>↓</span> גללו</div>
   </div>
 </header>
@@ -358,7 +372,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
 <section class="intro reveal">
   <div class="in">
     <div class="eye-intro">Koh Phangan · Since 2022</div>
-    <p>בחרתי את הארבעה האלה כי כל אחד עונה על משהו אחר ממה שדיברנו. אין פה קטלוג — יש פה את מה שהייתי שולח לחבר טוב.</p>
+    <p>בחרתי את החמישה האלה כי כל אחד עונה על משהו אחר ממה שדיברנו. אין פה קטלוג — יש פה את מה שהייתי שולח לחבר טוב.</p>
     <div class="sig">— Liran Miller</div>
   </div>
 </section>
@@ -769,7 +783,8 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
 <!-- COMPARE -->
 <section class="compare">
   <div class="in">
-    <h2 class="en">At a glance</h2>
+    <div class="cmp-eye">The opportunity map</div>
+    <h2>מפת ההזדמנויות</h2>
     <div class="sub">מהמוכן והנגיש → אל החלום הראשון-לים</div>
 
     <div class="crow">
@@ -834,6 +849,24 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
         <li>מתחם הסעדה ברמה גבוהה</li>
         <li>אופציית אקזיט — מכירה ליזם מלונאי גדול</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL RECOMMENDATION -->
+<section class="recblock">
+  <div class="in">
+    <div class="rb-eye">A personal note</div>
+    <h3>ההמלצה האישית שלי</h3>
+    <div class="rb-sig">— לירן מילר</div>
+    <p>אם הייתי מסתכל על חמש האפשרויות דרך העיניים של משקיע, הייתי מחלק אותן לשתי קבוצות: נכסים שמתחילים לעבוד מיד, ונכסים שמכוונים בעיקר לעליית ערך לאורך זמן.</p>
+    <h4>הכנסה מיידית ורמת ודאות גבוהה</h4>
+    <p>הייתי מתחיל עם סריטאנו ו־ניי ווק. סריטאנו מתאימה יותר לאסטרטגיה של השכרה ארוכת טווח — נכס קיים באזור עם ביקוש מוכח למגורים, שמאפשר ליהנות מהכנסה יציבה ופשוטה יחסית לניהול. ניי ווק מציעה שילוב מעניין של הכנסה מיידית ופוטנציאל צמיחה. היזם פועל לקידום רישוי מלונאי ומוכן לשכור את הנכס בשנה הראשונה ב־<span class="ltr">90,000</span> באט לחודש, מה שיוצר רשת ביטחון נדירה יחסית לשלב הכניסה.</p>
+    <h4>עליית ערך ופוטנציאל לטווח ארוך</h4>
+    <p>אם המטרה היא השבחת הון לאורך זמן, הייתי מסתכל על שני פרויקטי הפריסייל בצורה שונה. <span class="ltr">Red Sunset</span> מציע את אחד ממיקומי החוף הנדירים ביותר שנותרו באזור סריטאנו–הין קונג, עם שלוש וילות בלבד ופוטנציאל השבחה משמעותי לאורך זמן. <span class="ltr">Koh Ma</span> היא בעיניי אחת ההזדמנויות המעניינות ביותר ברשימה עבור משקיעים שמכירים את צפון האי ומאמינים בהתפתחות האזור. הפרויקט מוצע במחיר של כ־<span class="ltr">18</span> מיליון באט ליחידה (כ־<span class="ltr">550</span> אלף דולר), על ידי יזם בעל ניסיון מוכח ואסטרטגיית אקזיט ברורה. בנוסף, ניתן לרכוש יותר מיחידה אחת ולבנות חשיפה משמעותית יותר לפרויקט.</p>
+    <div class="rb-final">
+      <h4>השורה התחתונה</h4>
+      <p>אם הייתי יושב במקומכם היום, הייתי מתחיל מהשאלה האם המטרה היא הכנסה מיידית ויציבה, או מקסום פוטנציאל עליית הערך בשנים הקרובות. בעיניי, סריטאנו וניי ווק מובילות בצד של הוודאות והתפעול המיידי, בעוד <span class="ltr">Red Sunset</span> ו־<span class="ltr">Koh Ma</span> מעניינות יותר עבור מי שמכוון לאופק השקעה ארוך יותר.</p>
     </div>
   </div>
 </section>
