@@ -138,6 +138,10 @@ nav.solid .menu a.active{color:var(--teal)}
 .locbanner p{font-size:14px;line-height:1.65;color:#3f3a2d;margin-top:4px}
 .locbanner .lb-close{margin-top:13px;padding-top:13px;border-top:1px solid var(--line);color:var(--teal-d);font-weight:600}
 .locbanner .ltr{direction:ltr;unicode-bidi:isolate}
+.furnbanner{background:var(--sand);border:1px solid var(--line);border-inline-start:3px solid var(--gold);border-radius:0 14px 14px 0;padding:15px 18px;margin:0 0 28px}
+.furnbanner .fb-lead{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:5px}
+.furnbanner p{font-size:13.5px;line-height:1.55;color:#55503f;margin:0}
+.furnbanner .ltr{direction:ltr;unicode-bidi:isolate;font-weight:700}
 /* world price table */
 .gsub{font-size:14px;color:var(--muted);font-weight:600;margin:0 0 12px;text-align:center}
 .gtable{width:100%;border-collapse:collapse;font-size:15px}
@@ -440,7 +444,6 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <h2 class="en">Nai Wok</h2>
       <div class="loc">ווק טום · מתחם של 7 וילות · 4 דק׳ לרציף תונגסלה</div>
       <div class="price-flag"><span class="amt">฿12M–12.5M</span><span class="usd">($369K–$384K)</span></div>
-      <div class="price-note">לא כולל ריהוט · חבילת ריהוט מלאה מוערכת ב-0.5M ฿ (~$15K): מכשירי חשמל, ריהוט, עיצוב וסטיילינג.</div>
     </div>
   </div>
   <div class="body">
@@ -452,7 +455,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
         <button class="vtab" data-villa="3" role="tab" aria-selected="false">Villa 3</button>
       </div>
       <div class="vcard active" data-villa="2">
-        <div class="vtitle"><h4 class="en">Villa 2 · האמצעית</h4><span class="vtag">קומפקטית ומאוזנת</span></div>
+        <div class="vtitle"><h4 class="en"><span dir="ltr">Villa 2</span> · האמצעית עם נוף לג׳ונגל</h4><span class="vtag">קומפקטית ומאוזנת</span></div>
         <div class="vspecs">
           <div><b dir="ltr">475 מ"ר</b><i>מגרש</i></div>
           <div><b dir="ltr">140 מ"ר</b><i>בנוי ממוזג</i></div>
@@ -465,7 +468,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
         <div class="vplan" data-lbgroup="nw-v2"><span class="vplan-lbl">תוכנית וילה 2</span><img src="images/nai-wok/fp-v2.jpg" alt="תוכנית וילה 2" loading="lazy"></div>
       </div>
       <div class="vcard" data-villa="3">
-        <div class="vtitle"><h4 class="en">Villa 3 · מגרש גדול</h4><span class="vtag">השטח והדק הגדולים</span></div>
+        <div class="vtitle"><h4 class="en"><span dir="ltr">Villa 3</span> · מגרש גדול, נוף לג׳ונגל וגינה</h4><span class="vtag">השטח והדק הגדולים</span></div>
         <div class="vspecs">
           <div><b dir="ltr">491 מ"ר</b><i>מגרש</i></div>
           <div><b dir="ltr">140 מ"ר</b><i>בנוי ממוזג</i></div>
@@ -477,6 +480,10 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
         <div class="vprice"><span class="amt">฿12.5M</span><span class="usd">($384K)</span></div>
         <div class="vplan" data-lbgroup="nw-v3"><span class="vplan-lbl">תוכנית וילה 3</span><img src="images/nai-wok/fp-v3.jpg" alt="תוכנית וילה 3" loading="lazy"></div>
       </div>
+    </div>
+    <div class="furnbanner reveal">
+      <div class="fb-lead">הווילות נמסרות ללא ריהוט</div>
+      <p>חבילת הריהוט והסטיילינג עולה <span class="ltr">0.5M ฿</span> (<span class="ltr">~$15K</span>) וכוללת מכשירי חשמל, ריהוט, עיצוב וסטיילינג.</p>
     </div>
     <div class="actions reveal" data-actions="nai-wok"></div>
     <div class="locbanner reveal">
@@ -508,7 +515,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       </div>
     </div>
     <div class="pc reveal">
-      <div class="pro"><h5>יתרונות</h5><ul><li>הפרטיות הכי גבוהה + 2 דק׳ הליכה לים</li><li>מנוע השכרה מוכח לאורך כל השנה</li><li>ניתן לרכוש 2 יחידות (וילה 2 + וילה 3) — לגור באחת ולהשכיר את השנייה</li><li>היזם עובד על הוצאת רישוי מלונאי למתחם</li></ul></div>
+      <div class="pro"><h5>יתרונות</h5><ul><li>היזם עובד על הוצאת רישוי מלונאי למתחם</li><li>הפרטיות הכי גבוהה + 2 דק׳ הליכה לים</li><li>מנוע השכרה מוכח לאורך כל השנה</li><li>ניתן לרכוש 2 יחידות (וילה 2 + וילה 3) — לגור באחת ולהשכיר את השנייה</li></ul></div>
       <div class="con"><h5>Good to know</h5><ul><li>המתחם פועל גם במודל של השכרות קצרות-טווח, כך שהשכנים עשויים להתחלף מעת לעת.</li><li>הבנייה בשטח הסמוך צפויה להסתיים בעוד כ-10 חודשים.</li><li>נמכר ללא ריהוט, מה שמאפשר התאמה אישית של העיצוב והתקציב.</li></ul></div>
     </div>
     <div class="bestfor reveal"><div class="bf-eye">Best for</div><ul><li>מגורים + השקעה (היברידי)</li><li>שכירות קצרת-טווח — Airbnb ו-Booking</li><li>שגר ושכח — חברת ניהול מקומית מטעם היזם שגם גר במתחם</li></ul></div>
@@ -516,7 +523,7 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <div class="lbl">The bottom line · Liran Miller</div>
       <p>אחת האפשרויות החזקות למי שמחפש נכס שגם נעים לגור בו וגם יודע לעבוד כהשקעה. שתי וילות מוכנות לבחירה — פרטיות גבוהה, ביקוש יציב להשכרה ומיקום אסטרטגי שמושך גם תושבים וגם תיירים בזכות הקרבה לטונגסלה ולפיר.</p>
       <div class="guarantee">
-        <div class="gline primary"><span class="gtag">התחייבות יזם</span><p>היזם מוכן לשכור מכם את הנכס לשנה הראשונה תמורת <span class="ltr">90,000 ฿</span> לחודש ולתפעל אותו בעצמו — תשואה מובטחת מהיום הראשון. <span class="ltr">90,000 × 12 = 1.08M ฿</span> (<span class="ltr">~$33K</span>): כמו הנחה על הנכס שמשולמת לכם לאורך השנה הראשונה, והוילה נמסרת לידיכם בעוד שנה.</p></div>
+        <div class="gline primary"><span class="gtag">אופציה — התחייבות יזם לשכירות בשנה הראשונה</span><p>היזם מוכן לשכור מכם את הנכס לשנה הראשונה תמורת <span class="ltr">90,000 ฿</span> לחודש ולתפעל אותו בעצמו — תשואה מובטחת מהיום הראשון. <span class="ltr">90,000 × 12 = 1.08M ฿</span> (<span class="ltr">~$33K</span>): כמו הנחה על הנכס שמשולמת לכם לאורך השנה הראשונה, והוילה נמסרת לידיכם בעוד שנה.</p></div>
         <div class="gline"><span class="gtag">עסקה אמיתית מהמתחם</span><p>אחת הווילות במתחם כבר מושכרת בפועל ב-<span class="ltr">100,000 ฿</span> לחודש נטו בחוזה ארוך-טווח.</p></div>
       </div>
     </div>
@@ -547,9 +554,9 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
     <div class="actions reveal" data-actions="red-sunset"></div>
     <div class="locbanner reveal">
       <div class="lb-eye">Location</div>
-      <div class="lb-tt">ראשון לים!</div>
-      <p>על קו החוף במפרץ הין קונג, באחד האזורים המבוקשים ביותר בקופנגן. במרחק הליכה מצד אחד ל-Zen Beach ולכפר סריטאנו — מרכז הוולנס, היוגה ובתי הקפה של האי, ומצד שני לחוף הין קונג ולכמה מהמסעדות, הברים ומקומות הבילוי המובילים בקופנגן. סמוך לחדרי כושר, שירותים יומיומיים ואטרקציות טבע, במרחק <span class="ltr">10</span> דקות בלבד מטונגסלה ו-<span class="ltr">5</span> דקות ממפל Wang Sai.</p>
-      <p class="lb-close">אחת מהזדמנויות הפיתוח האחרונות שנותרו על קו החוף המערבי של קופנגן. שילוב נדיר של חוף ים, טבע, קהילה ואורח חיים איכותי — בלב החוף המערבי של האי.</p>
+      <div class="lb-tt">ראשון לים.</div>
+      <p>על קו החוף במפרץ הין קונג, במרחק הליכה מ-Zen Beach, מרכזי יוגה וולנס, מסעדות החוף המובילות, בתי קפה ומכוני כושר. אחד המיקומים הנוחים והמבוקשים ביותר בחוף המערבי של קופנגן.</p>
+      <p class="lb-close">אחת מרצועות החוף האחרונות שנותרו לפיתוח באזור.</p>
     </div>
     <div class="media" data-media="red-sunset"></div>
 
@@ -628,11 +635,11 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
           <tr class="hi"><td>Koh Phangan</td><td><span class="ltr">$1M+</span></td></tr>
         </tbody>
       </table>
-      <p class="ynote">וילת חוף פרטית בקופנגן — במחיר כניסה שנדיר למצוא כיום בנכסי Beachfront בעולם.</p>
+      <p class="ynote">וילת חוף פרטית בקופנגן — במחיר כניסה יוצא דופן ביחס לנכסי חוף מקבילים בעולם.</p>
     </div>
 
     <div class="own reveal">
-      <div class="mhead"><span class="m-eye">Deal Structure</span><span class="m-tt">מבנה העסקה — חכירה מגובה-יזם</span></div>
+      <div class="mhead"><span class="m-eye">Deal Structure</span><span class="m-tt">מבנה העסקה</span></div>
       <div class="milestones">
         <div><b dir="ltr">30%</b><i>חתימה</i></div>
         <div><b dir="ltr">20%</b><i>יסודות</i></div>
@@ -646,8 +653,8 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
     </div>
 
     <div class="pc reveal">
-      <div class="pro"><h5>יתרונות</h5><ul><li>חוף פרטי משותף לשלוש הווילות</li><li>נוף לים מכל וילה</li><li>רישיון מלון — השכרה קצרה חוקית</li><li>ניהול ייעודי + סעיף עמידה ביעדים</li><li>Chanote — הטייטל הגבוה בתאילנד</li></ul></div>
-      <div class="con"><h5>Good to know</h5><ul><li>מסירה צפויה בדצמבר 2027 — ההכנסות מתחילות לאחר המסירה.</li><li>קו החוף מושפע ממחזורי הגאות והשפל.</li><li>הגישה לווילות דרך שביל פנימי ברוחב כ-2.5 מטר.</li></ul></div>
+      <div class="pro"><h5>יתרונות</h5><ul><li>חוף פרטי משותף לשלוש הווילות</li><li>נוף לים מכל וילה</li><li>רישיון מלון — השכרה קצרה חוקית</li><li>צפי לעליית ערך עקב הקרבה לים באזור ביקוש סופר אטרקטיבי</li></ul></div>
+      <div class="con"><h5>Good to know</h5><ul><li>מסירה צפויה בדצמבר 2027 — ההכנסות מתחילות לאחר המסירה.</li><li>קו החוף מושפע ממחזורי הגאות והשפל.</li><li>התוכנית עדיין לא אושרה סופית — כרגע באישור אדריכל מקומי, טרם הגשת הפרמיט.</li></ul></div>
     </div>
     <div class="bestfor reveal"><div class="bf-eye">Best for</div><ul><li>Short-Term Rental</li><li>משקיעים לטווח ארוך</li><li>מחפשי עליית ערך משמעותית</li><li>רוכשי נכסי Beachfront נדירים</li></ul></div>
     <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>שלוש וילות יוקרה על קו החוף, בריכות פרטיות ונוף פתוח לים. הפרויקט ממוקם על אחת מרצועות החוף האחרונות שנותרו לפיתוח באזור סריטאנו–הין קונג, עם שלוש וילות בלבד, היצע מוגבל ופוטנציאל השבחה שקשה למצוא כיום באי.</p></div>
