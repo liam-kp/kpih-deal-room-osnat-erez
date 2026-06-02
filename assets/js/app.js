@@ -104,6 +104,23 @@
     });
   });
 
+  // per-villa floor plans (Red Sunset) → their own scoped lightbox groups
+  document.querySelectorAll("[data-lbgroup]").forEach(function (el) {
+    var key = el.getAttribute("data-lbgroup");
+    var imgs = [].slice.call(el.querySelectorAll("img"));
+    galleries[key] = imgs.map(function (im) {
+      return { type: "image", src: im.getAttribute("src") || im.getAttribute("data-src"), alt: im.alt || "" };
+    });
+    imgs.forEach(function (im, i) {
+      im.setAttribute("tabindex", "0");
+      im.setAttribute("role", "button");
+      im.addEventListener("click", function () { openLB(key, i); });
+      im.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLB(key, i); }
+      });
+    });
+  });
+
   /* ---------- lightbox: Embla carousel (infinite loop + momentum) ---------- */
   var lb = document.getElementById("lb");
   var stage = document.getElementById("lbStage");   // serves as the Embla viewport

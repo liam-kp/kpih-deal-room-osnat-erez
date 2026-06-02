@@ -195,6 +195,11 @@ nav.solid .menu a.active{color:var(--teal)}
 .vprice{display:inline-flex;flex-direction:column;gap:1px;background:linear-gradient(120deg,var(--teal),var(--teal-d));color:#fff;border-inline-start:3px solid var(--gold);padding:11px 24px;border-radius:0 12px 12px 0}
 .vprice .amt{font-family:var(--serif);font-size:24px;font-weight:800;direction:ltr;line-height:1.05}
 .vprice .usd{font-size:13px;color:var(--gold);direction:ltr;font-weight:600}
+.vplan{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+.vplan-lbl{display:block;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sun);margin-bottom:10px}
+.vplan img{width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:var(--sand);cursor:zoom-in;margin-bottom:8px}
+.vplan img:last-child{margin-bottom:0}
+.routes.one{grid-template-columns:1fr}
 
 /* red sunset — yield table */
 .ybox,.gcomp,.own{margin-bottom:30px}
@@ -209,7 +214,8 @@ nav.solid .menu a.active{color:var(--teal)}
 /* red sunset — global comparison */
 .gcols{display:flex;gap:8px}
 .gcols > div{flex:1;background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:15px 8px;text-align:center}
-.gcols b{display:block;font-family:var(--serif);font-size:18px;font-weight:800;direction:ltr;line-height:1.1}
+.gcols b{display:block;font-family:var(--serif);font-size:18px;font-weight:800;line-height:1.1;white-space:nowrap}
+.gcols b span[dir=ltr]{unicode-bidi:isolate}
 .gcols i{font-style:normal;display:block;font-size:11.5px;color:var(--muted);margin-top:5px;font-weight:600}
 .gcols > div:first-child{background:linear-gradient(150deg,var(--teal),var(--teal-d));border-color:transparent}
 .gcols > div:first-child b{color:#fff}.gcols > div:first-child i{color:var(--gold)}
@@ -410,20 +416,31 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
       <div class="num">03 — Presale · the jewel</div>
       <div class="tags"><span class="tag">קו ראשון · חוף פרטי</span><span class="tag">רישיון מלון</span><span class="tag">3 וילות בלבד</span></div>
       <h2 class="en">Red Sunset</h2>
-      <div class="loc">הין קונג · חוף השקיעה המערבי · הפרויקט שלנו, ישיר מהיזם</div>
+      <div class="loc">הין קונג · החוף המערבי · הפרויקט שלנו, ישיר מהיזם</div>
       <div class="price-flag"><span class="amt">฿26M–33M</span><span class="usd">($800K–$1.02M)</span></div>
     </div>
   </div>
   <div class="body">
-    <p class="lead reveal">לא ריזורט, לא מתחם — <b>שלוש וילות, חוף פרטי אחד</b>. בוטיק על קו המים בצד השקיעה של קופנגן, אדריכלות מודרנית שקטה בתוך הטבע.</p>
+    <p class="lead reveal">לא ריזורט, לא מתחם — <b>שלוש וילות, חוף פרטי אחד</b>. בוטיק על קו המים בצד המערבי של קופנגן, אדריכלות מודרנית שקטה בתוך הטבע.</p>
     <div class="facts reveal">
       <span><b>Chanote</b><i>הטייטל הגבוה בתאילנד</i></span>
-      <span><b>אפריל 2027</b><i>מסירה</i></span>
+      <span><b>דצמבר 2027</b><i>מסירה</i></span>
       <span><b>רישיון מלון</b><i>השכרה חוקית</i></span>
       <span><b>Turn-key</b><i>מסירה מרוהטת מלאה</i></span>
     </div>
     <div class="actions reveal" data-actions="red-sunset"></div>
-    <div class="locnote reveal">📍 הין קונג / סריטאנו — הצד המבוקש של האי, במרחק הליכה לכל מה שחשוב: Zen Beach (שקיעות, מופעי אש ובתי קפה על החוף), כפר סריטאנו (יוגה, וולנס וקפה), וחוף הין קונג השקט בפתח הדלת. מסעדות ובתי קפה בטווח סקוטר, ת׳ונג סאלא ~20 דק׳ (מעבורות לסמוי ולשדה התעופה), ומפל Wang Sai 5 דק׳.</div>
+    <div class="feat reveal">
+      <div class="mhead"><span class="m-eye">Location</span><span class="m-tt">מרחק הליכה מהכל</span></div>
+      <ul class="featgrid">
+        <li>Zen Beach בהליכה</li>
+        <li>כפר סריטאנו — יוגה, קפה, וולנס</li>
+        <li>חוף הין קונג בפתח הדלת</li>
+        <li>מסעדות ובתי קפה בקרבת מקום</li>
+        <li>מכוני כושר במרחק הליכה</li>
+        <li>טונגסלה ~10 דק׳</li>
+        <li>מפל Wang Sai 5 דק׳</li>
+      </ul>
+    </div>
     <div class="media" data-media="red-sunset"></div>
 
     <div class="villas reveal">
@@ -438,39 +455,42 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
         <p class="vdesc">קומה אחת. הסלון וחדרי המאסטר נפתחים ישירות אל מרפסת הבריכה מול הים — הבריכה הגדולה במתחם.</p>
         <div class="vspecs">
           <div><b dir="ltr">4</b><i>חדרי מאסטר</i></div>
-          <div><b>קומה אחת</b><i>תכנון</i></div>
+          <div><b dir="ltr">321 מ"ר</b><i>שטח כולל</i></div>
+          <div><b dir="ltr">150 מ"ר</b><i>שטח פנים</i></div>
           <div><b dir="ltr">12 מ׳</b><i>מהים</i></div>
-          <div><b><span dir="ltr">321</span> / <span dir="ltr">150</span></b><i>מ"ר כולל / פנים</i></div>
           <div><b dir="ltr">31 מ"ר</b><i>בריכה</i></div>
           <div><b dir="ltr">9.6–14.4%</b><i>ROI נטו</i></div>
         </div>
         <div class="vprice"><span class="amt">฿33M</span><span class="usd">($1.02M)</span></div>
+        <div class="vplan" data-lbgroup="rs-v1"><span class="vplan-lbl">תוכנית הוילה</span><img src="images/red-sunset/fp1.jpg" alt="תוכנית Villa 1" loading="lazy"></div>
       </div>
       <div class="vcard" data-villa="2">
         <div class="vtitle"><h4 class="en">Villa 2 · Elevated Sea View</h4><span class="vtag">הכניסה הנגישה</span></div>
         <p class="vdesc">קומה מוגבהת. שלושה חדרי מאסטר עם נוף ים פתוח ואוורור מצולב מחללי המגורים.</p>
         <div class="vspecs">
           <div><b dir="ltr">3</b><i>חדרי מאסטר</i></div>
-          <div><b>קומה מוגבהת</b><i>תכנון</i></div>
+          <div><b dir="ltr">212 מ"ר</b><i>שטח כולל</i></div>
+          <div><b dir="ltr">140 מ"ר</b><i>שטח פנים</i></div>
           <div><b dir="ltr">50 מ׳</b><i>מהים</i></div>
-          <div><b><span dir="ltr">212</span> / <span dir="ltr">140</span></b><i>מ"ר כולל / פנים</i></div>
           <div><b dir="ltr">22 מ"ר</b><i>בריכה</i></div>
           <div><b dir="ltr">8.6–12.9%</b><i>ROI נטו</i></div>
         </div>
         <div class="vprice"><span class="amt">฿26M</span><span class="usd">($800K)</span></div>
+        <div class="vplan" data-lbgroup="rs-v2"><span class="vplan-lbl">תוכנית הוילה</span><img src="images/red-sunset/fp2.jpg" alt="תוכנית Villa 2" loading="lazy"></div>
       </div>
       <div class="vcard" data-villa="3">
         <div class="vtitle"><h4 class="en">Villa 3 · Grand Family Duplex</h4><span class="vtag">הכי הרבה שטח לכסף</span></div>
         <p class="vdesc">דופלקס בשתי קומות. קומת קרקע — מגורים ומאסטר; קומה עליונה — 3 מאסטר נוספים ומרפסת נוף לים.</p>
         <div class="vspecs">
           <div><b dir="ltr">4</b><i>חדרי מאסטר</i></div>
-          <div><b dir="ltr">2 קומות</b><i>דופלקס</i></div>
+          <div><b dir="ltr">313 מ"ר</b><i>שטח כולל</i></div>
+          <div><b dir="ltr">185 מ"ר</b><i>שטח פנים</i></div>
           <div><b dir="ltr">80 מ׳</b><i>מהים</i></div>
-          <div><b><span dir="ltr">313</span> / <span dir="ltr">185</span></b><i>מ"ר כולל / פנים</i></div>
           <div><b dir="ltr">22 מ"ר</b><i>בריכה</i></div>
           <div><b dir="ltr">9.0–13.5%</b><i>ROI נטו</i></div>
         </div>
         <div class="vprice"><span class="amt">฿29M</span><span class="usd">($895K)</span></div>
+        <div class="vplan" data-lbgroup="rs-v3"><span class="vplan-lbl">תוכנית הוילה — 2 קומות</span><img src="images/red-sunset/fp3.jpg" alt="Villa 3 — קומת קרקע" loading="lazy"><img src="images/red-sunset/fp4.jpg" alt="Villa 3 — קומה עליונה" loading="lazy"></div>
       </div>
     </div>
 
@@ -490,9 +510,9 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
     <div class="gcomp reveal">
       <div class="mhead"><span class="m-eye">Same asset class</span><span class="m-tt">וילת חוף — שבריר מהמחיר</span></div>
       <div class="gcols">
-        <div><b dir="ltr">מ-$800K</b><i>קופנגן</i></div>
-        <div><b dir="ltr">$5M+</b><i>איביזה</i></div>
-        <div><b dir="ltr">$8M+</b><i>מיאמי</i></div>
+        <div><b>מ-<span dir="ltr">$800K</span></b><i>קופנגן</i></div>
+        <div><b><span dir="ltr">$5M+</span></b><i>איביזה</i></div>
+        <div><b><span dir="ltr">$8M+</span></b><i>מיאמי</i></div>
       </div>
       <p class="ynote">אותה מחלקת נכס — וילת חוף — בשבריר ממחיר השווקים הבשלים, בתוספת תשואת השכרה שנתית של 9%–14%.</p>
     </div>
@@ -503,19 +523,18 @@ a:focus-visible,button:focus-visible,.mcell:focus-visible{outline:2px solid var(
         <div><b dir="ltr">30%</b><i>חתימה</i></div>
         <div><b dir="ltr">20%</b><i>יסודות</i></div>
         <div><b dir="ltr">30%</b><i>גג</i></div>
-        <div><b dir="ltr">20%</b><i>מסירה · 2027</i></div>
+        <div><b dir="ltr">20%</b><i>מסירה · דצמ׳ 2027</i></div>
       </div>
-      <div class="routes">
-        <div><h6>חכירה ארוכת-טווח</h6><p>רשומה על ה-Chanote. חידוש כפוף לחוק התאילנדי — לא מובטח.</p></div>
-        <div><h6>חברה תאילנדית</h6><p>בעלות מלאה (freehold) דרך חברה בבעלות זרה. שתי הדרכים חוקיות וסטנדרטיות, ומטופלות בתוך העסקה.</p></div>
+      <div class="routes one">
+        <div><h6>מבנה הבעלות</h6><p>ליס גמיש תחת החברה המחזיקה בקרקע, עם בטוחות מלאות. חידוש בכפוף לחוק התאילנדי — לא מובטח.</p></div>
       </div>
     </div>
 
     <div class="pc reveal">
-      <div class="pro"><h5>יתרונות</h5><ul><li>חוף פרטי משותף לשלוש הווילות</li><li>רישיון מלון — השכרה קצרה חוקית</li><li>ניהול ייעודי + סעיף עמידה ביעדים</li><li>Chanote — הטייטל הגבוה בתאילנד</li></ul></div>
-      <div class="con"><h5>Good to know</h5><ul><li>פריסייל — אכלוס ~2027, יש זמן המתנה עד המסירה</li><li>הכרטיס הגבוה ביותר מבין הארבעה</li><li>מחיר ומפרט נעולים מול אבני-דרך הבנייה</li></ul></div>
+      <div class="pro"><h5>יתרונות</h5><ul><li>חוף פרטי משותף לשלוש הווילות</li><li>נוף לים מכל וילה</li><li>רישיון מלון — השכרה קצרה חוקית</li><li>ניהול ייעודי + סעיף עמידה ביעדים</li><li>Chanote — הטייטל הגבוה בתאילנד</li></ul></div>
+      <div class="con"><h5>Good to know</h5><ul><li>רכישה בפריסייל — מסירה דצמבר 2027, ההכנסה מתחילה רק לאחר המסירה.</li><li>קו החוף משתנה לאורך השנה בהתאם למחזורי הגאות והשפל, ובתקופות מסוימות הגישה לשחייה ישירה מהים מוגבלת יותר. הבריכה הפרטית מכסה את השחייה היומיומית.</li><li>המגרש צר וארוך, ולכן הדרך הפנימית לווילות ברוחב 2.5 מ׳ בלבד.</li></ul></div>
     </div>
-    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>שלוש וילות, חוף פרטי אחד, ופריסייל שנכנסים אליו במחיר של היום. נכס מובנה — טייטל, רישיון מלון וניהול כבר במקום. המחיר היחיד: ההמתנה ל-2027.</p></div>
+    <div class="bl reveal"><div class="lbl">The bottom line · Liran Miller</div><p>שלוש וילות, חוף פרטי אחד, ופריסייל שנכנסים אליו במחיר של היום. נכס מובנה — טייטל, רישיון מלון וניהול כבר במקום. המחיר היחיד: ההמתנה לדצמבר 2027.</p></div>
   </div>
 </section>
 

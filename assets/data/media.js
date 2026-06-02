@@ -86,16 +86,17 @@ window.MEDIA = {
         { type: "image", src: "images/red-sunset/02.jpg", tag: "aerial",   alt: "שעת הזהב — קו החוף" }
       ],
       videos: [
-        { type: "video", src: "videos/red-sunset/1.mp4", poster: "images/red-sunset/1-poster.jpg", tag: "sunset",   desc: "שקיעה אמיתית על חוף הפרויקט" },
+        { type: "video", src: "videos/red-sunset/1.mp4", poster: "images/red-sunset/1-poster.jpg", tag: "exterior", desc: "שמי ערב בגוונים חמים על חוף הפרויקט" },
         { type: "video", src: "videos/red-sunset/2.mp4", poster: "images/red-sunset/2-poster.jpg", tag: "exterior", desc: "מבט מהמגרש — צמחייה טרופית, אדמה ונוף פתוח לים ולאי" },
         { type: "video", src: "videos/red-sunset/3.mp4", poster: "images/red-sunset/3-poster.jpg", tag: "exterior", desc: "החוף מול הפרויקט — חוף חולי, סלעים ומים רגועים" }
       ],
-      floorplan: [
-        { type: "image", src: "images/red-sunset/fp1.jpg", alt: "תוכנית וילה 1" },
-        { type: "image", src: "images/red-sunset/fp2.jpg", alt: "תוכנית וילה 2" },
-        { type: "image", src: "images/red-sunset/fp3.jpg", alt: "תוכנית וילה 3" },
-        { type: "image", src: "images/red-sunset/fp4.jpg", alt: "תוכנית וילה 3 — קומה נוספת" }
-      ],
+      floorplan: [],
+      villaPlans: {
+        "1": [ { type: "image", src: "images/red-sunset/fp1.jpg", alt: "תוכנית Villa 1 — Beachfront Signature" } ],
+        "2": [ { type: "image", src: "images/red-sunset/fp2.jpg", alt: "תוכנית Villa 2 — Elevated Sea View" } ],
+        "3": [ { type: "image", src: "images/red-sunset/fp3.jpg", alt: "תוכנית Villa 3 — Grand Family Duplex (קומת קרקע)" },
+               { type: "image", src: "images/red-sunset/fp4.jpg", alt: "תוכנית Villa 3 — קומה עליונה" } ]
+      },
       location: { url: "https://maps.app.goo.gl/wukt9KP7e4JA348t8", label: "מיקום במפה" },
       brochure: { url: "images/red-sunset/brochure.pdf", label: "ברושור (PDF)" }
     },
