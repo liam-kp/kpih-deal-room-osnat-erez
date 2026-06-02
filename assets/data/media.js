@@ -66,7 +66,11 @@ window.MEDIA = {
         { type: "video", src: "videos/nai-wok/5.mp4", poster: "images/nai-wok/5-poster.jpg", tag: "interior", desc: "פנים הוילה וחדר הרחצה" },
         { type: "video", src: "videos/nai-wok/6.mp4", poster: "images/nai-wok/6-poster.jpg", tag: "exterior", desc: "חזית הוילה ומסגור הפנים" }
       ],
-      floorplan: [ { type: "image", src: "images/nai-wok/fp1.jpg", alt: "תוכנית הוילה" } ],
+      floorplan: [ { type: "image", src: "images/nai-wok/fp-layout.jpg", alt: "תוכנית המתחם — 7 וילות" } ],
+      villaPlans: {
+        "2": [ { type: "image", src: "images/nai-wok/fp-v2.jpg", alt: "תוכנית וילה 2" } ],
+        "3": [ { type: "image", src: "images/nai-wok/fp-v3.jpg", alt: "תוכנית וילה 3" } ]
+      },
       location: { url: "https://maps.google.com/?q=9.722080,99.981956", label: "מיקום במפה" }
     },
     {
