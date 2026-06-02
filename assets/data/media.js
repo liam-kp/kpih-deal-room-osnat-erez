@@ -27,12 +27,20 @@ window.MEDIA = {
     {
       slug: "srithanu",
       cover: { type: "image", src: "images/srithanu/cover.jpg", alt: "וילת Srithanu — חזית גמורה" },
+      galleryNote: 'כולל תמונות מווילה מקבילה זהה במתחם ("מראה"), שכבר מאוכלסת ומרוהטת.',
       photos: [
         { type: "image", src: "images/srithanu/01.jpg", tag: "exterior", alt: "וילות גמורות בשכונה השקטה" },
         { type: "image", src: "images/srithanu/02.jpg", tag: "exterior", alt: "שביל גישה ונוף לדקלים" },
         { type: "image", src: "images/srithanu/03.jpg", tag: "exterior", alt: "חזית הוילה ודקל" },
         { type: "image", src: "images/srithanu/04.jpg", tag: "exterior", alt: "מרפסת ומדרגות הכניסה" },
-        { type: "image", src: "images/srithanu/05.jpg", tag: "exterior", alt: "הוילה והחצר" }
+        { type: "image", src: "images/srithanu/05.jpg", tag: "exterior", alt: "הוילה והחצר" },
+        { type: "image", src: "images/srithanu/06.jpg", tag: "pool",     alt: "בריכה פרטית בשעת ערב — וילה מקבילה זהה במתחם" },
+        { type: "image", src: "images/srithanu/07.jpg", tag: "pool",     alt: "מבט מהסלון אל הבריכה — וילה מקבילה במתחם" },
+        { type: "image", src: "images/srithanu/08.jpg", tag: "interior", alt: "סלון מרוהט ומואר — וילה מקבילה במתחם" },
+        { type: "image", src: "images/srithanu/09.jpg", tag: "interior", alt: "פינת מגורים מעוצבת — וילה מקבילה במתחם" },
+        { type: "image", src: "images/srithanu/10.jpg", tag: "interior", alt: "חדר שינה עם יציאה לגינה — וילה מקבילה במתחם" },
+        { type: "image", src: "images/srithanu/11.jpg", tag: "interior", alt: "חדר שינה — וילה מקבילה במתחם" },
+        { type: "image", src: "images/srithanu/12.jpg", tag: "interior", alt: "חדר רחצה עם כיורים כפולים — וילה מקבילה במתחם" }
       ],
       videos: [
         { type: "video", src: "videos/srithanu/1.mp4", poster: "images/srithanu/1-poster.jpg", tag: "exterior", desc: "סיור בנכס ובשכונה השקטה" }

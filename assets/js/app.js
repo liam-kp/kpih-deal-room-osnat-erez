@@ -71,6 +71,12 @@
       head.className = "mhead";
       head.innerHTML = '<span class="m-eye">' + g.eyebrow + '</span><span class="m-tt">' + g.title + '</span>';
       sec.appendChild(head);
+      if (g.kind === "photos" && p.galleryNote) {
+        var note = document.createElement("div");
+        note.className = "mnote";
+        note.textContent = p.galleryNote;
+        sec.appendChild(note);
+      }
       var grid = document.createElement("div");
       grid.className = "mgrid" + (g.kind === "plans" ? " plans" : "");
       g.items.forEach(function (it, i) { grid.appendChild(makeCell(it, key, i, g.kind)); });
