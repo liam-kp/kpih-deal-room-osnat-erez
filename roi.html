@@ -4,100 +4,147 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>מודל רכישה — שתי וילות מוכנות | תשואה והחזר השקעה</title>
+<title>הערכת תשואה — שתי הווילות המוכנות</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --sand:#F4EEE3; --paper:#FCFAF5; --line:#E6DDCD;
-    --ink:#171511; --body:#4a4435; --teal:#0E6B63; --teal-soft:#e8f0ec;
-    --sun:#C9A24B; --muted:#8c8470;
-    --serif:'Frank Ruhl Libre',Georgia,serif;
+    --ink:#171511; --body:#3f3a2e; --teal:#0E6B63; --teal-soft:#e8f0ec;
+    --sun:#C9A24B; --muted:#7A7263;
     --sans:'Assistant',system-ui,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--sand);font-family:var(--sans);color:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;padding:18px 14px 40px}
+  body{background:var(--sand);font-family:var(--sans);color:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;padding:18px 14px 44px}
   .wrap{max-width:440px;margin:0 auto}
   .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+  .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .backlink{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--teal);text-decoration:none;margin-bottom:12px}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1)}
+  .reveal.in{opacity:1;transform:none}
 
-  .backlink{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--teal);text-decoration:none;margin-bottom:6px}
-  .backlink:hover{color:var(--ink)}
-  header{text-align:center;padding:8px 0 18px}
-  .eye{font-size:11px;font-weight:700;letter-spacing:.28em;color:var(--sun);text-transform:uppercase;margin-bottom:12px}
-  .lead{font-family:var(--serif);font-weight:500;font-size:19px;line-height:1.5;color:var(--ink);max-width:400px;margin:0 auto}
-  .lead b{font-weight:700}
-  h1{font-family:var(--serif);font-weight:900;font-size:27px;color:var(--ink);line-height:1.14}
-  .sub{font-size:14px;color:var(--muted);margin-top:8px}
+  /* ===== DARK REPORT (intro + summary as one unit) ===== */
+  .report{position:relative;background:var(--ink);border-radius:22px;padding:0 0 20px;margin-bottom:18px;color:#efe8da;overflow:hidden}
+  .report::before{content:"";position:absolute;top:0;inset-inline:0;height:5px;background:var(--sun);z-index:2}
+  .glow{position:absolute;border-radius:50%;filter:blur(60px);opacity:.18;pointer-events:none}
+  .glow.g1{width:280px;height:280px;background:var(--sun);top:-60px;inset-inline-start:-60px}
+  .glow.g2{width:320px;height:320px;background:var(--teal);bottom:-100px;inset-inline-end:-80px;opacity:.22}
 
-  /* EXECUTIVE SUMMARY */
-  .exec{background:var(--ink);border-radius:18px;padding:20px 16px;margin-bottom:14px;color:#f3eee1}
-  .exec .ee{font-size:10.5px;font-weight:700;letter-spacing:.26em;color:#e9c987;text-transform:uppercase;text-align:center;margin-bottom:14px}
-  .exec .inv{text-align:center;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.14);margin-bottom:16px}
-  .exec .inv .l{font-size:12.5px;color:#c9c1ad;margin-bottom:3px}
-  .exec .inv .n{font-family:var(--serif);font-size:30px;font-weight:900;color:#fff;line-height:1}
-  .exec .inv .t{font-size:13px;color:#a99f86;margin-top:4px}
+  .rep-pad{position:relative;z-index:1;padding:24px 20px 0}
+  .rep-eye{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.22em;color:var(--sun);text-transform:uppercase;margin-bottom:14px}
+  .rep-eye .dot{width:7px;height:7px;border-radius:50%;background:var(--sun)}
+  .rep-title{font-weight:800;font-size:25px;line-height:1.24;color:#fbf6ea;min-height:62px}
+  .cursor{display:inline-block;width:2px;height:.92em;background:var(--sun);margin-inline-start:3px;vertical-align:-2px;animation:blink 1s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+  .rep-names{font-weight:700;font-size:16px;color:var(--sun);margin-top:8px}
+  .rep-desc{font-weight:400;font-size:15px;line-height:1.6;color:#c4bcab;margin-top:12px;max-width:380px}
+  .rep-for{margin-top:18px;padding-top:14px;border-top:1px solid rgba(201,162,75,.26);font-size:12.5px;color:#9b937f}
+  .rep-for b{color:#efe8da;font-weight:700}
 
-  .mcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:15px 14px;margin-bottom:12px}
-  .mcard:last-child{margin-bottom:0}
+  .rep-split{height:1px;background:rgba(255,255,255,.12);margin:20px 0 0}
+  .ee{font-size:11px;font-weight:700;letter-spacing:.24em;color:#e9c987;text-transform:uppercase;text-align:center;margin:20px 0 14px}
+
+  .inv{text-align:center;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.14);margin:0 20px 18px}
+  .inv .l{font-size:13px;color:#c9c1ad;margin-bottom:4px}
+  .inv .n{font-weight:800;font-size:34px;color:#fff;line-height:1;letter-spacing:.01em}
+  .inv .t{font-size:13px;color:#a99f86;margin-top:6px}
+  .inv-sub{font-size:12.5px;color:#c4bcab;line-height:1.5;margin-top:10px;max-width:340px;margin-inline:auto}
+
+  .meaning{margin:0 20px 18px;position:relative;z-index:1;background:rgba(233,201,135,.1);border:1px solid rgba(233,201,135,.4);border-radius:14px;padding:14px 16px}
+  .meaning .mn-eye{font-size:11px;font-weight:700;letter-spacing:.2em;color:#e9c987;text-transform:uppercase;margin-bottom:7px}
+  .meaning p{font-size:14px;line-height:1.6;color:#efe8da}
+  .meaning b{color:#f5dca0;font-weight:800}
+
+  .op-assume{margin-top:12px;border-top:1px dotted var(--line);padding-top:11px}
+  .op-assume .oa-eye{font-size:12.5px;font-weight:700;color:var(--teal);margin-bottom:6px}
+  .op-assume ul{list-style:none;font-size:13px;color:var(--body)}
+  .op-assume li{position:relative;padding-inline-start:14px;margin-bottom:5px;line-height:1.5}
+  .op-assume li::before{content:"";position:absolute;inset-inline-start:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--sun)}
+  .op-assume li b{color:var(--ink);font-weight:700}
+
+  .callout{background:var(--ink);border-radius:16px;padding:20px 18px;text-align:center;margin-bottom:18px}
+  .callout .co-title{font-weight:800;font-size:17px;color:#fbf6ea;margin-bottom:5px}
+  .callout .co-text{font-size:13.5px;color:#c4bcab;margin-bottom:14px}
+  .callout .co-btn{display:inline-block;background:var(--sun);color:#2a251d;font-weight:700;font-size:14px;text-decoration:none;padding:11px 26px;border-radius:99px}
+
+  /* rising bar chart */
+  .barchart{margin:0 20px 20px;position:relative;z-index:1}
+  .bc-title{font-size:13.5px;font-weight:700;color:#efe8da;text-align:center;margin-bottom:10px}
+  .bc-legend{display:flex;flex-direction:column;gap:5px;margin-bottom:16px}
+  .bc-legend .lg{display:flex;align-items:center;gap:8px;font-size:11.5px;color:#c4bcab;line-height:1.4}
+  .bc-legend .lgdot{flex:0 0 auto;width:9px;height:9px;border-radius:50%;margin-top:1px}
+  .bc-legend .lgdot.c{background:#1d9e75}
+  .bc-legend .lgdot.m{background:var(--sun)}
+  .bars{display:flex;justify-content:center;align-items:flex-end;gap:26px;height:188px}
+  .barcol{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;width:104px;height:100%}
+  .bval{font-weight:800;font-size:22px;color:#fff;margin-bottom:8px}
+  .barcol.hero .bval{color:#e9c987;font-size:26px}
+  .bartrack{width:100%;height:142px;display:flex;align-items:flex-end;background:rgba(255,255,255,.05);border-radius:10px;overflow:hidden}
+  .barfill{width:100%;height:0;background:linear-gradient(180deg,#1d9e75,var(--teal));border-radius:10px 10px 0 0;transition:height 1.05s cubic-bezier(.22,1,.36,1)}
+  .barfill.hero{background:linear-gradient(180deg,#f0cd84,var(--sun))}
+  .blabel{font-size:13px;font-weight:700;color:#d8d0bd;margin-top:10px}
+  .barcol.hero .blabel{color:#e9c987}
+
+  .mcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:15px 14px;margin:0 20px 12px;position:relative;z-index:1}
   .mcard.alt{border-color:rgba(233,201,135,.5)}
-  .mcard .mt{font-family:var(--serif);font-size:16px;font-weight:700;color:#fff;text-align:center;margin-bottom:12px}
+  .mcard .mt{font-weight:700;font-size:16px;color:#fff;text-align:center;margin-bottom:12px}
   .mcard.alt .mt{color:#e9c987}
   .chips{display:flex;gap:7px;margin-bottom:13px}
   .chip{flex:1;text-align:center;background:rgba(255,255,255,.06);border-radius:10px;padding:9px 4px}
   .chip .ck{font-size:10px;color:#b8b09c;margin-bottom:3px}
-  .chip .cv{font-family:var(--serif);font-size:18px;font-weight:700;color:#fff;line-height:1}
+  .chip .cv{font-weight:800;font-size:18px;color:#fff;line-height:1}
   .chip.hero{background:#e9c987}
   .chip.hero .ck{color:#6b5a2c}
-  .chip.hero .cv{color:#2a251d;font-size:22px;font-weight:900}
-  .mrow{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;padding:5px 2px}
+  .chip.hero .cv{color:#2a251d;font-size:21px}
+  .mrow{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;padding:5px 2px}
   .mrow .l{color:#d8d0bd}
   .mrow .v{color:#fff;font-weight:700}
-  .mrow .v .u{color:#a99f86;font-weight:400;font-size:11.5px}
+  .mrow .v .u{color:#a99f86;font-weight:400;font-size:12px}
   .mrow.tot{border-top:1px solid rgba(255,255,255,.14);margin-top:5px;padding-top:9px}
-  .mrow.tot .l{font-family:var(--serif);font-weight:700;color:#fff}
+  .mrow.tot .l{font-weight:700;color:#fff}
   .mrow.tot .v{font-size:15px}
 
-  .scen{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:15px 16px;margin-bottom:14px;font-size:13.5px;color:var(--body)}
-  .scen h3{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--teal);margin-bottom:7px}
-  .scen p{margin-bottom:8px}
+  .scen{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 17px;margin-bottom:14px;font-size:14px;color:var(--body)}
+  .scen h3{font-size:15px;font-weight:700;color:var(--teal);margin-bottom:8px}
+  .scen p{margin-bottom:9px}
   .scen p:last-child{margin-bottom:0}
   .scen b{color:var(--ink)}
-  .scen .bl-line{border-inline-start:3px solid var(--sun);background:#faf4e6;border-radius:0 8px 8px 0;padding:8px 10px;margin-top:4px}
+  .scen .bl-line{border-inline-start:3px solid var(--sun);background:#faf4e6;border-radius:0 8px 8px 0;padding:9px 11px;margin-top:5px}
 
-  .assume{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-bottom:22px}
-  .assume h2{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--teal);margin-bottom:9px}
-  .assume ul{list-style:none;font-size:13px}
-  .assume li{padding:3px 0;display:flex;justify-content:space-between;gap:10px;border-bottom:1px dotted var(--line)}
+  .assume{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 17px;margin-bottom:24px}
+  .assume h2{font-size:15px;font-weight:700;color:var(--teal);margin-bottom:9px}
+  .assume ul{list-style:none;font-size:13.5px}
+  .assume li{padding:3.5px 0;display:flex;justify-content:space-between;gap:10px;border-bottom:1px dotted var(--line)}
   .assume li:last-child{border-bottom:none}
   .assume li span:last-child{font-weight:700;color:var(--ink)}
 
-  .secttl{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink);text-align:center;margin:6px 0 14px}
+  .secttl{font-size:17px;font-weight:800;color:var(--ink);text-align:center;margin:6px 0 16px}
 
-  .opt{margin-bottom:24px}
+  .opt{margin-bottom:26px}
   .opt-head{display:flex;align-items:baseline;gap:9px;margin-bottom:4px}
-  .opt-tag{background:var(--teal);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+  .opt-tag{background:var(--teal);color:#fff;font-size:11.5px;font-weight:700;padding:3px 11px;border-radius:20px}
   .opt-tag.alt{background:var(--sun)}
-  .opt-title{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--ink)}
-  .opt-note{font-size:12.5px;color:var(--muted);margin-bottom:13px}
+  .opt-title{font-size:18px;font-weight:800;color:var(--ink)}
+  .opt-note{font-size:13px;color:var(--muted);margin-bottom:14px}
 
-  .card{background:var(--paper);border:1px solid var(--line);border-inline-start:4px solid var(--teal);border-radius:14px;padding:15px 16px 6px;margin-bottom:11px}
+  .card{background:var(--paper);border:1px solid var(--line);border-inline-start:4px solid var(--teal);border-radius:14px;padding:16px 17px 7px;margin-bottom:11px}
   .card.alt{border-inline-start-color:var(--sun)}
-  .pname{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);margin-bottom:2px}
-  .pprice{font-size:12.5px;color:var(--muted);margin-bottom:9px}
+  .pname{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:2px}
+  .pprice{font-size:13px;color:var(--muted);margin-bottom:10px}
   .pprice b{color:var(--ink);font-weight:700}
-  .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:6.5px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13.5px}
   .row .lbl{color:var(--body)}
   .row .val{text-align:left;font-weight:600;color:var(--ink);white-space:nowrap}
-  .row .val .usd{font-weight:400;color:var(--muted);font-size:11.5px}
+  .row .val .usd{font-weight:400;color:var(--muted);font-size:12px}
   .row.neg .val{color:#a6553a}
-  .row.big{border-bottom:none;margin-top:3px;padding-top:10px;border-top:2px solid var(--ink)}
-  .row.big .lbl{font-family:var(--serif);font-weight:700;font-size:14.5px;color:var(--ink)}
-  .roi{display:inline-block;background:var(--teal-soft);color:var(--teal);font-weight:700;font-size:14.5px;padding:2px 11px;border-radius:8px}
+  .row.big{border-bottom:none;margin-top:3px;padding-top:11px;border-top:2px solid var(--ink)}
+  .row.big .lbl{font-weight:800;font-size:15px;color:var(--ink)}
+  .roi{display:inline-block;background:var(--teal-soft);color:var(--teal);font-weight:800;font-size:15px;padding:2px 11px;border-radius:8px}
   .card.alt .roi{background:#f6ecd8;color:#9a6a1f}
 
-  .port{background:var(--ink);color:#f3eee1;border-radius:14px;padding:14px 16px;margin-top:3px}
-  .port .pt{font-family:var(--serif);font-size:13.5px;font-weight:700;color:#e9c987;margin-bottom:8px}
+  .port{background:var(--ink);color:#f3eee1;border-radius:14px;padding:15px 17px;margin-top:3px}
+  .port .pt{font-size:14px;font-weight:700;color:#e9c987;margin-bottom:9px}
   .port .row{border-bottom-color:rgba(255,255,255,.12)}
   .port .row .lbl{color:#d8d0bd}
   .port .row .val{color:#fff}
@@ -106,66 +153,106 @@
   .port .row.big .lbl{color:#fff}
   .port .roi{background:#e9c987;color:#2a251d}
 
-  .disc{font-size:11px;color:var(--muted);text-align:center;margin-top:20px;line-height:1.5;padding:0 8px}
+  .disc{font-size:11.5px;color:var(--muted);text-align:center;margin-top:22px;line-height:1.55;padding:0 8px}
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <a class="backlink" href="./">&larr; חזרה למצגת</a>
-  <header>
-    <div class="eye">הערכת תשואה</div>
-    <p class="lead"><b>תשואה צפויה — תרחיש של שתי הווילות המוכנות</b><br>סריטאנו + ניי-ווק<br><br>הטבלה מציגה כיצד עשויה להיראות ההשקעה במספרים במקרה של רכישת שתי הווילות המוכנות.</p>
-  </header>
 
-  <!-- EXECUTIVE SUMMARY -->
-  <div class="exec">
+  <!-- ===== INTEGRATED REPORT ===== -->
+  <div class="report">
+    <span class="glow g1"></span>
+    <span class="glow g2"></span>
+    <div class="rep-pad">
+      <div class="rep-eye"><span class="dot"></span> הערכת תשואה</div>
+      <h1 class="rep-title"><span id="tw"></span><span class="cursor" id="cur"></span></h1>
+      <div class="rep-names reveal" id="rv1">סריטאנו + ניי-ווק</div>
+      <p class="rep-desc reveal" id="rv2">הטבלה מציגה כיצד עשויה להיראות ההשקעה במספרים במקרה של רכישת שתי הווילות המוכנות.</p>
+      <div class="rep-split"></div>
+    </div>
+
     <div class="ee">השורה התחתונה במבט אחד</div>
     <div class="inv">
       <div class="l">סך ההשקעה</div>
-      <div class="n"><span class="ltr">$677K</span></div>
+      <div class="n num"><span class="ltr">$677K</span></div>
       <div class="t"><span class="ltr">฿22M</span> &middot; שתי וילות מוכנות, מרוהטות</div>
+      <div class="inv-sub">השקעה כוללת בשתי וילות מוכנות באזורי ביקוש מוכחים בקופנגן</div>
+    </div>
+
+    <div class="barchart">
+      <div class="bc-title">השוואת תרחישי הפעלה</div>
+      <div class="bc-legend">
+        <span class="lg"><span class="lgdot c"></span>מודל שמרני · שתי הווילות בהשכרה ארוכת־טווח</span>
+        <span class="lg"><span class="lgdot m"></span>מודל משולב · סריטאנו בלונג־טרם, ניי ווק בשילוב השכרות ארוכות וקצרות</span>
+      </div>
+      <div class="bars">
+        <div class="barcol hero">
+          <div class="bval num"><span class="cu" data-to="15.4" data-dec="1" data-suffix="%">0%</span></div>
+          <div class="bartrack"><div class="barfill hero" data-h="86"></div></div>
+          <div class="blabel">משולב</div>
+        </div>
+        <div class="barcol">
+          <div class="bval num"><span class="cu" data-to="12.6" data-dec="1" data-suffix="%">0%</span></div>
+          <div class="bartrack"><div class="barfill" data-h="70"></div></div>
+          <div class="blabel">שמרני</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meaning">
+      <div class="mn-eye">המשמעות בפועל</div>
+      <p>בהתאם לאסטרטגיית ההשכרה, שתי הווילות צפויות לייצר הכנסה שנתית נטו של כ־<b>$51K–$70K</b> בשנה, בנוסף לפוטנציאל עליית ערך הקרקע לאורך זמן.</p>
     </div>
 
     <div class="mcard alt">
-      <div class="mt">מודל היברידי</div>
+      <div class="mt">מודל משולב</div>
       <div class="chips">
-        <div class="chip"><div class="ck">תשואה ברוטו</div><div class="cv">13.0%</div></div>
-        <div class="chip"><div class="ck">נטו (אחרי ניהול+בלאי)</div><div class="cv">10.4%</div></div>
-        <div class="chip hero"><div class="ck">כולל עליית ערך</div><div class="cv">15.4%</div></div>
+        <div class="chip"><div class="ck">תשואה ברוטו</div><div class="cv num"><span class="cu" data-to="13.0" data-dec="1" data-suffix="%">0%</span></div></div>
+        <div class="chip"><div class="ck">נטו (אחרי ניהול+בלאי)</div><div class="cv num"><span class="cu" data-to="10.4" data-dec="1" data-suffix="%">0%</span></div></div>
+        <div class="chip hero"><div class="ck">כולל עליית ערך</div><div class="cv num"><span class="cu" data-to="15.4" data-dec="1" data-suffix="%">0%</span></div></div>
       </div>
-      <div class="mrow"><span class="l">הכנסה נטו / שנה</span><span class="v"><span class="ltr">$70,646</span> <span class="u">(<span class="ltr">฿2.30M</span>)</span></span></div>
-      <div class="mrow tot"><span class="l">תשואה כוללת / שנה</span><span class="v"><span class="ltr">$104,492</span> <span class="u">(<span class="ltr">฿3.40M</span>)</span></span></div>
+      <div class="mrow"><span class="l">הכנסה נטו / שנה</span><span class="v"><span class="ltr num cu" data-to="70646" data-prefix="$" data-comma="1">$0</span> <span class="u">(<span class="ltr">฿2.30M</span>)</span></span></div>
+      <div class="mrow tot"><span class="l">תשואה כוללת / שנה</span><span class="v"><span class="ltr num cu" data-to="104492" data-prefix="$" data-comma="1">$0</span> <span class="u">(<span class="ltr">฿3.40M</span>)</span></span></div>
     </div>
 
     <div class="mcard">
-      <div class="mt">מודל לונג</div>
+      <div class="mt">מודל שמרני</div>
       <div class="chips">
-        <div class="chip"><div class="ck">תשואה ברוטו</div><div class="cv">9.5%</div></div>
-        <div class="chip"><div class="ck">נטו (אחרי ניהול+בלאי)</div><div class="cv">7.6%</div></div>
-        <div class="chip hero"><div class="ck">כולל עליית ערך</div><div class="cv">12.6%</div></div>
+        <div class="chip"><div class="ck">תשואה ברוטו</div><div class="cv num"><span class="cu" data-to="9.5" data-dec="1" data-suffix="%">0%</span></div></div>
+        <div class="chip"><div class="ck">נטו (אחרי ניהול+בלאי)</div><div class="cv num"><span class="cu" data-to="7.6" data-dec="1" data-suffix="%">0%</span></div></div>
+        <div class="chip hero"><div class="ck">כולל עליית ערך</div><div class="cv num"><span class="cu" data-to="12.6" data-dec="1" data-suffix="%">0%</span></div></div>
       </div>
-      <div class="mrow"><span class="l">הכנסה נטו / שנה</span><span class="v"><span class="ltr">$51,446</span> <span class="u">(<span class="ltr">฿1.67M</span>)</span></span></div>
-      <div class="mrow tot"><span class="l">תשואה כוללת / שנה</span><span class="v"><span class="ltr">$85,292</span> <span class="u">(<span class="ltr">฿2.77M</span>)</span></span></div>
+      <div class="mrow"><span class="l">הכנסה נטו / שנה</span><span class="v"><span class="ltr num cu" data-to="51446" data-prefix="$" data-comma="1">$0</span> <span class="u">(<span class="ltr">฿1.67M</span>)</span></span></div>
+      <div class="mrow tot"><span class="l">תשואה כוללת / שנה</span><span class="v"><span class="ltr num cu" data-to="85292" data-prefix="$" data-comma="1">$0</span> <span class="u">(<span class="ltr">฿2.77M</span>)</span></span></div>
     </div>
   </div>
 
-  <!-- SCENARIO + BOTTOM LINE -->
-  <div class="scen">
+  <!-- SCENARIO -->
+  <div class="scen reveal">
     <h3>מה אנחנו מנתחים</h3>
     <p>רכישת <b>שתי הוילות המוכנות</b> כתיק אחד — אחת בסריטאנו ואחת בניי ווק — והפעלתן להשכרה. בחנו שני תרחישי תפעול:</p>
-    <p><b>מודל לונג</b> — שתי הוילות בהשכרה ארוכת-טווח, 11 מתוך 12 חודשים מאוכלסות. הכי פשוט וצפוי לניהול.</p>
-    <p><b>מודל היברידי</b> — סריטאנו בהשכרה ארוכת־טווח, וניי ווק מחצית השנה בהשכרה ארוכת־טווח ומחצית השנה בהשכרה קצרת־טווח. המודל משלב יציבות תזרימית עם פוטנציאל הכנסה גבוה יותר בתקופות הביקוש.</p>
-    <p class="bl-line"><b>השורה התחתונה:</b> ברוטו של 9.5%–13% הופך, אחרי ניהול ובלאי, ל-7.6%–10.4% נטו. בתוספת ~5% עליית ערך קרקע בשנה — התשואה הכוללת נעה בין <b>~12.6%</b> (לונג) ל-<b>~15.4%</b> (היברידי).</p>
+    <p><b>מודל שמרני</b> — שתי הווילות בהשכרה ארוכת־טווח, 11 מתוך 12 חודשים מאוכלסות. המודל השמרני והפשוט ביותר לתפעול.</p>
+    <p><b>מודל משולב</b> — סריטאנו בלונג־טרם, וניי ווק בשילוב של השכרות ארוכות וקצרות (מחצית השנה בכל מודל). המודל משלב יציבות תזרימית עם פוטנציאל הכנסה גבוה יותר בתקופות הביקוש.</p>
+    <p class="bl-line"><b>השורה התחתונה:</b> ברוטו של 9.5%–13% הופך, אחרי ניהול ובלאי, ל-7.6%–10.4% נטו. בתוספת ~5% עליית ערך קרקע בשנה — התשואה הכוללת נעה בין <b>~12.6%</b> (שמרני) ל-<b>~15.4%</b> (משולב).</p>
+
+    <div class="op-assume">
+      <div class="oa-eye">הנחת תפעול</div>
+      <ul>
+        <li><b>סריטאנו</b> — הניהול מבוסס על חברת ניהול מקומית להשכרות ארוכות־טווח.</li>
+        <li><b>ניי ווק</b> — היזם מנהל כיום וילות נוספות במתחם וצפוי להציע שירותי ניהול גם לבעלי הנכסים בפרויקט.</li>
+      </ul>
+    </div>
   </div>
 
-  <div class="assume">
+  <div class="assume reveal">
     <h2>הנחות החישוב</h2>
     <ul>
       <li><span>שער המרה</span><span><span class="ltr">฿32.5 / $1</span></span></li>
-      <li><span>אכלוס לונג</span><span>11 מתוך 12 חודשים</span></li>
+      <li><span>אכלוס ארוך־טווח</span><span>11 מתוך 12 חודשים</span></li>
       <li><span>קיזוז: ניהול 15% + בלאי 5%</span><span>20%</span></li>
-      <li><span>עליית ערך קרקע</span><span>5% לשנה</span></li>
+      <li><span>הערכת עליית ערך להמחשה</span><span>5% לשנה</span></li>
       <li><span>סריטאנו — מחיר מרוהט</span><span><span class="ltr">฿9.0M ($277K)</span></span></li>
       <li><span>ניי ווק — מחיר כולל ריהוט</span><span><span class="ltr">฿13.0M ($400K)</span></span></li>
     </ul>
@@ -174,13 +261,13 @@
   <div class="secttl">פירוט מלא לפי תרחיש</div>
 
   <!-- LONG -->
-  <div class="opt">
-    <div class="opt-head"><span class="opt-tag">מודל לונג</span><span class="opt-title">השכרה ארוכה</span></div>
-    <div class="opt-note">שני הנכסים בלונג, 11 מתוך 12 חודשים מאוכלסים.</div>
+  <div class="opt reveal">
+    <div class="opt-head"><span class="opt-tag">מודל שמרני</span><span class="opt-title">השכרה ארוכת־טווח</span></div>
+    <div class="opt-note">שני הנכסים בלונג־טרם, 11 מתוך 12 חודשים מאוכלסים.</div>
 
     <div class="card">
       <div class="pname">סריטאנו</div>
-      <div class="pprice"><b><span class="ltr">฿9.0M</span></b> &middot; <span class="ltr">$277K</span> &middot; לונג 11 חודשים</div>
+      <div class="pprice"><b><span class="ltr">฿9.0M</span></b> &middot; <span class="ltr">$277K</span> &middot; לונג־טרם 11 חודשים</div>
       <div class="row"><span class="lbl">הכנסה שנתית ברוטו</span><span class="val"><span class="ltr">฿990,000</span> <span class="usd">($30,462)</span></span></div>
       <div class="row"><span class="lbl">תשואת שכירות ברוטו</span><span class="val">11.0%</span></div>
       <div class="row neg"><span class="lbl">ניהול ובלאי (15%+5%)</span><span class="val"><span class="ltr">−฿198,000</span> <span class="usd">(−$6,092)</span></span></div>
@@ -193,7 +280,7 @@
 
     <div class="card">
       <div class="pname">ניי ווק</div>
-      <div class="pprice"><b><span class="ltr">฿13.0M</span></b> &middot; <span class="ltr">$400K</span> &middot; לונג 11 חודשים</div>
+      <div class="pprice"><b><span class="ltr">฿13.0M</span></b> &middot; <span class="ltr">$400K</span> &middot; לונג־טרם 11 חודשים</div>
       <div class="row"><span class="lbl">הכנסה שנתית ברוטו</span><span class="val"><span class="ltr">฿1,100,000</span> <span class="usd">($33,846)</span></span></div>
       <div class="row"><span class="lbl">תשואת שכירות ברוטו</span><span class="val">8.5%</span></div>
       <div class="row neg"><span class="lbl">ניהול ובלאי (15%+5%)</span><span class="val"><span class="ltr">−฿220,000</span> <span class="usd">(−$6,769)</span></span></div>
@@ -216,13 +303,13 @@
   </div>
 
   <!-- HYBRID -->
-  <div class="opt">
-    <div class="opt-head"><span class="opt-tag alt">מודל היברידי</span><span class="opt-title">לונג + קצר</span></div>
-    <div class="opt-note">סריטאנו לונג 11 חודשים &middot; ניי ווק חצי שנה לונג 100K + חצי שנה קצר 10K/לילה @70%.</div>
+  <div class="opt reveal">
+    <div class="opt-head"><span class="opt-tag alt">מודל משולב</span><span class="opt-title">ארוך + קצר</span></div>
+    <div class="opt-note">סריטאנו לונג־טרם 11 חודשים &middot; ניי ווק חצי שנה לונג־טרם 100K + חצי שנה קצר 10K/לילה @70%.</div>
 
     <div class="card alt">
       <div class="pname">סריטאנו</div>
-      <div class="pprice"><b><span class="ltr">฿9.0M</span></b> &middot; <span class="ltr">$277K</span> &middot; לונג 11 חודשים</div>
+      <div class="pprice"><b><span class="ltr">฿9.0M</span></b> &middot; <span class="ltr">$277K</span> &middot; לונג־טרם 11 חודשים</div>
       <div class="row"><span class="lbl">הכנסה שנתית ברוטו</span><span class="val"><span class="ltr">฿990,000</span> <span class="usd">($30,462)</span></span></div>
       <div class="row"><span class="lbl">תשואת שכירות ברוטו</span><span class="val">11.0%</span></div>
       <div class="row neg"><span class="lbl">ניהול ובלאי (15%+5%)</span><span class="val"><span class="ltr">−฿198,000</span> <span class="usd">(−$6,092)</span></span></div>
@@ -235,11 +322,10 @@
 
     <div class="card alt">
       <div class="pname">ניי ווק</div>
-      <div class="pprice"><b><span class="ltr">฿13.0M</span></b> &middot; <span class="ltr">$400K</span> &middot; חצי לונג / חצי קצר</div>
-      <div class="row"><span class="lbl">לונג ½ שנה (100K)</span><span class="val"><span class="ltr">฿600,000</span> <span class="usd">($18,462)</span></span></div>
+      <div class="pprice"><b><span class="ltr">฿13.0M</span></b> &middot; <span class="ltr">$400K</span> &middot; חצי לונג־טרם / חצי קצר</div>
+      <div class="row"><span class="lbl">לונג־טרם ½ שנה (100K)</span><span class="val"><span class="ltr">฿600,000</span> <span class="usd">($18,462)</span></span></div>
       <div class="row"><span class="lbl">קצר ½ שנה (10K @70%)</span><span class="val"><span class="ltr">฿1,280,000</span> <span class="usd">($39,385)</span></span></div>
       <div class="row"><span class="lbl">הכנסה שנתית ברוטו</span><span class="val"><span class="ltr">฿1,880,000</span> <span class="usd">($57,846)</span></span></div>
-      <div class="row"><span class="lbl">תשואת שכירות ברוטו</span><span class="val">14.5%</span></div>
       <div class="row neg"><span class="lbl">ניהול ובלאי (15%+5%)</span><span class="val"><span class="ltr">−฿376,000</span> <span class="usd">(−$11,569)</span></span></div>
       <div class="row"><span class="lbl">הכנסה נטו</span><span class="val"><span class="ltr">฿1,504,000</span> <span class="usd">($46,277)</span></span></div>
       <div class="row"><span class="lbl">תשואת שכירות נטו</span><span class="val">11.6%</span></div>
@@ -259,10 +345,77 @@
     </div>
   </div>
 
+  <div class="callout reveal">
+    <div class="co-title">רוצים לראות את התמונה המלאה?</div>
+    <div class="co-text">חזרה להשוואת חמש אפשרויות ההשקעה.</div>
+    <a class="co-btn" href="./">חזרה למצגת</a>
+  </div>
+
   <div class="disc">
-    המספרים הם הערכה לצורך המחשה בלבד, מבוססים על הנחות שכירות, תפוסה, הוצאות ועליית ערך שאינן מובטחות. תשואות בפועל עשויות להשתנות בהתאם לשוק, לניהול ולעיתוי. אינו ייעוץ השקעות.
+    הדוח בוחן את הצד הכלכלי בלבד. ההחלטה הסופית צריכה לקחת בחשבון גם את המיקום, אורח החיים, ואופי ההשקעה המתאים לכם.<br><br>המספרים הם הערכה לצורך המחשה בלבד, מבוססים על הנחות שכירות, תפוסה, הוצאות ועליית ערך שאינן מובטחות. תשואות בפועל עשויות להשתנות בהתאם לשוק, לניהול ולעיתוי. אינו ייעוץ השקעות.
   </div>
 
 </div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Typewriter ----
+  var twText = 'ניתוח תשואה — שתי הווילות המוכנות';
+  var tw = document.getElementById('tw');
+  var cur = document.getElementById('cur');
+  function revealAfterTitle(){
+    ['rv1','rv2'].forEach(function(id,k){
+      var el=document.getElementById(id);
+      setTimeout(function(){ el.classList.add('in'); }, 180*k);
+    });
+  }
+  if(reduce){
+    tw.textContent = twText; if(cur) cur.style.display='none'; revealAfterTitle();
+  } else {
+    var i=0;
+    setTimeout(function tick(){
+      tw.textContent = twText.slice(0,i+1); i++;
+      if(i<twText.length){ setTimeout(tick, 52); }
+      else { setTimeout(function(){ if(cur) cur.style.display='none'; }, 900); revealAfterTitle(); }
+    }, 420);
+  }
+
+  // ---- Count-up formatter ----
+  function fmt(el, v){
+    var dec = parseInt(el.getAttribute('data-dec')||'0',10);
+    var pre = el.getAttribute('data-prefix')||'';
+    var suf = el.getAttribute('data-suffix')||'';
+    var comma = el.getAttribute('data-comma')==='1';
+    var n = dec>0 ? v.toFixed(dec) : Math.round(v).toString();
+    if(comma) n = Number(Math.round(v)).toLocaleString('en-US');
+    return pre + n + suf;
+  }
+  function runCount(el){
+    var to = parseFloat(el.getAttribute('data-to')), dur=1300, start=null;
+    function step(ts){ if(!start)start=ts; var p=Math.min((ts-start)/dur,1); var e=1-Math.pow(1-p,3);
+      el.textContent=fmt(el,to*e); if(p<1)requestAnimationFrame(step); else el.textContent=fmt(el,to); }
+    requestAnimationFrame(step);
+  }
+
+  // ---- Observers ----
+  if(!('IntersectionObserver' in window) || reduce){
+    document.querySelectorAll('.cu').forEach(function(el){ el.textContent=fmt(el,parseFloat(el.getAttribute('data-to'))); });
+    document.querySelectorAll('.barfill').forEach(function(el){ el.style.height=el.getAttribute('data-h')+'%'; });
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var ioCount=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){runCount(en.target);ioCount.unobserve(en.target);}});},{threshold:.5});
+  document.querySelectorAll('.cu').forEach(function(el){ ioCount.observe(el); });
+
+  var ioBar=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var el=en.target;setTimeout(function(){el.style.height=el.getAttribute('data-h')+'%';},80);ioBar.unobserve(el);}});},{threshold:.4});
+  document.querySelectorAll('.barfill').forEach(function(el){ ioBar.observe(el); });
+
+  var ioRev=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');ioRev.unobserve(en.target);}});},{threshold:.15});
+  document.querySelectorAll('.reveal:not(#rv1):not(#rv2)').forEach(function(el){ ioRev.observe(el); });
+})();
+</script>
+
 </body>
 </html>
